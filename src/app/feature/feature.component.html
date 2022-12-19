@@ -1,0 +1,20 @@
+<section class="featured">
+    <div class="container">
+    <h4 class="mb-5 title">POPULAR ITEMS</h4>
+    <swiper [slidesPerView]="5" [spaceBetween]="4" [navigation]="true">
+      <ng-template swiperSlide style="width: 200px; border: solid 1px rgb(24, 23, 23);" *ngFor="let pro of productsData">
+        <div>
+          <img [src]="pro.image" alt="img"  style="width: 100%;"/>
+        </div>
+        <div>
+          <p>{{pro.title}}</p>
+          <p>{{pro.description}}</p>
+          <p>{{pro.price}}</p>
+        </div>
+        <button>Add to cart</button>
+      </ng-template>
+      
+    </swiper>
+    </div>
+  </section>
+  

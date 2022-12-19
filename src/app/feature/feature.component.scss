@@ -1,0 +1,30 @@
+.featured{
+    margin-bottom: 8rem;
+    .title{
+        position: relative;
+        // border: solid 1px red;
+        text-align: center;
+        &::before{
+            content:"";
+            position: absolute;
+            margin: 0 auto;
+            bottom: -1rem;
+            // left: 2rem;
+            transform: translate(130%,50%);
+            height: 2px;
+            width: 50px;
+            background-color: rgb(0, 0, 0);
+        }
+        &::after{
+            content:"";
+            position: absolute;
+            margin: 0 auto;
+            bottom: -1rem;
+            transform: translate(-65%,60%);
+
+            height: 1px;
+            width: 600px;
+            background-color: rgba(49, 47, 47, 0.253);
+        }
+    }
+}
