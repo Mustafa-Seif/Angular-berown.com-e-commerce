@@ -12,6 +12,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { SwiperModule } from 'swiper/angular';
 import { FeatureComponent } from './feature/feature.component';
 import { HotOfferComponent } from './hot-offer/hot-offer.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCardModule} from '@angular/material/card';
 // import { ServiceWorkerModule } from '@angular/service-worker';
 // import { AngularFontAwesomeModule } from 'angular-font-awesome';
 @NgModule({
@@ -29,6 +32,9 @@ import { HotOfferComponent } from './hot-offer/hot-offer.component';
     AppRoutingModule,
     SwiperModule,
     HttpClientModule,
+    MatSlideToggleModule,
+    BrowserAnimationsModule,
+    MatCardModule,
     // AngularFontAwesomeModule
   
     ],

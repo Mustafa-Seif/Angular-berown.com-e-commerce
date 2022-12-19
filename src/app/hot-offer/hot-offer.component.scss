@@ -1,0 +1,31 @@
+.hot-offer{
+    .main-img{
+        img{
+            width: 100%;
+        }
+    }
+    .items{
+        img{
+            width: 80% !important;
+        }
+        h4{
+            position: relative;
+            margin-bottom: 2rem;
+            &::before{
+                content: "";
+                position: absolute;
+                bottom: -5px;
+                width: 40px;
+                height: 2px;
+                background-color: #000;
+            }
+        }
+        .card{
+            border: none !important;
+            h5{
+                font-size: 16px;
+
+            }
+        }
+    }
+}

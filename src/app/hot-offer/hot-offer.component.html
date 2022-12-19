@@ -1,1 +1,84 @@
-<p>hot-offer works!</p>
+<section class="hot-offer ">
+    <div class="main-img mb-5">
+      <img src="../../assets/images/hero/banerce.png" alt="main-img" />
+    </div>
+    <div class="container">
+      <div class="items row">
+        <div class="left col">
+          <h4>Featured Products</h4>
+          <div class="card" style="max-width: 540px" *ngFor="let pro of proSlice1Item">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img
+                  [src]="pro.image"
+                  class="img-fluid rounded-start"
+                  [alt]="pro.title"
+                />
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">{{pro.description}}</h5>
+                  <p class="card-text">
+                   {{pro.title}}
+                  </p>
+                  <div class="card-text">
+                    <h5 class="text-muted">{{pro.price}}</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="center col">
+          <h4>Top Selling Products</h4>
+          <div class="card" style="max-width: 540px" *ngFor="let pro of proSlice2Item">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img
+                    [src]="pro.image"
+                    class="img-fluid rounded-start"
+                    [alt]="pro.title"
+                  />
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">{{pro.description}}</h5>
+                    <p class="card-text">
+                     {{pro.title}}
+                    </p>
+                    <div class="card-text">
+                      <h5 class="text-muted">{{pro.price}}</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="right col">
+          <h4>Hot Offer</h4>
+          <div class="card" style="max-width: 540px" *ngFor="let pro of proSlice3Item">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img
+                    [src]="pro.image"
+                    class="img-fluid rounded-start"
+                    [alt]="pro.title"
+                  />
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">{{pro.description}}</h5>
+                    <p class="card-text">
+                     {{pro.title}}
+                    </p>
+                    <div class="card-text">
+                      <h5 class="text-muted">{{pro.price}}</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
