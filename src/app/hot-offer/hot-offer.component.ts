@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { GetProductsService } from '../services/get-products.service';
 import { Products } from '../interfaces/products';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-hot-offer',
   templateUrl: './hot-offer.component.html',
@@ -10,7 +11,7 @@ export class HotOfferComponent {
   proSlice1Item:Products[]=[];
   proSlice2Item:Products[]=[];
   proSlice3Item:Products[]=[];
-  constructor(private products: GetProductsService){}
+  constructor(private products: GetProductsService,private route:Router){}
   ngOnInit(){
     this.products.arrProducts.subscribe((val)=>{
       this.proSlice1Item = val.slice(0,3)
@@ -23,5 +24,9 @@ export class HotOfferComponent {
     })
   }
   
-
+  addToCart(id:number){
+    this.route.navigate(['/product-details',id]);
+    
+    
+  }
 }

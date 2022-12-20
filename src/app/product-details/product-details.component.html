@@ -1,0 +1,77 @@
+<section class="product-details">
+  <div class="container-custom">
+    <div class="row details-snippet1">
+      <div class="col-md-7">
+        <div class="row">
+          <div class="col-md-2 mini-preview">
+            <img
+              class="img-fluid"
+              [src]="productsDetails[0].image"
+              alt="Preview"
+            />
+            <img
+              class="img-fluid"
+              [src]="productsDetails[0].image"
+              alt="Preview"
+            />
+            <img
+              class="img-fluid"
+              [src]="productsDetails[0].image"
+              alt="Preview"
+            />
+          </div>
+          <div class="col-md-10">
+            <div class="product-image mb-3" style="height: 400px">
+              <img
+                style="display: block; height: 100%"
+                [src]="productsDetails[0].image"
+                alt="Main Image"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="category">
+          <span class="theme-text">Category:</span>
+          {{ productsDetails[0].title }}
+        </div>
+        <div class="title">{{ productsDetails[0].description }}</div>
+        <div class="ratings my-2">
+          <div class="stars d-flex">
+            <div class="theme-text mr-2">Product Ratings:</div>
+            <div>&#9733;</div>
+            <div>&#9733;</div>
+            <div>&#9733;</div>
+            <div>&#9733;</div>
+            <div>&#9733;</div>
+            <div class="ml-2"></div>
+          </div>
+        </div>
+        <div class="price my-2">price ${{ productsDetails[0].price }}</div>
+        <div class="theme-text subtitle">Brief Description:</div>
+        <div class="brief-description">
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry.
+          
+        </div>
+        <div>
+          <div class="subtitle my-3 theme-text">Colors:</div>
+          <div class="select-colors d-flex">
+            <div class="color red"></div>
+            <div class="color silver"></div>
+            <div class="color black"></div>
+          </div>
+        </div>
+        <hr />
+        <div class="row">
+          <div class="col-12">
+            <button class="addBtn" (click)="addToCart(productsDetails[0])">
+              add to cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

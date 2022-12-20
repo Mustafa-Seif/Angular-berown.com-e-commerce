@@ -1,20 +1,39 @@
 <section class="featured">
-    <div class="container">
-    <h4 class="mb-5 title">POPULAR ITEMS</h4>
-    <swiper [slidesPerView]="5" [spaceBetween]="4" [navigation]="true">
-      <ng-template swiperSlide style="width: 200px; border: solid 1px rgb(24, 23, 23);" *ngFor="let pro of productsData">
-        <div>
-          <img [src]="pro.image" alt="img"  style="width: 100%;"/>
+  <div class="container-custom">
+    <h4 class="mb-5 title">FEATURED ITEMS</h4>
+    <swiper [slidesPerView]="5" [spaceBetween]="40" [navigation]="true">
+      <ng-template swiperSlide *ngFor="let pro of productsData" >
+        <div class="wapper-swiper" (click)="showDetails(pro)">
+          <div class="overlay-icons d-flex flex-column ">
+            <img src="../../assets/icons/heart.svg" alt="WISHLIST"> 
+            <img src="../../assets/icons/eye.svg" alt="WISHLIST" class="mt-3 mb-3 fs-1"> 
+            <img src="../../assets/icons/fullscreen-exit.svg" alt="WISHLIST"> 
+          </div>
+          <div style="background-color: #f5f5f5; padding: 0.3rem">
+            <img
+              [src]="pro.image"
+              alt="img"
+              style="width: 70%; margin: 1rem auto; display: block"
+            />
+          </div>
+          <div>
+            <p>{{ pro.title }}</p>
+            <h6>{{ pro.description }}</h6>
+            <div class="ratings my-2">
+              <div class="stars d-flex">
+                <div class="theme-text mr-2">Product Ratings:</div>
+                <div>&#9733;</div>
+                <div>&#9733;</div>
+                <div>&#9733;</div>
+                <div>&#9733;</div>
+                <div>&#9733;</div>
+              </div>
+            </div>
+            <h5>${{ pro.price }}</h5>
+          </div>
         </div>
-        <div>
-          <p>{{pro.title}}</p>
-          <p>{{pro.description}}</p>
-          <p>{{pro.price}}</p>
-        </div>
-        <button>Add to cart</button>
+        <button>ADD TO CART</button>
       </ng-template>
-      
     </swiper>
-    </div>
-  </section>
-  
+  </div>
+</section>

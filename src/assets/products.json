@@ -33,7 +33,7 @@
       "title": "Laptops",
       "image": "./assets/images/products/laptop (1).png",
       "description": "Tablet VX3000 Extra Light",
-      "price": "400.00"
+      "price": "399.99"
     },
     {
       "id": 6,
@@ -75,9 +75,72 @@
     {
       "id": 1,
       "title": "Phones",
-      "image": "./assets/images/products/phone1.png",
+      "image": "../assets/images/products/phone1.png",
+      "description": "Mobial 5G 128SSD 50 Pixle",
+      "price": "99.99"
+    },
+    {
+      "id": 2,
+      "title": "Phones",
+      "image": "../assets/images/products/phone2.png",
+      "description": "Mobial 5G 128SSD 50 Pixle",
+      "price": "345.00"
+    },
+    {
+      "id": 3,
+      "title": "Phones",
+      "image": "../assets/images/products/phone3.png",
+      "description": "Mobial 5G 128SSD 50 Pixle",
+      "price": "129.99"
+    },
+    {
+      "id": 4,
+      "title": "Phones",
+      "image": "../assets/images/products/phone4.png",
+      "description": "Mobial 5G 128SSD 50 Pixle",
+      "price": "99.99"
+    },
+    {
+      "id": 5,
+      "title": "Phones",
+      "image": "../assets/images/products/phone5.png",
+      "description": "Mobial 5G 128SSD 50 Pixle",
+      "price": "99.99"
+    },
+    {
+      "id": 6,
+      "title": "Laptops",
+      "image": "./assets/images/products/laptop (1).png",
+      "description": "Tablet VX3000 Extra Light",
+      "price": "399.99"
+    },
+    {
+      "id": 7,
+      "title": "Headphones",
+      "image": "./assets/images/products/headphone1 (3).png",
       "description": "Laptop XS3000 WiFi Smart",
-      "price": "80.00"
+      "price": "30.00"
+    },
+    {
+      "id": 8,
+      "title": "Laptops",
+      "image": "./assets/images/products/laptop (1).png",
+      "description": "Tablet VX4000 8500 3TB",
+      "price": "520.00"
+    },
+    {
+      "id": 9,
+      "title": "Headphones",
+      "image": "./assets/images/products/headphone1 (4).png",
+      "description": "Laptop XS3000 WiFi Smart",
+      "price": "45.00"
+    },
+    {
+      "id": 10,
+      "title": "Laptops",
+      "image": "./assets/images/products/laptop (1).png",
+      "description": "Ellite Pro Book 15'6 7500U",
+      "price": "1200.00"
     }
   ]
 }

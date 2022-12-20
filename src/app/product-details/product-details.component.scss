@@ -1,0 +1,125 @@
+.product-details{
+    margin-top: 4rem;
+    font-size: 18px;
+}
+.Spinner_parent {
+    margin-top: 15%;
+    text-align: center;
+  }
+  .spinner {
+    color: #a749ff !important;
+  }
+  
+  .details-snippet1 {
+    color: #585656;
+  }
+  
+  /* Main text uses this styling and color */
+  .details-snippet1 .theme-text {
+    color: purple;
+    font-weight: bold;
+  }
+  
+  .details-snippet1 .mini-preview img {
+    border: 1px solid #585656;
+    border: 1px solid purple;
+    margin-bottom: 8px;
+  }
+  
+  .details-snippet1 .title {
+    color: #464343;
+    font-weight: bold;
+    font-size: 2rem;
+  }
+  
+  .details-snippet1 .price {
+    font-weight: bold;
+    font-size: 1.8rem;
+  }
+  
+  .details-snippet1 .original-price {
+    font-weight: normal;
+    font-size: 20px;
+  }
+  
+  .brief-description {
+    /* color: #585656; */
+    color: #464343;
+  }
+  
+  .select-colors .color {
+    display: inline-block;
+    border: 1px solid grey;
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    margin-right: 5px;
+    background-color: black;
+  }
+  
+  .select-colors .color.red {
+    background-color: red;
+  }
+  
+  .select-colors .color.silver {
+    background-color: silver;
+  }
+  
+  .select-colors .color.black {
+    background-color: black;
+  }
+  
+  .addBtn {
+    background-color:#EF6C00;
+    color: white ;
+    text-transform: uppercase;
+    transition: 300ms;
+    padding: .5rem;
+    border: solid 1px #EF6C00;
+    
+  }
+  
+  .addBtn:hover {
+    border: solid 1px #EF6C00;
+    background-color: white;
+    color: #EF6C00;
+  }
+  
+  .related-heading {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 900 ;
+    color: #A749FF ;
+  }
+  
+  .details-snippet1 .related-title {
+    color: #464343;
+    font-weight: bold;
+    text-decoration: none !important;
+  }
+  
+  .details-snippet1 .related-price {
+    color: #464343;
+    font-weight: bold;
+  }
+  
+  .additional-details .nav-link {
+    border: none;
+    color: #464343;
+  }
+  
+  .additional-details .nav-link.active {
+    background-color: white;
+    color: #464343;
+    border: none;
+    border-bottom: 4px solid purple;
+  }
+  
+  /* ////////Media Query//////// */
+  
+  @media screen and (max-width: 995px) {
+    .mini-preview{
+      display: none !important;
+    }
+  }
+  
