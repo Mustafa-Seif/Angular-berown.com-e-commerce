@@ -66,7 +66,10 @@
         <hr />
         <div class="row">
           <div class="col-12">
-            <button class="addBtn" (click)="addToCart(productsDetails[0])">
+            <!-- <button  >
+              add to cart
+            </button> -->
+            <button mat-stroked-button (click)="addToCart(productsDetails[0])" (click)="openSnackBar()" class="addBtn" aria-label="Show an example snack-bar">
               add to cart
             </button>
           </div>

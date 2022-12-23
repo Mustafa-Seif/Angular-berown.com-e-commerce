@@ -27,16 +27,21 @@
   .wapper-swiper{
     position: relative;
     transition: 5s ease-in-out all;
+    .overlay-icons{
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      opacity: 0;
     cursor: pointer;
+
+    }
+    .pro-data{
+      cursor: pointer;
+    }
+    
     &:hover .overlay-icons {
       opacity: 1;
     }
-    .overlay-icons{
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    opacity: 0;
-  }
   }
   button {
     display: block;

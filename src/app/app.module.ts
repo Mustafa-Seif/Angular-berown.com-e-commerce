@@ -20,9 +20,19 @@ import { FooterComponent } from './footer/footer.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CartComponent } from './cart/cart.component';
 import { ContactComponent } from './contact/contact.component';
-
+import { WishListComponent } from './wish-list/wish-list.component';
+// import {MatButtonModule} from '@angular/material/button';
 // import { ServiceWorkerModule } from '@angular/service-worker';
 // import { AngularFontAwesomeModule } from 'angular-font-awesome';
+
+
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatDialogModule} from '@angular/material/dialog';
+
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +47,8 @@ import { ContactComponent } from './contact/contact.component';
     ProductDetailsComponent,
     CartComponent,
     ContactComponent,
+    WishListComponent,
+  
   ],
   imports: [
     BrowserModule,
@@ -45,6 +57,9 @@ import { ContactComponent } from './contact/contact.component';
     HttpClientModule,
     // MatSlideToggleModule,
     BrowserAnimationsModule,
+    MatSnackBarModule,
+    // MatButtonModule,
+    MatDialogModule,
     // MatCardModule,
     // AngularFontAwesomeModule
   
