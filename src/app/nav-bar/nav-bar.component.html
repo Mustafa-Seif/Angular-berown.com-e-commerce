@@ -5,19 +5,19 @@
         <ul class="d-flex justify-content-end">
           <li routerLink="wish-list">
             <a
-              ><img src="../../assets/icons/heart.svg" alt="WISHLIST" />
+              > <i class="bi bi-heart"></i>
               WISHLIST</a
             >
           </li>
           <li>
             <a class="ms-5 me-5"
-              ><img src="../../assets/icons/fullscreen-exit.svg" alt="person" />
-              COMPARE</a
+              > <i class="bi bi-box-arrow-in-right"></i>
+              SIGN IN</a
             >
           </li>
           <li>
             <a class="me-5"
-              ><img src="../../assets/icons/person-fill.svg" alt="person" /> My
+              > <i class="bi bi-person-fill"></i> My
               Account</a
             >
           </li>
@@ -25,14 +25,14 @@
       </div>
     </div>
     <div class="head2 row justify-content-between align-items-center">
-      <div class="logo col-2" routerLink="">
+      <div class="logo col-2" routerLink="/">
         <h1 class="ms-5">BEROWN<span class="logo-dot">.</span></h1>
       </div>
       <div
         class="search-input-Wapper col-6 d-flex ms-5 justify-content-between"
       >
-        <input type="text " placeholder="type to search..." class="" />
-        <input type="button" value="SEARCH" class="" />
+        <input type="text " placeholder="type to search..." [(ngModel)]="searchVal"/>
+        <input type="button" value="SEARCH" (click)="goToSearchResults()" />
       </div>
       <div class="d-flex col-2 justify-content-end" routerLink="cart">
         <p class="position-relative d-inline">
@@ -46,7 +46,7 @@
     <nav>
       <ul class="row ms-5 me-5 justify-content-center text-center">
         <li class="col-2"><a routerLink="/">HOME</a></li>
-        <li class="col-2"><a href="#">PRODUCTS</a></li>
+        <li class="col-2"><a routerLink="/products">PRODUCTS</a></li>
         <li class="col-2"><a href="">ABOUT</a></li>
         <li class="col-2"><a routerLink="/contact">CONTACT</a></li>
       </ul>

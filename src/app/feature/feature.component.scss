@@ -26,13 +26,23 @@
   }
   .wapper-swiper{
     position: relative;
-    transition: 5s ease-in-out all;
     .overlay-icons{
+    transition: 300ms ease-in-out all;
+
       position: absolute;
       top: 15px;
       right: 15px;
       opacity: 0;
     cursor: pointer;
+    i{
+      font-size: 1.5rem;
+      margin-bottom: .5rem;
+      transition: 200ms;
+      font-size: bold;
+      &:hover{
+        color:#EF6C00;
+      }
+    }
 
     }
     .pro-data{
@@ -42,6 +52,7 @@
     &:hover .overlay-icons {
       opacity: 1;
     }
+    
   }
   button {
     display: block;

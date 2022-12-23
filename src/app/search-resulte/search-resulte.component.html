@@ -1,0 +1,47 @@
+<div *ngIf="productsFilters.length == 0" class="text-center no-item " style="margin: 6rem 0;">
+    <div class="container">
+      <p class="fs-1 fw-bolder">SORRY NO RESULTS FOUND.</p>
+      <div class="card-body">
+        <a
+          routerLink=""
+          class="btn btn-block btn-lg"
+          style="background-color: #ef6c00; color: #fff"
+        >
+          Continue Shopping
+        </a>
+      </div>
+    </div>
+  </div>
+<section class="search-resulte mt-5 ">
+    <div class="container-custom">
+        <div class="row gy-5">
+            <div class="wapper-swiper col-md-3"  *ngFor="let pro of productsFilters">
+              <div class="overlay-icons d-flex flex-column ">
+                <i class="bi bi-heart" (click)="addToWish(pro)"></i>
+                <i class="bi bi-eye"></i>
+                <i class="bi bi-recycle"></i>
+              </div>
+                <div style="background-color: #f5f5f5; padding: 0.3rem">
+                    <img [src]="pro.image" alt="img" style="width: 70%; margin: 1rem auto; display: block" />
+                </div>
+                <div class="pro-data" (click)="showDetails(pro)">
+                    <p>{{ pro.title }}</p>
+                    <h6>{{ pro.description }}</h6>
+                    <div class="ratings my-2">
+                        <div class="stars d-flex">
+                            <div class="theme-text mr-2">Product Ratings:</div>
+                            <div>&#9733;</div>
+                            <div>&#9733;</div>
+                            <div>&#9733;</div>
+                            <div>&#9733;</div>
+                            <div>&#9733;</div>
+                        </div>
+                    </div>
+                    <h5>${{ pro.price }}</h5>
+                </div>
+                <button (click)="addToCart(pro)">ADD TO CART</button>
+            </div>
+        
+        </div>
+    </div>
+</section>

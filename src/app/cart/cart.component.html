@@ -1,5 +1,22 @@
-<h1 *ngIf="arrCart.length == 0">no item</h1>
-<section class="h-100" style="background-color: #eee" *ngIf="arrCart.length > 0">
+<div *ngIf="arrCart.length == 0" class="text-center no-item " style="margin: 6rem 0;">
+  <div class="container">
+    <p class="fs-1 fw-bolder">YOU HAVE NO ITEMS IN YOUR SHOPPING CART.</p>
+    <div class="card-body">
+      <a
+        routerLink=""
+        class="btn btn-block btn-lg"
+        style="background-color: #ef6c00; color: #fff"
+      >
+        Continue Shopping
+      </a>
+    </div>
+  </div>
+</div>
+<section
+  class="h-100"
+  style="background-color: #eee"
+  *ngIf="arrCart.length > 0"
+>
   <div class="container h-100 py-5">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-10">
@@ -53,7 +70,7 @@
                 </button>
               </div>
               <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                <h5 class="mb-0">{{ pro.description }}</h5>
+                <h5 class="mb-0">{{ pro.title }}</h5>
               </div>
               <div
                 class="col-md-1 col-lg-1 col-xl-1 text-end"

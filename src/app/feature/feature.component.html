@@ -4,14 +4,10 @@
     <swiper  [navigation]="true" [config]="swiperConfig">
       <ng-template swiperSlide *ngFor="let pro of productsData">
         <div class="wapper-swiper" >
-          <div class="overlay-icons d-flex flex-column">
-            <img src="../../assets/icons/heart.svg" alt="WISHLIST" (click)="addToWish(pro)" />
-            <img
-              src="../../assets/icons/eye.svg"
-              alt="WISHLIST"
-              class="mt-3 mb-3 fs-1"
-            />
-            <img src="../../assets/icons/fullscreen-exit.svg" alt="WISHLIST" />
+          <div class="overlay-icons d-flex flex-column ">
+            <i class="bi bi-heart" (click)="addToWish(pro)"></i>
+            <i class="bi bi-eye"></i>
+            <i class="bi bi-recycle"></i>
           </div>
           <div style="background-color: #f5f5f5; padding: 0.3rem">
             <img

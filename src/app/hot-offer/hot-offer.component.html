@@ -75,7 +75,7 @@
             </div>
         </div>
         <div class="right col">
-          <h4>Hot Offer</h4>
+          <h4>Hot Offer Products</h4>
           <div class="card" style="max-width: 540px" *ngFor="let pro of proSlice3Item">
               <div class="row g-0" (click)="addToCart(pro.id)">
                 <div class="col-md-4">
@@ -108,6 +108,41 @@
                 </div>
               </div>
             </div>
+        </div>
+        <div class="left col">
+          <h4>Featured Products</h4>
+          <div class="card" style="max-width: 540px" *ngFor="let pro of proSlice1Item" >
+            <div class="row g-0" (click)="addToCart(pro.id)">
+              <div class="col-md-4">
+                <img
+                  [src]="pro.image"
+                  class="img-fluid rounded-start"
+                  [alt]="pro.title"
+                />
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">{{pro.description}}</h5>
+                  <p class="card-text">
+                   {{pro.title}}
+                  </p>
+                  <div class="card-text">
+                    <div class="ratings my-2">
+                      <div class="stars d-flex">
+                        <div class="theme-text mr-2">Product Ratings: </div>
+                        <div>&#9733;</div>
+                        <div>&#9733;</div>
+                        <div>&#9733;</div>
+                        <div>&#9733;</div>
+                        <div>&#9733;</div>
+                      </div>
+                    </div> 
+                    <h5 class="text-muted">${{pro.price}}</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -24,10 +24,16 @@ import { WishListComponent } from './wish-list/wish-list.component';
 // import {MatButtonModule} from '@angular/material/button';
 // import { ServiceWorkerModule } from '@angular/service-worker';
 // import { AngularFontAwesomeModule } from 'angular-font-awesome';
-
+import {MatInputModule} from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
 
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatDialogModule} from '@angular/material/dialog';
+import { AccountComponent } from './account/account.component';
+import { SearchResulteComponent } from './search-resulte/search-resulte.component';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { ProductsComponent } from './products/products.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 
@@ -48,6 +54,11 @@ import {MatDialogModule} from '@angular/material/dialog';
     CartComponent,
     ContactComponent,
     WishListComponent,
+    AccountComponent,
+    SearchResulteComponent,
+    SignInComponent,
+    ProductsComponent,
+    NotFoundComponent,
   
   ],
   imports: [
@@ -62,7 +73,11 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatDialogModule,
     // MatCardModule,
     // AngularFontAwesomeModule
-  
+    MatInputModule,
+    FormsModule,
+
+
+    
     ],
     // SwiperModule,
 

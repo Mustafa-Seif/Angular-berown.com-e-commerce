@@ -1,88 +1,99 @@
-<section class="h-100" style='background-color: #eee;' >
-    <div class="container h-100 py-5">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-10">
-          <div class="d-flex justify-content-between align-items-center mb-4">
-            <h3 class="fw-normal mb-0 text-black fw-bold">
-              Shopping Cart
-            </h3>
-            <div>
-              <p class="mb-0">
-                <span class="text-muted">Sort by:</span>
-                <a href="#!" class="text-body">
-                  price <i class="fas fa-angle-down mt-1"></i>
-                </a>
-              </p>
+<div *ngIf="wishList.length == 0" class="text-center no-item " style="margin: 6rem 0;">
+  <div class="container">
+    <p class="fs-1 fw-bolder">YOU HAVE NO ITEMS IN YOUR WISH LIST.</p>
+    <div class="card-body">
+      <a
+        routerLink=""
+        class="btn btn-block btn-lg"
+        style="background-color: #ef6c00; color: #fff"
+      >
+        Continue Shopping
+      </a>
+    </div>
+  </div>
+</div>
+<section
+  class="h-100"
+  style="background-color: #eee"
+  *ngIf="wishList.length > 0"
+>
+  <div class="container h-100 py-5">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-10">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h3 class="fw-normal mb-0 text-black fw-bold">Shopping Cart</h3>
+          <div>
+            <p class="mb-0">
+              <span class="text-muted">Sort by:</span>
+              <a href="#!" class="text-body">
+                price <i class="fas fa-angle-down mt-1"></i>
+              </a>
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="card rounded-3 mb-4"
+          *ngFor="let pro of wishList; let i = index"
+        >
+          <div class="card-body p-4">
+            <div class="row d-flex justify-content-between align-items-center">
+              <div class="col-md-2 col-lg-2 col-xl-2">
+                <img
+                  [src]="pro.image"
+                  class="img-fluid rounded-3"
+                  alt="Cotton T-shirt"
+                />
+              </div>
+              <div class="col-md-3 col-lg-3 col-xl-3">
+                <p class="lead fw-normal mb-2">{{ pro.description }}</p>
+                <p>
+                  <span class="text-muted">{{ pro.title }}</span>
+                </p>
+              </div>
+              <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                <button class="btn btn-link px-2" onClick="{handleDecrease}">
+                  <i class="fas fa-minus"></i>
+                </button>
+
+                <input
+                  id="form1"
+                  min="1"
+                  value="0"
+                  name="quantity"
+                  type="number"
+                  class="form-control form-control-sm"
+                />
+
+                <button class="btn btn-link px-2">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+              <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                <h5 class="mb-0">{{ pro.title }}</h5>
+              </div>
+              <div
+                class="col-md-1 col-lg-1 col-xl-1 text-end"
+                (click)="removePro(index)"
+              >
+                <i class="fas fa-trash fa-lg text-danger"></i>
+              </div>
             </div>
           </div>
+        </div>
 
-        
-              <div class="card rounded-3 mb-4" *ngFor="let pro of wishList">
-                <div class="card-body p-4">
-                  <div class="row d-flex justify-content-between align-items-center">
-                    <div class="col-md-2 col-lg-2 col-xl-2">
-                      <img
-                      [src]="pro.image"
-                        class="img-fluid rounded-3"
-                        alt="Cotton T-shirt"
-                      />
-                    </div>
-                    <div class="col-md-3 col-lg-3 col-xl-3">
-                      <p class="lead fw-normal mb-2">{{pro.description}}</p>
-                      <p>
-                        <span class="text-muted">{{pro.title}}</span>
-                      </p>
-                    </div>
-                    <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                      <button
-                        class="btn btn-link px-2"
-                        onClick={handleDecrease}
-                      >
-                        <i class="fas fa-minus"></i>
-                      </button>
-
-                      <input
-                        id="form1"
-                        min="1"
-                        value={count}
-                        name="quantity"
-                        type="number"
-                        class="form-control form-control-sm"
-                      />
-
-                      <button
-                        class="btn btn-link px-2"
-                        
-                      >
-                        <i class="fas fa-plus"></i>
-                      </button>
-                    </div>
-                    <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                      <h5 class="mb-0">{{ pro.description }}</h5>
-                    </div>
-                    <div class="col-md-1 col-lg-1 col-xl-1 text-end" (click)="removePro(index)">
-                      <i
-                        class="fas fa-trash fa-lg text-danger"
-                        
-                      ></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-         
-
-          <div class="card">
-            <div class="card-body">
-              <a
-                to="/checkout"
-                class="btn btn-block btn-lg"
-                style="background-color: #ef6c00; color: #fff;"
-              >
-                Proceed to Checkout
-              </a>
-            </div>
+        <div class="card">
+          <div class="card-body">
+            <a
+              to="/checkout"
+              class="btn btn-block btn-lg"
+              style="background-color: #ef6c00; color: #fff"
+            >
+              Proceed to Checkout
+            </a>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>

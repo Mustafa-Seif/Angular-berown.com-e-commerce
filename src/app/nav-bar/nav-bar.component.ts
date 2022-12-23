@@ -1,5 +1,6 @@
 import { Component, DoCheck } from '@angular/core';
 import { CartService } from '../services/cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
@@ -8,19 +9,25 @@ import { CartService } from '../services/cart.service';
 })
 export class NavBarComponent implements DoCheck {
   theCartLength: number = 2;
-  constructor(private cart: CartService) {}
+  searchVal: string = '';
+  constructor(private cart: CartService, private route: Router) {}
 
   ngOnInit() {
     // get cart length
     this.cart.cart.subscribe((val) => {
       this.theCartLength = val.length;
     });
-    console.log(this.theCartLength);
   }
   // get cart length after change
   ngDoCheck() {
     this.cart.cart.subscribe((val) => {
       this.theCartLength = val.length;
     });
+  }
+
+  goToSearchResults():void {
+    // this.route.navigate(["search-results", "1"]);
+    this.route.navigate(['/search-results', this.searchVal])
+    
   }
 }
