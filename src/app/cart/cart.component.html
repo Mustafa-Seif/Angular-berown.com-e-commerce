@@ -56,24 +56,25 @@
                 </p>
               </div>
               <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                <button class="btn btn-link px-2" onClick="{handleDecrease}">
+                <button class="btn btn-link px-2" (click)="decreasecount(pro.id)">
                   <i class="fas fa-minus"></i>
                 </button>
 
                 <input
                   id="form1"
                   min="1"
-                  value="1"
+                  [(ngModel)]="pro.count"
                   name="quantity"
                   type="number"
                   class="form-control form-control-sm"
                 />
-                <button class="btn btn-link px-2">
+                <!-- <div>{{pro.count}}</div> -->
+                <button class="btn btn-link px-2" (click)="increasecount(pro.id)">
                   <i class="fas fa-plus"></i>
                 </button>
               </div>
               <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                <h5 class="mb-0">{{ pro.title }}</h5>
+                <h5 class="mb-0">{{ pro.price |currency:'$' }}</h5>
               </div>
               <div
                 class="col-md-1 col-lg-1 col-xl-1 text-end deleteIcon"
@@ -86,7 +87,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-body">
+          <div class="card-body d-flex justify-content-between">
             <a
               to="/checkout"
               class="btn btn-block btn-lg"
@@ -94,6 +95,7 @@
             >
               Proceed to Checkout
             </a>
+            <div  class="fs-2 fw-bolder">Total: {{total |currency:'$'}}</div>
           </div>
         </div>
       </div>

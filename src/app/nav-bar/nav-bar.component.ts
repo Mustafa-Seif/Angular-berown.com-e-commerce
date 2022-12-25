@@ -50,8 +50,8 @@ export class NavBarComponent implements DoCheck {
     
       this.messageService.add({
       key: 'authCart',
-      severity: 'error',
-      summary: 'Error',
+      severity: 'info',
+      summary: 'Info',
       detail: 'please login first!',
     });
   }
