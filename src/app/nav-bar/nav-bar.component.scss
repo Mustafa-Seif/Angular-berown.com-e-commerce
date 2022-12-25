@@ -6,20 +6,25 @@
     margin-bottom: 1rem;
     .nav1-right {
       ul {
+        justify-content: end;
+        padding-right: 3rem;
         li {
+          margin-left: 1.5rem;
           cursor: pointer;
           a {
             font-family: "Roboto", sans-serif;
-            font-size: .95rem;
+            font-size: 0.95rem;
             transition: 200ms;
-            &:hover{
-              color: #EF6C00;
+            &:hover {
+              color: #ef6c00;
             }
           }
         }
       }
     }
   }
+
+  
   .head2 {
     i {
       cursor: pointer;
@@ -60,6 +65,9 @@
   nav {
     ul {
       li {
+        display: inline-block;
+        margin: 0 4rem;
+
         a {
           font-family: "Roboto", sans-serif;
           font-weight: 700;
@@ -72,13 +80,88 @@
 
 ///////////// Media ///////////////
 @media screen and (max-width: 920px) {
-  nav {
+  .header {
     // background-color: red;
-    ul {
-      justify-content: space-between !important;
+    a {
+      color: #000;
+    }
+    .head1 {
+      margin-bottom: 2rem;
+      .nav1-right {
+        ul {
+          justify-content: center;
+          padding: 0rem;
+          li {
+            margin-left: 0.5rem;
+            cursor: pointer;
+            a {
+              font-family: "Roboto", sans-serif;
+              font-size: 0.95rem;
+              transition: 200ms;
+              &:hover {
+                color: #ef6c00;
+              }
+            }
+          }
+        }
+      }
+    }
+    .head2 {
+      position: relative;
+      .cart-icon-warpper {
+        position: absolute;
+        top: -1rem;
+      }
+      i {
+        cursor: pointer;
+      }
+      .logo {
+        h1 {
+          font-weight: 700;
+          cursor: pointer;
+        }
+      }
+      .search-input-Wapper {
+        border: solid 1px rgba(128, 128, 128, 0.452);
+        padding: 0 !important;
+
+        input:first-child {
+          width: 70%;
+          padding: 0.5rem;
+        }
+        input:nth-child(2) {
+          background: #ef6c00;
+          color: #fff;
+          padding: 0.75rem 2rem;
+        }
+      }
+      .cart-count {
+        position: absolute;
+        top: -1.2rem;
+        left: 0.5rem;
+        background-color: red;
+        color: #fff;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        line-height: 20px;
+        text-align: center;
+      }
+    }
+    nav {
+      ul {
+        li {
+          margin: 0 .5rem;
+          a {
+            font-family: "Roboto", sans-serif;
+            font-weight: 700;
+            font-size: 13px;
+          }
+        }
+      }
     }
   }
-  .search-input-Wapper {
-    display: none !important;
-  }
+}
+.active-link{
+  color: #ef6c00 !important;
 }

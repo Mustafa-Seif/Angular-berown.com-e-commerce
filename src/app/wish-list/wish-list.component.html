@@ -13,7 +13,6 @@
   </div>
 </div>
 <section
-  class="h-100"
   style="background-color: #eee"
   *ngIf="wishList.length > 0"
 >
@@ -21,7 +20,7 @@
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-10">
         <div class="d-flex justify-content-between align-items-center mb-4">
-          <h3 class="fw-normal mb-0 text-black fw-bold">Shopping Cart</h3>
+          <h3 class="fw-normal mb-0 text-black fw-bold">Wish List</h3>
           <div>
             <p class="mb-0">
               <span class="text-muted">Sort by:</span>
@@ -51,32 +50,12 @@
                   <span class="text-muted">{{ pro.title }}</span>
                 </p>
               </div>
-              <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                <button class="btn btn-link px-2" onClick="{handleDecrease}">
-                  <i class="fas fa-minus"></i>
-                </button>
-
-                <input
-                  id="form1"
-                  min="1"
-                  value="0"
-                  name="quantity"
-                  type="number"
-                  class="form-control form-control-sm"
-                />
-
-                <button class="btn btn-link px-2">
-                  <i class="fas fa-plus"></i>
-                </button>
-              </div>
-              <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+              <div class="col-md-4 col-lg-2 col-xl-2 offset-lg-1">
                 <h5 class="mb-0">{{ pro.title }}</h5>
               </div>
-              <div
-                class="col-md-1 col-lg-1 col-xl-1 text-end"
-                (click)="removePro(index)"
-              >
-                <i class="fas fa-trash fa-lg text-danger"></i>
+              <div class="col-md-3 col-lg-3 col-xl-3 text-end deleteIcon">
+                <i class="bi bi-cart-plus text-success fs-4" (click)="addFromCart()" (click)="addToCart(pro)"></i>
+                <i class="fas fa-trash fa-lg text-danger fs-4 ms-4" (click)="removeFromCart()" (click)="removePro(i)"></i>
               </div>
             </div>
           </div>
@@ -97,3 +76,6 @@
     </div>
   </div>
 </section>
+<!-- toast  -->
+<p-toast position="top-right" key="removePro"></p-toast>
+<p-toast position="top-right" key="addPro"></p-toast>

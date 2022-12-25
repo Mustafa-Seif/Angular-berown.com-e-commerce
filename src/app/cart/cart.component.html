@@ -1,4 +1,8 @@
-<div *ngIf="arrCart.length == 0" class="text-center no-item " style="margin: 6rem 0;">
+<div
+  *ngIf="arrCart.length == 0"
+  class="text-center no-item"
+  style="margin: 6rem 0"
+>
   <div class="container">
     <p class="fs-1 fw-bolder">YOU HAVE NO ITEMS IN YOUR SHOPPING CART.</p>
     <div class="card-body">
@@ -13,7 +17,7 @@
   </div>
 </div>
 <section
-  class="h-100"
+ 
   style="background-color: #eee"
   *ngIf="arrCart.length > 0"
 >
@@ -59,12 +63,11 @@
                 <input
                   id="form1"
                   min="1"
-                  value="0"
+                  value="1"
                   name="quantity"
                   type="number"
                   class="form-control form-control-sm"
                 />
-
                 <button class="btn btn-link px-2">
                   <i class="fas fa-plus"></i>
                 </button>
@@ -73,15 +76,15 @@
                 <h5 class="mb-0">{{ pro.title }}</h5>
               </div>
               <div
-                class="col-md-1 col-lg-1 col-xl-1 text-end"
-                (click)="removePro(index)"
+                class="col-md-1 col-lg-1 col-xl-1 text-end deleteIcon"
+                (click)="removeFromCart()"
+                (click)="removePro(i)"
               >
-                <i class="fas fa-trash fa-lg text-danger"></i>
+                <i class="fas fa-trash fa-lg text-danger fs-4"></i>
               </div>
             </div>
           </div>
         </div>
-
         <div class="card">
           <div class="card-body">
             <a
@@ -97,3 +100,5 @@
     </div>
   </div>
 </section>
+<!-- toast  -->
+<p-toast position="top-left" key="removePro"></p-toast>

@@ -66,10 +66,7 @@
         <hr />
         <div class="row">
           <div class="col-12">
-            <!-- <button  >
-              add to cart
-            </button> -->
-            <button mat-stroked-button (click)="addToCart(productsDetails[0])" (click)="openSnackBar()" class="addBtn" aria-label="Show an example snack-bar">
+            <button class="addBtn" (click)="addToCart(productsDetails[0])" (click)="showToastCart()">
               add to cart
             </button>
           </div>
@@ -78,3 +75,5 @@
     </div>
   </div>
 </section>
+<!-- toast  -->
+<p-toast position="top-left" key="addToCart"></p-toast>

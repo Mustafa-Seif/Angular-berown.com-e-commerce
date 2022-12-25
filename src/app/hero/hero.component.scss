@@ -1,5 +1,33 @@
 .hero {
+  .swiper-class{
+      height: 500px ;
+      img{
+        object-fit: cover;
+      }
+      .hero-title{
+        h1{
+          font-weight: 900;
+        }
+       }
+    }
   .hero-footer {
     padding: 1rem;
   }
+}
+@media screen and (max-width:920px){
+  .hero{
+    .swiper-class{
+      height: 300px ;
+      .hero-title{
+        h1{
+          font-size: 2rem;
+          font-weight: 900;
+          color:#EF6C00 ;
+        }
+       }
+    }
+   
+
+  }
+ 
 }

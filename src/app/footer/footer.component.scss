@@ -32,3 +32,21 @@ footer {
     }
   }
 }
+
+/////// Media ////////
+
+@media screen and (max-width:920px){
+  footer{
+    .right{
+      ul{
+        li{
+          i{
+            font-size: 1.2rem;
+    
+          }
+        }
+      }
+    }
+  }
+ 
+}

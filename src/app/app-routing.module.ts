@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AccountComponent } from './account/account.component';
 import { CartComponent } from './cart/cart.component';
 import { ContactComponent } from './contact/contact.component';
+import { AuthGuard } from './guards/auth.guard';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
@@ -18,7 +19,8 @@ const routes: Routes = [
   },
   {
     path:"cart",
-    component:CartComponent
+    component:CartComponent,
+    canActivate:[AuthGuard]
   },
   {
     path:"contact",
@@ -26,7 +28,8 @@ const routes: Routes = [
   },
   {
     path:"wish-list",
-    component:WishListComponent
+    component:WishListComponent,
+    canActivate:[AuthGuard]
   },
   {
     path:"account",

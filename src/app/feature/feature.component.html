@@ -5,7 +5,7 @@
       <ng-template swiperSlide *ngFor="let pro of productsData">
         <div class="wapper-swiper" >
           <div class="overlay-icons d-flex flex-column ">
-            <i class="bi bi-heart" (click)="addToWish(pro)"></i>
+            <i class="bi bi-heart" (click)="addToWish(pro)" (click)="showToastWish()"></i>
             <i class="bi bi-eye"></i>
             <i class="bi bi-recycle"></i>
           </div>
@@ -32,8 +32,11 @@
             <h5>${{ pro.price }}</h5>
           </div>
         </div>
-        <button (click)="addToCart(pro)">ADD TO CART</button>
+        <button (click)="addToCart(pro)" (click)="showToastCart()">ADD TO CART</button>
       </ng-template>
     </swiper>
   </div>
 </section>
+<!-- toast  -->
+<p-toast position="top-left" key="addToCart1"></p-toast>
+<p-toast position="top-left" key="addToWish1"></p-toast>

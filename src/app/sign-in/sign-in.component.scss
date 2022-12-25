@@ -1,0 +1,21 @@
+.sign-in{
+     h4{
+        position: relative;
+        margin-bottom: 2rem;
+        &::before{
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            width: 40px;
+            height: 2px;
+            background-color: #EF6C00;
+        }
+    }
+    button{
+        color: #fff;
+        background: #EF6C00;
+        cursor: pointer;
+    }
+
+}
+   

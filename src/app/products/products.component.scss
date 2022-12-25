@@ -1,5 +1,11 @@
 .search-resulte {
     margin-bottom: 8rem;
+    .grid-wapper-icons{
+      i{
+        font-size: 1.4rem;
+        cursor: pointer;
+      }
+    }
     .title {
       position: relative;
       text-align: center;
