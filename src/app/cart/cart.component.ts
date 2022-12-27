@@ -29,6 +29,11 @@ export class CartComponent {
     this.cart.removeProduct(index);
     this.total = 0;
     this.getTotal();
+    this.cart.cart.subscribe((val)=>{
+      this.arrCart = val;
+      this.getTotal();
+
+    })
   }
   // toast
   removeFromCart(){
@@ -43,7 +48,7 @@ export class CartComponent {
 
 
   /////////////////////////////////
-  increasecount(id: number) {
+  increasecount(id:number) {
     this.arrCart = this.arrCart.map((pro) => {
       if (pro.id == id) {
         this.total += +pro.price;
@@ -55,7 +60,7 @@ export class CartComponent {
     });
   }
 
-  decreasecount(id: number) {
+  decreasecount(id:number) {
     this.arrCart = this.arrCart.map((pro) => {
       if (pro.id == id) {
         if (pro.count > 1) {
