@@ -29,6 +29,7 @@ export class CartComponent {
     this.cart.removeProduct(index);
     this.total = 0;
     this.getTotal();
+    // get products from cart  after delete pro
     this.cart.cart.subscribe((val)=>{
       this.arrCart = val;
       this.getTotal();
