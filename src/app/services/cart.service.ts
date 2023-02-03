@@ -6,31 +6,26 @@ import { Products } from '../interfaces/products';
   providedIn: 'root'
 })
 export class CartService {
+  // CREATE asObservable
   private theCart = new BehaviorSubject<Products[]>([])
   cart = this.theCart.asObservable()
 
   constructor() { }
-   
-  
-  // addProductToCart(item:Products): void {
-  //  this.theCart.subscribe((val)=>{
-  //   val.push(item)
-  //  })
-  // }
-
+  // ADD PRODUCT TO CART 
   addProductToCart(item:Products): void {
     this.theCart.subscribe((val)=>{
-      val.push(item)
-     val.map((el)=>{
-      if (el.id == item.id) {
-        console.log("duplected")
+      if (val.find((test) => test.id === item.id) === undefined) {
+        val.push(item)
       }else{
-        console.log("first time")
+        val.forEach((el)=>{
+          if (el.id === item.id){
+            el.count++;
+          }
+        })
       }
-     })
     })
    }
-
+  // REMOVE PRODUCT FROM CART 
   removeProduct(ind:number):void{
     this.theCart.subscribe((val)=>{
       val.splice(ind,1)
