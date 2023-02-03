@@ -28,13 +28,11 @@ export class CartComponent {
   removePro(index:number):void{
     this.cart.removeProduct(index);
     this.total = 0;
-    this.getTotal();
     // get products from cart  after delete pro
     this.cart.cart.subscribe((val)=>{
       this.arrCart = val;
-      this.getTotal();
-
     })
+    this.getTotal();
   }
   // toast
   removeFromCart(){
@@ -75,6 +73,7 @@ export class CartComponent {
   }
   getTotal() {
     for (let i = 0; i < this.arrCart.length; i++) {
+      // this.total = 0;
       this.total += +this.arrCart[i].price * this.arrCart[i].count;
     }
   }
