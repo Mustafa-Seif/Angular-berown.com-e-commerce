@@ -12,12 +12,11 @@ import { MessageService } from 'primeng/api';
   templateUrl: './search-resulte.component.html',
   styleUrls: ['./search-resulte.component.scss'],
   providers: [MessageService],
-
 })
 export class SearchResulteComponent {
   productsFilters: Products[] = [];
-  searchVal: string = '';
-  grid:string='col-md-3 col-6';
+  searchVal: any;
+  grid: string = 'col-md-3 col-6';
 
   constructor(
     private productsList: GetProductsService,
@@ -28,27 +27,33 @@ export class SearchResulteComponent {
     private messageService: MessageService
   ) {}
   ngOnInit() {
-    // Get product by search Value
-    this.searchVal = this.routeActive.snapshot.params['val'];
+    this.getProducts();
+  }
+
+  ngDoCheck() {
+    this.getProducts();
+  }
+
+  // GET SEARCH VALUE FROM QUERY PARAMS
+  getSearchVal() {
+     this.routeActive.queryParams.subscribe((val) => {
+      this.searchVal = val;
+    });
+  }
+  // Get product by search Value
+  getProducts() {
+    this.getSearchVal();
     this.productsList.arrProducts.subscribe((val) => {
       this.productsFilters = val.filter((el) => {
-        return el.title.toLowerCase().includes(this.searchVal.toLowerCase());
+        return el.description
+          .toLowerCase()
+          .includes(this.searchVal.pro?.toLowerCase());
       });
     });
   }
 
-  ngDoCheck(){
-      // Get product by search Value
-    this.searchVal = this.routeActive.snapshot.params['val'];
-    this.productsList.arrProducts.subscribe((val) => {
-      this.productsFilters = val.filter((el) => {
-        return el.description.toLowerCase().includes(this.searchVal.toLowerCase());
-      });
-    });
-  }
-
-   //  navigate to product details
-   showDetails(e: Products) {
+  //  navigate to product details
+  showDetails(e: Products) {
     this.route.navigate(['/product-details', e.id]);
   }
   // add product to cart
@@ -62,16 +67,14 @@ export class SearchResulteComponent {
   }
 
   ////// handle grid ///////
-  handleCol12(){
-    this.grid ="col-md-4 col-12"
+  handleCol12() {
+    this.grid = 'col-md-4 col-12';
   }
-  handleCol6(){
-    this.grid ="col-md-3 col-6"
-
+  handleCol6() {
+    this.grid = 'col-md-3 col-6';
   }
-  handleCol3(){
-    this.grid ="col-md-2 col-6"
-
+  handleCol3() {
+    this.grid = 'col-md-2 col-6';
   }
   // add toast //
   showToastCart() {

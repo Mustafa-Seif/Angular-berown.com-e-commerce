@@ -44,7 +44,7 @@ const routes: Routes = [
     component:SignInComponent
   },
   {
-    path:"search-results/:val",
+    path:"search-results",
     component:SearchResulteComponent
   },
   {

@@ -41,13 +41,16 @@ export class NavBarComponent implements DoCheck {
   }
 
   goToSearchResults(): void {
-    // this.route.navigate(["search-results", "1"]);
-    this.route.navigate(['/search-results', this.searchVal]);
-    this.searchVal = '';
+    if (this.searchVal && this.searchVal.trim().length !== 0) {
+      this.route.navigate(['/search-results'],
+      {queryParams:{pro:this.searchVal},queryParamsHandling: 'merge' }
+      );
+      this.searchVal = '';
+    }
+   
   }
 
   authCart() {
-    
       this.messageService.add({
       key: 'authCart',
       severity: 'info',
