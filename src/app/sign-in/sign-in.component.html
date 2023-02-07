@@ -1,13 +1,13 @@
 <section class="sign-in">
 <div class="container mb-5 mt-5">
-  <h4 class="text-center text-dark mb-3">Sign In</h4>
+  <h4 class="text-center text-dark mb-3 fw-bolder fs-3">Sign In</h4>
   <form
     (ngSubmit)="handelRegister(registerForm)"
     [formGroup]="registerForm"
-    class="w-50 m-auto"
+    class="w-100 m-auto "
   >
     <div class="mb-3">
-      <label for="email" class="form-label">Email</label>
+      <label for="email" class="form-label ">Email</label>
       <input
         type="email"
         formControlName="email"
