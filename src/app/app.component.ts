@@ -8,6 +8,7 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class AppComponent {
   title = 'myapp';
+  IsLoader:boolean=true;
   constructor(private router:Router){}
   ngOnInit() {
     // scroll to top on route change 
@@ -17,5 +18,10 @@ export class AppComponent {
         }
         window.scrollTo(0, 0)
     });
+}
+
+ngAfterViewInit(){
+  setTimeout(()=>this.IsLoader=false,3000)
+  
 }
 }

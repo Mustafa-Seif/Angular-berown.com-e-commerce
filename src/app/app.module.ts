@@ -29,6 +29,7 @@ import { SearchResulteComponent } from './search-resulte/search-resulte.componen
 import { SignInComponent } from './sign-in/sign-in.component';
 import { ProductsComponent } from './products/products.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { LoaderComponent } from './loader/loader.component';
 
 
 
@@ -53,6 +54,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     SignInComponent,
     ProductsComponent,
     NotFoundComponent,
+    LoaderComponent,
   
   ],
   imports: [
