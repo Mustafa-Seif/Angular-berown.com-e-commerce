@@ -23,8 +23,6 @@
       }
     }
   }
-
-  
   .head2 {
     i {
       cursor: pointer;
@@ -81,7 +79,6 @@
 ///////////// Media ///////////////
 @media screen and (max-width: 920px) {
   .header {
-    // background-color: red;
     a {
       color: #000;
     }
@@ -124,6 +121,7 @@
       .search-input-Wapper {
         border: solid 1px rgba(128, 128, 128, 0.452);
         padding: 0 !important;
+        margin: 0 auto;
 
         input:first-child {
           width: 70%;
@@ -132,7 +130,7 @@
         input:nth-child(2) {
           background: #ef6c00;
           color: #fff;
-          padding: 0.75rem 2rem;
+          padding: 0.3rem 1rem;
         }
       }
       .cart-count {
