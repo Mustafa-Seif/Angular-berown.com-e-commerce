@@ -26,7 +26,5 @@ export class HotOfferComponent {
   
   addToCart(id:number){
     this.route.navigate(['/product-details',id]);
-    
-    
   }
 }

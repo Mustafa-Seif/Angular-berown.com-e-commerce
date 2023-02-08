@@ -7,8 +7,9 @@ import { Router, NavigationEnd } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'myapp';
+  title = 'Berwon.';
   IsLoader:boolean=true;
+  block:boolean=true;
   constructor(private router:Router){}
   ngOnInit() {
     // scroll to top on route change 
@@ -21,7 +22,11 @@ export class AppComponent {
 }
 
 ngAfterViewInit(){
-  setTimeout(()=>this.IsLoader=false,3000)
+  // HIDE LOADER 
+  setTimeout(()=>{
+    this.IsLoader=false
+    setTimeout(()=>this.block=false,2000)
+  },3000)
   
 }
 }
