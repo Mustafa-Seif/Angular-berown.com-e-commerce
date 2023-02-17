@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { Products } from '../interfaces/products';
-import { WishListService } from '../services/wish-list.service';
+import { Products } from '../../interfaces/products';
+import { WishListService } from '../../services/wish-list.service';
 import { MessageService } from 'primeng/api';
-import { CartService } from '../services/cart.service';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-wish-list',

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Products } from '../interfaces/products';
-import { CartService } from '../services/cart.service';
+import { Products } from '../../interfaces/products';
+import { CartService } from '../../services/cart.service';
 import { MessageService } from 'primeng/api';
 
 @Component({

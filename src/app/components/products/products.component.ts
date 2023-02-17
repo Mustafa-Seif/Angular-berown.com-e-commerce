@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { Products } from '../interfaces/products';
-import { GetProductsService } from '../services/get-products.service';
+import { Products } from '../../interfaces/products';
+import { GetProductsService } from '../../services/get-products.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
-import { CartService } from '../services/cart.service';
-import { WishListService } from '../services/wish-list.service';
+import { CartService } from '../../services/cart.service';
+import { WishListService } from '../../services/wish-list.service';
 import { MessageService } from 'primeng/api';
 
 @Component({

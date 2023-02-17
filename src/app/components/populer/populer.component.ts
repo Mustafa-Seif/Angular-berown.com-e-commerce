@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
-import { GetProductsService } from '../services/get-products.service';
-import { Products } from '../interfaces/products';
+import { GetProductsService } from '../../services/get-products.service';
+import { Products } from '../../interfaces/products';
 import { Router } from '@angular/router';
-import { CartService } from '../services/cart.service';
-import { WishListService } from '../services/wish-list.service';
+import { CartService } from '../../services/cart.service';
+import { WishListService } from '../../services/wish-list.service';
 import { MessageService } from 'primeng/api';
 
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);

@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { GetProductsService } from '../services/get-products.service';
-import { Products } from '../interfaces/products';
-import { CartService } from '../services/cart.service';
+import { GetProductsService } from '../../services/get-products.service';
+import { Products } from '../../interfaces/products';
+import { CartService } from '../../services/cart.service';
 import { MessageService } from 'primeng/api';
 
 @Component({

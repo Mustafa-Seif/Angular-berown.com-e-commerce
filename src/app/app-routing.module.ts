@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AccountComponent } from './account/account.component';
-import { CartComponent } from './cart/cart.component';
-import { ContactComponent } from './contact/contact.component';
+import { AccountComponent } from './components/account/account.component';
+import { CartComponent } from './components/cart/cart.component';
+import { ContactComponent } from './components/contact/contact.component';
 import { AuthGuard } from './guards/auth.guard';
-import { HomeComponent } from './home/home.component';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { ProductDetailsComponent } from './product-details/product-details.component';
-import { ProductsComponent } from './products/products.component';
-import { SearchResulteComponent } from './search-resulte/search-resulte.component';
-import { SignInComponent } from './sign-in/sign-in.component';
-import { WishListComponent } from './wish-list/wish-list.component';
+import { HomeComponent } from './components/home/home.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { ProductsComponent } from './components/products/products.component';
+import { SearchResulteComponent } from './components/search-resulte/search-resulte.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { WishListComponent } from './components/wish-list/wish-list.component';
 
 const routes: Routes = [
   {

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { GetProductsService } from '../services/get-products.service';
-import { Products } from '../interfaces/products';
+import { GetProductsService } from '../../services/get-products.service';
+import { Products } from '../../interfaces/products';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-hot-offer',

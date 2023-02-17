@@ -1,9 +1,9 @@
 import { Component, DoCheck } from '@angular/core';
-import { CartService } from '../services/cart.service';
+import { CartService } from '../../services/cart.service';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
-import { AuthService } from '../services/auth.service';
-import { AuthGuard } from '../guards/auth.guard';
+import { AuthService } from '../../services/auth.service';
+import { AuthGuard } from '../../guards/auth.guard';
 
 @Component({
   selector: 'app-nav-bar',
