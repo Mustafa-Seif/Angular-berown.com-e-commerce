@@ -38,7 +38,7 @@ export class PopulerComponent {
   ) {}
   ngOnInit() {
     // get product data
-    this.products.arrProducts.subscribe((val) => {
+    this.products.getProData().subscribe((val) => {
       this.productsData = val.slice(0, 11);
     });
   }

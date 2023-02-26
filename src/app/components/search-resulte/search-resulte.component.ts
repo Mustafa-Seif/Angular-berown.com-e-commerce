@@ -43,7 +43,7 @@ export class SearchResulteComponent {
   // Get product by search Value
   getProducts() {
     this.getSearchVal();
-    this.productsList.arrProducts.subscribe((val) => {
+    this.productsList.getProData().subscribe((val) => {
       this.productsFilters = val.filter((el) => {
         return el.description
           .toLowerCase()

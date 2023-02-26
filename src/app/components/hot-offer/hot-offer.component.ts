@@ -13,13 +13,13 @@ export class HotOfferComponent {
   proSlice3Item:Products[]=[];
   constructor(private products: GetProductsService,private route:Router){}
   ngOnInit(){
-    this.products.arrProducts.subscribe((val)=>{
+    this.products.getProData().subscribe((val)=>{
       this.proSlice1Item = val.slice(0,3)
     })
-    this.products.arrProducts.subscribe((val)=>{
+    this.products.getProData().subscribe((val)=>{
       this.proSlice2Item = val.slice(3,6)
     })
-    this.products.arrProducts.subscribe((val)=>{
+    this.products.getProData().subscribe((val)=>{
       this.proSlice3Item = val.slice(6,9)
     })
   }

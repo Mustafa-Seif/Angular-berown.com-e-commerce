@@ -29,7 +29,7 @@ export class ProductsComponent {
   ngOnInit() {
     // Get product by search Value
     this.searchVal = this.routeActive.snapshot.params['val'];
-    this.productsList.arrProducts.subscribe((val) => {
+    this.productsList.getProData().subscribe((val) => {
       this.products = val;
     });
   }

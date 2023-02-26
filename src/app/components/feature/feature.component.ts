@@ -35,7 +35,7 @@ export class FeatureComponent {
     private messageService: MessageService,
   ) {}
   ngOnInit() {
-    this.products.arrProducts.subscribe((val) => {
+    this.products.getProData().subscribe((val) => {
       this.productsData = val.slice(10, 21);
     });
   }

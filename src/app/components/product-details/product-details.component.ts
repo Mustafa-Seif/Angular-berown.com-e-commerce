@@ -26,7 +26,7 @@ export class ProductDetailsComponent {
     // get pramas id
     this.id = this.route.snapshot.params['id'];
     // get product details
-    this.products.arrProducts.subscribe((val) => {
+    this.products.getProData().subscribe((val) => {
       this.productsDetails = val.filter((el) => {
         return el.id == this.id;
       });
