@@ -16,14 +16,6 @@
     "count": 1
   },
   {
-    "id": 3,
-    "title": "Headphones",
-    "image": "../../assets/images/products/headphone1 (1).png",
-    "description": "Headphones XS3000 WiFi Smart",
-    "price": 95.0,
-    "count": 1
-  },
-  {
     "id": 4,
     "title": "Laptops",
     "image": "../../assets/images/products/laptop (3).png",

@@ -53,7 +53,6 @@ export class PopulerComponent {
   // add product to wish-List
   addToWish(item: Products): void {
     this.wishList.addToWishList(item);
-    console.log('first');
   }
 // add toast //
   showToastCart() {

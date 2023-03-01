@@ -11,6 +11,7 @@
   }
   
   .details-snippet1 {
+    margin-bottom: 6rem;
     color: #585656;
   }
   
@@ -115,8 +116,82 @@
     border: none;
     border-bottom: 4px solid purple;
   }
-
+  .related-products {
+    .title {
+      position: relative;
+      text-align: center;
+      &::before {
+        content: "";
+        position: absolute;
+        margin: 0 auto;
+        bottom: -1rem;
+        transform: translate(130%, 50%);
+        height: 2px;
+        width: 50px;
+        background-color: rgb(0, 0, 0);
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        margin: 0 auto;
+        bottom: -1rem;
+        transform: translate(-65%, 60%);
+        height: 1px;
+        width: 600px;
+        background-color: rgba(49, 47, 47, 0.137);
+      }
+    }
+    
+      .wapper-swiper{
+        position: relative;
+        .overlay-icons{
+        transition: 300ms ease-in-out all;
   
+          position: absolute;
+          top: 15px;
+          right: 15px;
+          opacity: 0;
+        cursor: pointer;
+        i{
+          font-size: 1.5rem;
+          margin-bottom: .5rem;
+          transition: 200ms;
+          font-size: bold;
+          &:hover{
+            color:#EF6C00;
+          }
+        }
+  
+        }
+        .pro-data{
+          cursor: pointer;
+        }
+        
+        &:hover .overlay-icons {
+          opacity: 1;
+        }
+        
+      }
+      
+   
+    button {
+      display: block;
+      width: 100%;
+      background-color: #ef6c00;
+      color: #fff;
+      padding: 0.5rem 0;
+      font-size: 1rem;
+      border: solid 1px #ef6c00;
+  
+      transition: 300ms ease-in-out;
+      &:hover {
+        background-color: #fff;
+        border: solid 1px #ef6c00;
+        color: #ef6c00;
+      }
+    }
+  }
+
   
   /* ////////Media Query//////// */
   

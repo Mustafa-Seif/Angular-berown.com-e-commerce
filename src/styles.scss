@@ -44,11 +44,6 @@ ul {
 a {
   text-decoration: none !important;
   font-family: "Roboto", sans-serif;
-
-  // &:hover{
-  //   color: $light !important;
-
-  // }
 }
 
 button,
@@ -145,7 +140,7 @@ body {
 }
 .ngx-pagination .current {
   padding: 0.1875rem 0.625rem;
-  background: #fff !important;
+  background: #868686 !important;
   color: #000 !important;
   cursor: default;
 }
