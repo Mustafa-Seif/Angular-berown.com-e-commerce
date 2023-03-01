@@ -14,7 +14,8 @@ import { MessageService } from 'primeng/api';
 export class ProductDetailsComponent {
   id?: number;
   productsDetails: Products[] = [];
-
+  myThumbnail="https://wittlock.github.io/ngx-image-zoom/assets/thumb.jpg";
+  myFullresImage="https://wittlock.github.io/ngx-image-zoom/assets/fullres.jpg";
   constructor(
     private products: GetProductsService,
     private route: ActivatedRoute,

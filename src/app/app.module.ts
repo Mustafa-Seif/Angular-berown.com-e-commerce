@@ -13,7 +13,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 ////////// C O M P O N E N T S  M O D U L E S ////////////
 import { SharedModule } from './shared/shared.module';
 import { AuthModule } from './auth/auth.module';
-
+import { NgxImageZoomModule } from 'ngx-image-zoom';
 ////////// C O M P O N E N T S  ////////////
 import { AppComponent } from './app.component';
 import { PopulerComponent } from './components/populer/populer.component';
@@ -60,7 +60,8 @@ import { LoaderComponent } from './components/loader/loader.component';
     FormsModule,
     ToastModule,
     ReactiveFormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    NgxImageZoomModule
   ],
 
   providers: [],

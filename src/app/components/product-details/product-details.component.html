@@ -22,11 +22,17 @@
           </div>
           <div class="col-md-10">
             <div class="product-image mb-3" style="height: 400px">
-              <img
-                style="display: block; height: 100%"
-                [src]="productsDetails[0].image"
-                alt="Main Image"
-              />
+             
+              <lib-ngx-image-zoom
+              class="mainImg"
+              [thumbImage]="productsDetails[0].image"
+              [fullImage]="productsDetails[0].image"
+              [magnification]="2"
+              [enableScrollZoom]="true"
+              [enableLens]="true"
+              [lensWidth]="200"
+              [lensHeight]="200"
+          ></lib-ngx-image-zoom>
             </div>
           </div>
         </div>
