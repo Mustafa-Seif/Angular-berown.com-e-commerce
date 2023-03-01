@@ -26,9 +26,19 @@
     <hr />
     <div class="row gy-5">
       <!-- <div > -->
-      <div *ngFor="let pro of products" class="wapper-swiper" [ngClass]="grid">
+      <div
+        *ngFor="
+          let pro of products | paginate : { itemsPerPage: 12, currentPage: p }
+        "
+        class="wapper-swiper"
+        [ngClass]="grid"
+      >
         <div class="overlay-icons d-flex flex-column">
-          <i class="bi bi-heart" (click)="addToWish(pro)" (click)="showToastWish()"></i>
+          <i
+            class="bi bi-heart"
+            (click)="addToWish(pro)"
+            (click)="showToastWish()"
+          ></i>
           <i class="bi bi-eye"></i>
           <i class="bi bi-recycle"></i>
         </div>
@@ -54,9 +64,17 @@
           </div>
           <h5>${{ pro.price }}</h5>
         </div>
-        <button (click)="addToCart(pro)" (click)="showToastCart()">ADD TO CART</button>
+        <button (click)="addToCart(pro)" (click)="showToastCart()">
+          ADD TO CART
+        </button>
       </div>
-      <!-- </div> -->
+        <pagination-controls
+          (pageChange)="p = $event"
+          screenReaderCurrentLabel="You're on page"
+          previousLabel="Prev"
+          [responsive]="true"
+          [maxSize]="9"
+        ></pagination-controls>
     </div>
   </div>
 </section>

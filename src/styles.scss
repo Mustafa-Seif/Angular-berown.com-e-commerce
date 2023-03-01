@@ -139,3 +139,21 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+// pagination
+.ngx-pagination {
+  text-align: center !important;
+}
+.ngx-pagination .current {
+  padding: 0.1875rem 0.625rem;
+  background: #fff !important;
+  color: #000 !important;
+  cursor: default;
+}
+.pagination-previous,
+.pagination-next {
+  a {
+    text-decoration: none !important;
+  }
+  background-color: #EF6C00 !important;
+  border: solid 1px #fff !important;
+}
