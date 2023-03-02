@@ -15,7 +15,7 @@ export class CartComponent {
 
   constructor(private cart: CartService) {}
   ngOnInit() {
-    this.getPro;
+    this.getPro();
   }
   // GET PRO FORM CART SERVICE
   getPro() {
