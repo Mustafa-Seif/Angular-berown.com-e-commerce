@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { ToastModule } from 'primeng/toast';
 import { ReactiveFormsModule } from '@angular/forms';
 import {NgxPaginationModule} from 'ngx-pagination';
-
+import { ToastrModule } from 'ngx-toastr';
 ////////// C O M P O N E N T S  M O D U L E S ////////////
 import { SharedModule } from './shared/shared.module';
 import { AuthModule } from './auth/auth.module';
@@ -61,7 +61,11 @@ import { LoaderComponent } from './components/loader/loader.component';
     ToastModule,
     ReactiveFormsModule,
     NgxPaginationModule,
-    NgxImageZoomModule
+    NgxImageZoomModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot({
+      positionClass: 'toast-top-left',
+    }), // ToastrModule added
   ],
 
   providers: [],

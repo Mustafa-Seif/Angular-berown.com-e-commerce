@@ -37,7 +37,6 @@
           <i
             class="bi bi-heart"
             (click)="addToWish(pro)"
-            (click)="showToastWish()"
           ></i>
           <i class="bi bi-eye"></i>
           <i class="bi bi-recycle"></i>
@@ -64,7 +63,7 @@
           </div>
           <h5>${{ pro.price }}</h5>
         </div>
-        <button (click)="addToCart(pro)" (click)="showToastCart()">
+        <button (click)="addToCart(pro)" >
           ADD TO CART
         </button>
       </div>
@@ -78,6 +77,4 @@
     </div>
   </div>
 </section>
-<!-- toast  -->
-<p-toast position="top-left" key="addToCart"></p-toast>
-<p-toast position="top-left" key="addToWish"></p-toast>
+

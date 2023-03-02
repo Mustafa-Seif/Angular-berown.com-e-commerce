@@ -5,13 +5,12 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { CartService } from '../../services/cart.service';
 import { WishListService } from '../../services/wish-list.service';
-import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss'],
-  providers: [MessageService],
+  providers: [],
 })
 export class ProductsComponent {
   products: Products[] = [];
@@ -25,7 +24,6 @@ export class ProductsComponent {
     private route: Router,
     private cart: CartService,
     private wishList: WishListService,
-    private messageService: MessageService
   ) {}
   ngOnInit() {
     // Get product by search Value
@@ -60,21 +58,4 @@ export class ProductsComponent {
     this.grid ="col-md-2 col-6"
 
   }
-// add toast //
-showToastCart() {
-  this.messageService.add({
-    key: 'addToCart',
-    severity: 'success',
-    summary: 'Cart',
-    detail: 'The product has been added to cart',
-  });
-}
-showToastWish() {
-  this.messageService.add({
-    key: 'addToWish',
-    severity: 'success',
-    summary: 'Wish list',
-    detail: 'The product has been added to wish list',
-  });
-}
 }

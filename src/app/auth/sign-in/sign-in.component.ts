@@ -10,19 +10,15 @@ import { AuthService } from '../../services/auth.service';
 export class SignInComponent {
   constructor(private router:Router, private log:AuthService) {}
   registerForm: FormGroup = new FormGroup({
-    
     email: new FormControl("",[Validators.required, Validators.email]),
-   
     password: new FormControl("", [Validators.required,
       Validators.pattern(/^[a-zA-Z0-9*@%$#]*$/)]),
       
   })
+  // HANDLE REGISTER 
   handelRegister(formInfo:FormGroup) {
     this.router.navigate(["/cart",])
     this.log.changeLogStatus(true)
 
   }
-  // onSubmit(){
-  //   console.log("first")
-  // }
 }

@@ -1,53 +1,40 @@
 import { Component } from '@angular/core';
 import { Products } from '../../interfaces/products';
 import { CartService } from '../../services/cart.service';
-import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss'],
-  providers: [MessageService],
-
+  providers: [],
 })
 export class CartComponent {
-  arrCart:Products[]=[];
-  index:number=0;
+  arrCart: Products[] = [];
+  index: number = 0;
   total: number = 0;
 
-  constructor(private cart:CartService, private messageService: MessageService){}
-  ngOnInit(){
-    // get cart products 
-    this.cart.cart.subscribe((val)=>{
+  constructor(private cart: CartService) {}
+  ngOnInit() {
+    this.getPro;
+  }
+  // GET PRO FORM CART SERVICE
+  getPro() {
+    this.cart.cart.subscribe((val) => {
       this.arrCart = val;
       this.getTotal();
-
-    })
+    });
   }
-    // delete pro from cart  
-  removePro(index:number):void{
+  // delete pro from cart
+  removePro(index: number): void {
     this.cart.removeProduct(index);
     this.total = 0;
     // get products from cart  after delete pro
-    this.cart.cart.subscribe((val)=>{
+    this.cart.cart.subscribe((val) => {
       this.arrCart = val;
-    })
+    });
     this.getTotal();
   }
-  // toast
-  removeFromCart(){
-    this.messageService.add({
-      key: 'removePro',
-      severity: 'info',
-      summary: 'Deleted',
-      detail: 'The product has been deleted from cart',
-    });
-  }
-
-
-
-  /////////////////////////////////
-  increasecount(id:number) {
+  increasecount(id: number) {
     this.arrCart = this.arrCart.map((pro) => {
       if (pro.id == id) {
         this.total += +pro.price;
@@ -58,8 +45,7 @@ export class CartComponent {
       return pro;
     });
   }
-
-  decreasecount(id:number) {
+  decreasecount(id: number) {
     this.arrCart = this.arrCart.map((pro) => {
       if (pro.id == id) {
         if (pro.count > 1) {
@@ -73,9 +59,7 @@ export class CartComponent {
   }
   getTotal() {
     for (let i = 0; i < this.arrCart.length; i++) {
-      // this.total = 0;
       this.total += +this.arrCart[i].price * this.arrCart[i].count;
     }
   }
-  
 }

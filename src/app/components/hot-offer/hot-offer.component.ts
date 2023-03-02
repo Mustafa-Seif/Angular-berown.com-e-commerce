@@ -13,6 +13,11 @@ export class HotOfferComponent {
   proSlice3Item:Products[]=[];
   constructor(private products: GetProductsService,private route:Router){}
   ngOnInit(){
+    this.getProduct
+  }
+
+  // GET ALL PRODUCTS 
+  getProduct(){
     this.products.getProData().subscribe((val)=>{
       this.proSlice1Item = val.slice(0,3)
     })
@@ -23,8 +28,8 @@ export class HotOfferComponent {
       this.proSlice3Item = val.slice(6,9)
     })
   }
-  
-  addToCart(id:number){
+  // GO TO PRO Details 
+  goToPro(id:number){
     this.route.navigate(['/product-details',id]);
   }
 }

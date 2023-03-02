@@ -70,7 +70,7 @@
         <hr />
         <div class="row">
           <div class="col-12">
-            <button class="addBtn" (click)="addToCart(productsDetails[0])" (click)="showToastCart()">
+            <button class="addBtn" (click)="addToCart(productsDetails[0])">
               add to cart
             </button>
           </div>
@@ -86,7 +86,6 @@
                 <i
                   class="bi bi-heart"
                   (click)="addToWish(pro)"
-                  (click)="showToastWish()"
                 ></i>
                 <i class="bi bi-eye"></i>
                 <i class="bi bi-recycle"></i>
@@ -116,7 +115,6 @@
             </div>
             <button
               (click)="addToCart(pro)"
-              (click)="showToastCart()"
             >
               ADD TO CART
             </button>
@@ -125,6 +123,3 @@
     </div>
   </div>
 </section>
-<!-- toast  -->
-<p-toast position="top-left" key="addToCart"></p-toast>
-<p-toast position="top-left" key="addToWish"></p-toast>

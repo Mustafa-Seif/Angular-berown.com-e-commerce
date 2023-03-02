@@ -1,5 +1,5 @@
 
-import { Component,ViewEncapsulation } from '@angular/core';
+import { Component } from '@angular/core';
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y,Autoplay} from 'swiper';
 
 // install Swiper modules

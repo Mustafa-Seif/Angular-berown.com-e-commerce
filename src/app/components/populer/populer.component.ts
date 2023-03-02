@@ -5,7 +5,6 @@ import { Products } from '../../interfaces/products';
 import { Router } from '@angular/router';
 import { CartService } from '../../services/cart.service';
 import { WishListService } from '../../services/wish-list.service';
-import { MessageService } from 'primeng/api';
 
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
@@ -13,7 +12,7 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
   selector: 'app-populer',
   templateUrl: './populer.component.html',
   styleUrls: ['./populer.component.scss'],
-  providers: [MessageService],
+  providers: [],
 })
 export class PopulerComponent {
   productsData: Products[] = [];
@@ -34,7 +33,6 @@ export class PopulerComponent {
     private route: Router,
     private cart: CartService,
     private wishList: WishListService,
-    private messageService: MessageService
   ) {}
   ngOnInit() {
     // get product data
@@ -53,22 +51,5 @@ export class PopulerComponent {
   // add product to wish-List
   addToWish(item: Products): void {
     this.wishList.addToWishList(item);
-  }
-// add toast //
-  showToastCart() {
-    this.messageService.add({
-      key: 'addToCart',
-      severity: 'success',
-      summary: 'Cart',
-      detail: 'The product has been added to cart',
-    });
-  }
-  showToastWish() {
-    this.messageService.add({
-      key: 'addToWish',
-      severity: 'success',
-      summary: 'Wish list',
-      detail: 'The product has been added to wish list',
-    });
   }
 }

@@ -4,6 +4,14 @@
 @import "swiper/scss/navigation";
 @import "swiper/scss/pagination";
 
+
+
+
+// regular style toast
+@import 'ngx-toastr/toastr';
+
+
+
 // =========== V A R ==========
 $linearColor: linear-gradient(
   to bottom,

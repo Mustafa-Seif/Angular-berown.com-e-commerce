@@ -4,14 +4,12 @@ import { Products } from '../../interfaces/products';
 import { Router } from '@angular/router';
 import { CartService } from '../../services/cart.service';
 import { WishListService } from '../../services/wish-list.service';
-import { MessageService } from 'primeng/api';
-
 
 @Component({
   selector: 'app-feature',
   templateUrl: './feature.component.html',
   styleUrls: ['./feature.component.scss'],
-  providers: [MessageService],
+  providers: [],
 
 })
 export class FeatureComponent {
@@ -32,7 +30,6 @@ export class FeatureComponent {
     private route: Router,
     private cart: CartService,
     private wishList: WishListService,
-    private messageService: MessageService,
   ) {}
   ngOnInit() {
     this.products.getProData().subscribe((val) => {
@@ -52,21 +49,5 @@ export class FeatureComponent {
     this.wishList.addToWishList(item);
     console.log('first');
   }
-  // toast //
-  showToastCart() {
-    this.messageService.add({
-      key: 'addToCart1',
-      severity: 'success',
-      summary: 'Cart',
-      detail: 'The product has been added to cart',
-    });
-  }
-  showToastWish() {
-    this.messageService.add({
-      key: 'addToWish1',
-      severity: 'success',
-      summary: 'Wish list',
-      detail: 'The product has been added to wish list',
-    });
-  }
+
 }
