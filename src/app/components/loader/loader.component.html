@@ -1,1 +1,10 @@
-<p>loader works!</p>
+<div class="app-warpper">
+    <div
+      class="loader-warpper"
+      [ngStyle]="{ display: block ? 'block' : 'none' }"
+      [ngClass]="IsLoader ? 'isLoader' : 'true'"
+    >
+      <img src="../assets/images/Pulse-1s-200px.svg" alt="loader" />
+    </div>
+  </div>
+  

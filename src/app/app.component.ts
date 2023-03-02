@@ -8,8 +8,7 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class AppComponent {
   title = 'Berwon.';
-  IsLoader:boolean=true;
-  block:boolean=true;
+
   constructor(private router:Router){}
   ngOnInit() {
     // scroll to top on route change 
@@ -19,14 +18,5 @@ export class AppComponent {
         }
         window.scrollTo(0, 0)
     });
-}
-
-ngAfterViewInit(){
-  // HIDE LOADER 
-  setTimeout(()=>{
-    this.IsLoader=false
-    setTimeout(()=>this.block=false,2000)
-  },3000)
-  
 }
 }
