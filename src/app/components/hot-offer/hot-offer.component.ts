@@ -13,7 +13,7 @@ export class HotOfferComponent {
   proSlice3Item:Products[]=[];
   constructor(private products: GetProductsService,private route:Router){}
   ngOnInit(){
-    this.getProduct
+    this.getProduct()
   }
 
   // GET ALL PRODUCTS 
