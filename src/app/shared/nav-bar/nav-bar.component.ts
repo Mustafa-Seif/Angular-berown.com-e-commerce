@@ -45,7 +45,6 @@ export class NavBarComponent implements DoCheck {
       this.route.navigate(['/search-results'],
       {queryParams:{pro:this.searchVal},queryParamsHandling: 'merge' }
       );
-      this.searchVal = '';
     }
   }
 
