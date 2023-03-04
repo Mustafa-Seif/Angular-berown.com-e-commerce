@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {ToastModule} from 'primeng/toast';
 import { AppRoutingModule } from '../app-routing.module';
+import {MatButtonModule} from '@angular/material/button';
 
 ////////// C O M P O N E N T S  ////////////
 import { FooterComponent } from './footer/footer.component';
@@ -19,7 +20,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     CommonModule,
     FormsModule,
     ToastModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatButtonModule,
   ],
   exports:[
     NavBarComponent,
