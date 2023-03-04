@@ -30,6 +30,8 @@ import { SearchResulteComponent } from './components/search-resulte/search-resul
 import { ProductsComponent } from './components/products/products.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { LoaderComponent } from './components/loader/loader.component';
+import { RegisterComponent } from './components/register/register.component';
+
 
 @NgModule({
   declarations: [
@@ -48,6 +50,7 @@ import { LoaderComponent } from './components/loader/loader.component';
     ProductsComponent,
     NotFoundComponent,
     LoaderComponent,
+    RegisterComponent,
   ],
   imports: [
     SharedModule,

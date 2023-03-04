@@ -10,6 +10,7 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 import { ProductsComponent } from './components/products/products.component';
 import { SearchResulteComponent } from './components/search-resulte/search-resulte.component';
 import { SignInComponent } from './auth/sign-in/sign-in.component';
+import { RegisterComponent } from './auth/register/register.component';
 import { WishListComponent } from './components/wish-list/wish-list.component';
 
 const routes: Routes = [
@@ -50,6 +51,10 @@ const routes: Routes = [
   {
     path:"product-details/:id",
     component:ProductDetailsComponent
+  },
+  {
+    path:"register",
+    component:RegisterComponent
   },
   {
     path:"**",

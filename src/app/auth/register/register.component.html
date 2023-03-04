@@ -1,1 +1,100 @@
-<p>register works!</p>
+<section class="register">
+  <div class="container mb-5 mt-5">
+    <h4 class="text-center text-dark mb-3 fw-bolder fs-3">Register</h4>
+    <form
+      (ngSubmit)="handelRegister(registerForm)"
+      [formGroup]="registerForm"
+      class="m-auto">
+    
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input
+          type="text"
+          formControlName="name"
+          name="name"
+          id="name"
+          class="form-control"
+        />
+        <div
+          *ngIf="
+            registerForm.get('name')?.errors &&
+            registerForm.get('name')?.touched
+          "
+          class="text-danger mb-2"
+        >
+          <p
+            *ngIf="
+          registerForm.get('name')?.errors?.['required']"
+          >
+            Name is required
+          </p>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input
+          type="email"
+          formControlName="email"
+          name="email"
+          id="email"
+          class="form-control"
+        />
+        <div
+          *ngIf="
+            registerForm.get('email')?.errors &&
+            registerForm.get('email')?.touched
+          "
+          class="text-danger mb-2"
+        >
+          <p
+            *ngIf="
+            registerForm.get('email')?.errors?.['required']"
+          >
+            email is required
+          </p>
+          <p
+            *ngIf="
+            registerForm.get('email')?.errors?.['email']"
+          >
+            email invalid
+          </p>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input
+          type="password"
+          formControlName="password"
+          name="password"
+          id="password"
+          class="form-control"
+        />
+        <div
+          *ngIf="
+            registerForm.get('password')?.errors &&
+            registerForm.get('password')?.touched
+          "
+          class="text-danger mb-2"
+        >
+          <p
+            *ngIf="
+            registerForm.get('password')?.errors?.['required']"
+          >
+            password is required
+          </p>
+          <p
+            *ngIf="
+            registerForm.get('password')?.errors?.['pattern']"
+          >
+            password must start with capital letter
+          </p>
+        </div>
+      </div>
+      <button type="submit" class="py-2 px-4"
+      [disabled]="registerForm.invalid"
+      >
+        Register
+      </button>
+    </form>
+  </div>
+</section>
