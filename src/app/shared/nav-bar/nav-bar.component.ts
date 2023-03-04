@@ -24,20 +24,24 @@ export class NavBarComponent implements DoCheck {
   ) {}
 
   ngOnInit() {
-    // get cart length
-    this.cart.cart.subscribe((val) => {
-      this.theCartLength = val.length;
-    });
-
-    this.islog.loged.subscribe((val)=>{
-      this.logedAuth = val;
-    })
+    this.getCartLength()
+    this.getLoginStatus()
   }
   // get cart length after change
   ngDoCheck() {
+   this.getCartLength()
+  }
+  // get cart length
+  getCartLength(){
     this.cart.cart.subscribe((val) => {
       this.theCartLength = val.length;
     });
+  }
+  // get Login Status
+  getLoginStatus(){
+    this.islog.loged.subscribe((val)=>{
+      this.logedAuth = val;
+    })
   }
 // HANDLE GO TO SEARCH 
   goToSearchResults(): void {
@@ -46,6 +50,9 @@ export class NavBarComponent implements DoCheck {
       {queryParams:{pro:this.searchVal},queryParamsHandling: 'merge' }
       );
     }
+  }
+  resetVal(){
+    this.searchVal="";
   }
 
   authCart() {
@@ -56,7 +63,11 @@ export class NavBarComponent implements DoCheck {
       this.route.navigate(['/sign-in'])
     }
   }
-    
+  // SIGN OUT
+  signOut(){
+    // CHANGE SIGN STATUS
+    this.islog.changeLogStatus(false)
+    this.route.navigate(['/'])
 
-  
+  }
 }

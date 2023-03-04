@@ -31,7 +31,7 @@ export class SearchResulteComponent {
   }
 
   ngDoCheck() {
-    this.getProducts();
+    // this.getProducts();
   }
 
   // GET SEARCH VALUE FROM QUERY PARAMS

@@ -1,47 +1,72 @@
 <div class="container-fluid">
   <header class="header">
-    <div class=" pt-4 head1 justify-content-end">
-      <div class="nav1-right ">
+    <div class="pt-4 head1 justify-content-end">
+      <div class="nav1-right">
         <ul class="d-flex">
           <li routerLink="wish-list">
-            <a (click)="authCart()"> <i class="bi bi-heart"></i>
-              WISHLIST</a>
+            <a (click)="authCart()"> <i class="bi bi-heart"></i> WISHLIST</a>
+          </li>
+          <li *ngIf="!logedAuth">
+            <a routerLink="sign-in" >
+              <i class="bi bi-box-arrow-in-right"></i> SIGN IN</a>
+          </li>
+          <li *ngIf="logedAuth" (click)="signOut()">
+            <a  class="text-danger" >
+              <i class="bi bi-box-arrow-left"></i> SIGN OUT</a>
           </li>
           <li>
-            <a routerLink="sign-in"> <i class="bi bi-box-arrow-in-right"></i>
-              SIGN IN</a>
-          </li>
-          <li>
-            <a href="#"> <i class="bi bi-person-fill"></i> My
-              Account</a>
+            <a href="#"> <i class="bi bi-person-fill"></i> MY ACCOUNT</a>
           </li>
         </ul>
       </div>
     </div>
     <div class="head2 row justify-content-between align-items-center">
-      <div class="logo col-12 col-md-2 ms-md-5" >
+      <div class="logo col-12 col-md-2 ms-md-5">
         <h1 routerLink="">BEROWN<span class="logo-dot">.</span></h1>
       </div>
-      <div class="search-input-Wapper col-10 col-md-6 d-flex ms-md-5 justify-content-between">
-        <input type="text " placeholder="type to search..." [(ngModel)]="searchVal" />
+      <div
+        class="search-input-Wapper col-10 col-md-6 d-flex ms-md-5 justify-content-between"
+      >
+        <div class="d-flex justify-content-between">
+          <input
+            type="text "
+            placeholder="type to search..."
+            [(ngModel)]="searchVal"
+          />
+          <div><i class="bi bi-x-lg fs-5" (click)="resetVal()"></i></div>
+        </div>
         <input type="button" value="SEARCH" (click)="goToSearchResults()" />
       </div>
-      <div class="d-flex col-12 col-md-2 mt-4 justify-content-end me-md-5 cart-icon-warpper " routerLink="cart">
+      <div
+        class="d-flex col-12 col-md-2 mt-4 justify-content-end me-md-5 cart-icon-warpper"
+        routerLink="cart"
+      >
         <p class="position-relative d-inline" (click)="authCart()">
-          <span class="cart-count">{{ theCartLength }}</span><i class="fa-solid fa-cart-shopping text-dark fs-6"></i>
+          <span class="cart-count">{{ theCartLength }}</span
+          ><i class="fa-solid fa-cart-shopping text-dark fs-6"></i>
           $0.00
         </p>
       </div>
     </div>
     <hr />
     <nav>
-      <ul class=" ms-md-5 me-md-5 justify-content-center text-center">
-        <li ><a  routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }" routerLink="/">HOME</a></li>
-        <li ><a  routerLinkActive="active-link" routerLink="/products">PRODUCTS</a></li>
-        <li ><a  routerLinkActive="active-link" href="">ABOUT</a></li>
-        <li ><a  routerLinkActive="active-link" routerLink="/contact">CONTACT</a></li>
+      <ul class="ms-md-5 me-md-5 justify-content-center text-center">
+        <li>
+          <a
+            routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{ exact: true }"
+            routerLink="/"
+            >HOME</a
+          >
+        </li>
+        <li>
+          <a routerLinkActive="active-link" routerLink="/products">PRODUCTS</a>
+        </li>
+        <li><a routerLinkActive="active-link" href="">ABOUT</a></li>
+        <li>
+          <a routerLinkActive="active-link" routerLink="/contact">CONTACT</a>
+        </li>
       </ul>
     </nav>
   </header>
 </div>
-

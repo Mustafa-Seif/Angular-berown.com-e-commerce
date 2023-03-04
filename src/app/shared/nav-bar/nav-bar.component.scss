@@ -37,9 +37,12 @@
       border: solid 1px rgba(128, 128, 128, 0.452);
       padding: 0 !important;
 
-      input:first-child {
-        width: 70%;
+      div:first-child {
+        width: 100%;
         padding: 0.5rem;
+        input{
+          width: 80%;
+        }
       }
       input:nth-child(2) {
         background: #ef6c00;
@@ -125,12 +128,12 @@
 
         input:first-child {
           width: 70%;
-          padding: 0.5rem;
+          padding: 0;
         }
         input:nth-child(2) {
           background: #ef6c00;
           color: #fff;
-          padding: 0.3rem 1rem;
+          padding: 0 1rem;
         }
       }
       .cart-count {
