@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { RegisterService } from 'src/app/services/register.service';
 import { AuthService } from '../../services/auth.service';
 import { ToastrService } from 'ngx-toastr';
+import { SignInService } from 'src/app/services/sign-in.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -15,9 +16,10 @@ export class SignInComponent {
     private router: Router,
     private log: AuthService,
     private _register: RegisterService,
+    private _signInService: SignInService,
     private toastr: ToastrService
   ) {}
-  registerForm: FormGroup = new FormGroup({
+  signInForm: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [
       Validators.required,
@@ -25,31 +27,11 @@ export class SignInComponent {
     ]),
   });
   // HANDLE REGISTER
-  handelRegister(formInfo: FormGroup) {
-    this._register.register.subscribe((val) => {
-      if (
-        val.find((user) => user.email === this.registerForm.value.email) ===
-          undefined ||
-        val.find(
-          (user) => user.password === this.registerForm.value.password
-        ) === undefined
-      ) {
-        this.toastr.warning('e-mail or password incorrect!');
-      } else if (
-        val.find((user) => user.email === this.registerForm.value.email) &&
-        val.find((user) => user.password === this.registerForm.value.password)
-      ) {
-        this.log.changeLogStatus(true);
-        this.router.navigate(['/cart']);
-        // ADD TOASTER
-        this.toastr.success('welcome');
-
-      }
-    });
-
+  handelSignIn(): void {
+    this._signInService.signIn(this.signInForm);
   }
   // ??????????????????
-  routeToRegister() {
+  routeToRegister(): void {
     this.router.navigate(['/register']);
   }
 }

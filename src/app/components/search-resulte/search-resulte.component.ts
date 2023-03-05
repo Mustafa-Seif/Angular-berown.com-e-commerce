@@ -14,7 +14,7 @@ import { WishListService } from '../../services/wish-list.service';
 })
 export class SearchResulteComponent {
   productsFilters: Products[] = [];
-  searchVal: any;
+  searchVal?:any;
   grid: string = 'col-md-3 col-6';
 
   constructor(

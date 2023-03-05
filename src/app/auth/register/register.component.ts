@@ -25,9 +25,6 @@ export class RegisterComponent {
   });
   // HANDLE REGISTER
   handelRegister(formInfo: FormGroup) {
-    this.router.navigate(['/']);
-    // this._RegisterService.addNewUser({id:0,...this.registerForm.value})
     this._RegisterService.addNewUser(this.registerForm.value);
-    this._islogin.changeLogStatus(true);
   }
 }
