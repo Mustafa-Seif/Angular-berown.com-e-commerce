@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Products } from '../../interfaces/products';
 import { GetProductsService } from '../../services/get-products.service';
 import { ActivatedRoute } from '@angular/router';
-import { Router } from '@angular/router';
+import { Router, Event, NavigationStart, NavigationEnd } from '@angular/router';
 import { CartService } from '../../services/cart.service';
 import { WishListService } from '../../services/wish-list.service';
 
@@ -14,7 +14,7 @@ import { WishListService } from '../../services/wish-list.service';
 })
 export class SearchResulteComponent {
   productsFilters: Products[] = [];
-  searchVal?:any;
+  searchVal?: any;
   grid: string = 'col-md-3 col-6';
 
   constructor(
@@ -23,13 +23,15 @@ export class SearchResulteComponent {
     private route: Router,
     private cart: CartService,
     private wishList: WishListService
-  ) {}
+  ) {
+    this.route.events.subscribe((event: Event) => {
+      if (event instanceof NavigationEnd) {
+        this.getProducts();
+      }
+    });
+  }
   ngOnInit() {
     this.getProducts();
-  }
-
-  ngDoCheck() {
-    // this.getProducts();
   }
 
   // GET SEARCH VALUE FROM QUERY PARAMS
@@ -37,7 +39,6 @@ export class SearchResulteComponent {
     this.routeActive.queryParams.subscribe((val) => {
       this.searchVal = val;
     });
-    // this. getProducts()
   }
   // Get product by search Value
   getProducts() {
