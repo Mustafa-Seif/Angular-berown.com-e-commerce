@@ -64,7 +64,7 @@ export class NavBarComponent implements DoCheck {
   signOut(){
     // CHANGE SIGN STATUS
     Swal.fire({
-      title: 'Are you sure you went sign out?',
+      text: 'Are you sure you want sign out?',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#ef6c00',

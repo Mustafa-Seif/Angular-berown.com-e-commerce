@@ -29,12 +29,12 @@ export class SignInComponent {
     this._register.register.subscribe((val) => {
       if (
         val.find((user) => user.email === this.registerForm.value.email) ===
-          undefined &&
+          undefined ||
         val.find(
           (user) => user.password === this.registerForm.value.password
         ) === undefined
       ) {
-        this.toastr.info('This user is not exists');
+        this.toastr.warning('e-mail or password incorrect!');
       } else if (
         val.find((user) => user.email === this.registerForm.value.email) &&
         val.find((user) => user.password === this.registerForm.value.password)

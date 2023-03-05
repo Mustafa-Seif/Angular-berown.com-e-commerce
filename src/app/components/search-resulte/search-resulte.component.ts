@@ -6,7 +6,6 @@ import { Router } from '@angular/router';
 import { CartService } from '../../services/cart.service';
 import { WishListService } from '../../services/wish-list.service';
 
-
 @Component({
   selector: 'app-search-resulte',
   templateUrl: './search-resulte.component.html',
@@ -23,7 +22,7 @@ export class SearchResulteComponent {
     private routeActive: ActivatedRoute,
     private route: Router,
     private cart: CartService,
-    private wishList: WishListService,
+    private wishList: WishListService
   ) {}
   ngOnInit() {
     this.getProducts();
@@ -35,9 +34,10 @@ export class SearchResulteComponent {
 
   // GET SEARCH VALUE FROM QUERY PARAMS
   getSearchVal() {
-     this.routeActive.queryParams.subscribe((val) => {
+    this.routeActive.queryParams.subscribe((val) => {
       this.searchVal = val;
     });
+    // this. getProducts()
   }
   // Get product by search Value
   getProducts() {
