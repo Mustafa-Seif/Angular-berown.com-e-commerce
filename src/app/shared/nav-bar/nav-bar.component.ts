@@ -29,7 +29,7 @@ export class NavBarComponent implements DoCheck {
   }
   // get cart length after change
   ngDoCheck() {
-   this.getCartLength()
+  //  this.getCartLength()
   }
   // get cart length
   getCartLength(){
@@ -45,16 +45,12 @@ export class NavBarComponent implements DoCheck {
   }
 // HANDLE GO TO SEARCH 
   goToSearchResults(): void {
-    if (this.searchVal && this.searchVal.trim().length !== 0) {
+    if (this.searchVal && this.searchVal.trim().length) {
       this.route.navigate(['/search-results'],
       {queryParams:{pro:this.searchVal},queryParamsHandling: 'merge' }
       );
     }
   }
-  resetVal(){
-    this.searchVal="";
-  }
-
   authCart() {
     if (!this.logedAuth) {
       // OPEN TOAST IF NOT SIGNED IN

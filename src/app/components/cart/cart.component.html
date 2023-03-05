@@ -1,5 +1,5 @@
 <div
-  *ngIf="arrCart.length == 0"
+  *ngIf="!arrCart.length"
   class="text-center no-item"
   style="margin: 6rem 0"
 >
@@ -7,7 +7,7 @@
     <p class="fs-1 fw-bolder">YOU HAVE NO ITEMS IN YOUR SHOPPING CART.</p>
     <div class="card-body">
       <a
-        routerLink=""
+        routerLink="/products"
         class="btn btn-block btn-lg"
         style="background-color: #ef6c00; color: #fff"
       >
@@ -19,7 +19,7 @@
 <section
  
   style="background-color: #eee"
-  *ngIf="arrCart.length > 0"
+  *ngIf="arrCart.length"
 >
   <div class="container h-100 py-5">
     <div class="row d-flex justify-content-center align-items-center h-100">

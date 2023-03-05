@@ -37,7 +37,7 @@
             placeholder="type to search..."
             [(ngModel)]="searchVal"
           />
-          <div><i class="bi bi-x-lg fs-5" (click)="resetVal()"></i></div>
+          <div><i class="bi bi-x-lg fs-5" (click)="searchVal=''"></i></div>
         </div>
         <input type="button" value="SEARCH" (click)="goToSearchResults()" />
       </div>

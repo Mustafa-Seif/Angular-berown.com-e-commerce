@@ -1,9 +1,9 @@
-<div *ngIf="wishList.length == 0" class="text-center no-item " style="margin: 6rem 0;">
+<div *ngIf="!wishList.length" class="text-center no-item " style="margin: 6rem 0;">
   <div class="container">
     <p class="fs-1 fw-bolder">YOU HAVE NO ITEMS IN YOUR WISH LIST.</p>
     <div class="card-body">
       <a
-        routerLink=""
+        routerLink="/products"
         class="btn btn-block btn-lg"
         style="background-color: #ef6c00; color: #fff"
       >
@@ -14,7 +14,7 @@
 </div>
 <section
   style="background-color: #eee"
-  *ngIf="wishList.length > 0"
+  *ngIf="wishList.length"
 >
   <div class="container h-100 py-5">
     <div class="row d-flex justify-content-center align-items-center h-100">

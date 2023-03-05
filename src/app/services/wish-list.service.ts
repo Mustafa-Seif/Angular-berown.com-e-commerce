@@ -41,7 +41,7 @@ export class WishListService {
       val.splice(index, 1);
       // LOCALSTORAGE
       localStorage.setItem('wishStorage', JSON.stringify(val));
-      this.toastr.warning('The product has been deleted from wish list');
+      this.toastr.warning('Product deleted from wish list');
     });
   }
 }

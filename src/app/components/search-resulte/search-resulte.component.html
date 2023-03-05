@@ -18,7 +18,7 @@
 </div>
 <section class="search-resulte mt-5">
   <div class="container-custom">
-    <div class="row grid-wapper-icons" *ngIf="productsFilters.length>0">
+    <div class="row grid-wapper-icons" *ngIf="productsFilters.length" >
       <i class="bi bi-grid-1x2-fill col-1" (click)="handleCol12()"></i>
       <i class="bi bi-grid-fill col-1" (click)="handleCol6()"></i>
       <i class="bi bi-grid-3x3-gap-fill col-1" (click)="handleCol3()"></i>
@@ -29,7 +29,7 @@
       <!-- <div > -->
       <div *ngFor="let pro of productsFilters" class="wapper-swiper" [ngClass]="grid">
         <div class="overlay-icons d-flex flex-column" >
-          <i class="bi bi-heart" (click)="addToWish(pro)" (click)="showToastWish()"></i>
+          <i class="bi bi-heart" (click)="addToWish(pro)"></i>
           <i class="bi bi-eye"></i>
           <i class="bi bi-recycle"></i>
         </div>
@@ -55,12 +55,9 @@
           </div>
           <h5>${{ pro.price }}</h5>
         </div>
-        <button (click)="addToCart(pro)" (click)="showToastCart()" >ADD TO CART</button>
+        <button (click)="addToCart(pro)">ADD TO CART</button>
       </div>
       <!-- </div> -->
     </div>
   </div>
 </section>
-<!-- toast  -->
-<p-toast position="top-left" key="addToCart"></p-toast>
-<p-toast position="top-left" key="addToWish"></p-toast>
