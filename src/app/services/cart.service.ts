@@ -34,7 +34,8 @@ export class CartService {
           }
         });
       }
-    });
+    }).unsubscribe();
+    this.theCart.next(this.theCart.value)
   }
   // REMOVE PRODUCT FROM CART
   removeProduct(ind: number): void {
@@ -43,6 +44,7 @@ export class CartService {
       // LOCALSTORAGE
       localStorage.setItem('cartStorage', JSON.stringify(val));
       this.toastr.warning('The product has been deleted from cart');
-    });
+    }).unsubscribe();
+    this.theCart.next(this.theCart.value)
   }
 }

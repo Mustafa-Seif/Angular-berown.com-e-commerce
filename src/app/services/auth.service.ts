@@ -9,7 +9,7 @@ export class AuthService {
   loged = this.isLoged.asObservable()
   
   constructor() { 
-    this.isLoged.next(JSON.parse(localStorage.getItem('authStorage') || '[]'));
+    this.isLoged.next(JSON.parse(localStorage.getItem('authStorage') || "false"));
   }
   changeLogStatus(val:boolean){
     this.isLoged.next(val);

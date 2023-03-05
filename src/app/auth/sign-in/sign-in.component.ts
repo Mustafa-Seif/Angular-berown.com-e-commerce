@@ -34,30 +34,20 @@ export class SignInComponent {
           (user) => user.password === this.registerForm.value.password
         ) === undefined
       ) {
-        // this.log.changeLogStatus(false);
-
-        this.toastr.info('Not found');
+        this.toastr.info('This user is not exists');
       } else if (
         val.find((user) => user.email === this.registerForm.value.email) &&
         val.find((user) => user.password === this.registerForm.value.password)
       ) {
-        // val.forEach((el) => {
-        // if (el.email === this.registerForm.value.id) {
         this.log.changeLogStatus(true);
         this.router.navigate(['/cart']);
-
         // ADD TOASTER
         this.toastr.success('welcome');
 
-        // }
-        // });
       }
     });
 
-    // this.router.navigate(["/cart",])
-    // this.log.changeLogStatus(true)
   }
-
   // ??????????????????
   routeToRegister() {
     this.router.navigate(['/register']);

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { AuthService } from '../../services/auth.service';
 import { ToastrService } from 'ngx-toastr';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-nav-bar',
@@ -62,8 +63,23 @@ export class NavBarComponent implements DoCheck {
   // SIGN OUT
   signOut(){
     // CHANGE SIGN STATUS
-    this.islog.changeLogStatus(false)
-    this.route.navigate(['/'])
-
+    Swal.fire({
+      title: 'Are you sure you went sign out?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#ef6c00',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.islog.changeLogStatus(false)
+        this.route.navigate(['/'])
+      }
+    })
   }
+
+
+
+
+
 }

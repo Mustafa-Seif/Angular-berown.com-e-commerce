@@ -23,6 +23,7 @@ export class WishListService {
         localStorage.setItem('wishStorage', JSON.stringify(val));
         // ADD TOASTER
         this.toastr.success('The product has been added to wish list');
+        
       } else {
         val.forEach((el) => {
           if (el.id === item.id) {
@@ -34,7 +35,8 @@ export class WishListService {
           }
         });
       }
-    });
+    }).unsubscribe();
+    this.theWishes.next(this.theWishes.value)
   }
   removeFromWishes(index: number) {
     this.wishList.subscribe((val) => {
@@ -42,6 +44,7 @@ export class WishListService {
       // LOCALSTORAGE
       localStorage.setItem('wishStorage', JSON.stringify(val));
       this.toastr.warning('Product deleted from wish list');
-    });
+    }).unsubscribe();
+    this.theWishes.next(this.theWishes.value)
   }
 }
