@@ -19,7 +19,8 @@ export class ProductDetailsComponent {
   myThumbnail = 'https://wittlock.github.io/ngx-image-zoom/assets/thumb.jpg';
   myFullresImage ='https://wittlock.github.io/ngx-image-zoom/assets/fullres.jpg';
   sekletonHeightRelted:any={one:200,tow:50,three:20}
-  sekletonHeightDetails:any={one:275,tow:75,three:50}
+  sekletonHeightDetails:any={one:300,tow:75,three:50}
+  sekletonHeightDetails1:any={one:400,tow:0,three:0}
   Isloading:boolean=true;
     
   constructor(

@@ -1,6 +1,9 @@
 <section class="product-details">
   <div class="container-custom">
-    <div class="row details-snippet1 mb-5" *ngIf="productsDetails.length && !Isloading">
+    <div
+      class="row details-snippet1 mb-5"
+      *ngIf="productsDetails.length && !Isloading"
+    >
       <div class="col-md-7">
         <div class="row">
           <div class="col-md-2 mini-preview">
@@ -78,10 +81,17 @@
       </div>
     </div>
     <!-- SEKLETONDETAILS  -->
-    <app-skeleton
-    *ngIf="Isloading"
-    [heightData]="sekletonHeightDetails"
-  ></app-skeleton>
+    <div class="row gx-5"   *ngIf="Isloading">
+      <app-skeleton
+      class="col-6"
+        [heightData]="sekletonHeightDetails1"
+      ></app-skeleton>
+      <app-skeleton
+      class="col-6"
+        [heightData]="sekletonHeightDetails"
+      ></app-skeleton>
+    </div>
+
     <div class="related-products">
       <h4 class="mb-5 title">RELATED ITEMS</h4>
       <swiper [config]="swiperConfig" [navigation]="true">
