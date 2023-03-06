@@ -3,17 +3,19 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule , HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SwiperModule } from 'swiper/angular';
 import { FormsModule } from '@angular/forms';
 import { ToastModule } from 'primeng/toast';
 import { ReactiveFormsModule } from '@angular/forms';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { ToastrModule } from 'ngx-toastr';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 ////////// C O M P O N E N T S  M O D U L E S ////////////
 import { SharedModule } from './shared/shared.module';
 import { AuthModule } from './auth/auth.module';
 import { NgxImageZoomModule } from 'ngx-image-zoom';
+import { LoaderInterceptor } from './interceptors/loader.interceptor';
 ////////// C O M P O N E N T S  ////////////
 import { AppComponent } from './app.component';
 import { PopulerComponent } from './components/populer/populer.component';
@@ -30,7 +32,7 @@ import { SearchResulteComponent } from './components/search-resulte/search-resul
 import { ProductsComponent } from './components/products/products.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { LoaderComponent } from './components/loader/loader.component';
-import { RegisterComponent } from './components/register/register.component';
+import { SkeletonComponent } from './components/skeleton/skeleton.component';
 
 
 @NgModule({
@@ -50,7 +52,8 @@ import { RegisterComponent } from './components/register/register.component';
     ProductsComponent,
     NotFoundComponent,
     LoaderComponent,
-    RegisterComponent,
+    // RegisterComponent,
+    SkeletonComponent,
   ],
   imports: [
     SharedModule,
@@ -65,13 +68,20 @@ import { RegisterComponent } from './components/register/register.component';
     ReactiveFormsModule,
     NgxPaginationModule,
     NgxImageZoomModule,
+    NgxSkeletonLoaderModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot({
       positionClass: 'toast-top-left',
     }), // ToastrModule added
   ],
 
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoaderInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

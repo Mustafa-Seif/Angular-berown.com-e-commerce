@@ -3,7 +3,7 @@
     <h4 class="mb-5 title">FEATURED ITEMS</h4>
     <swiper  [navigation]="true" [config]="swiperConfig">
       <ng-template swiperSlide *ngFor="let pro of productsData">
-        <div class="wapper-swiper" >
+        <div class="wapper-swiper" *ngIf="productsData.length && !Isloading" >
           <div class="overlay-icons d-flex flex-column ">
             <i class="bi bi-heart" (click)="addToWish(pro)"></i>
             <i class="bi bi-eye" (click)="showDetails(pro)"></i>
@@ -31,8 +31,9 @@
             </div>
             <h5>${{ pro.price }}</h5>
           </div>
-        </div>
-        <button (click)="addToCart(pro)">ADD TO CART</button>
+          <button (click)="addToCart(pro)">ADD TO CART</button>
+        </div> 
+        <app-skeleton *ngIf="Isloading"></app-skeleton>
       </ng-template>
     </swiper>
   </div>

@@ -4,6 +4,7 @@ import { Products } from '../../interfaces/products';
 import { Router } from '@angular/router';
 import { CartService } from '../../services/cart.service';
 import { WishListService } from '../../services/wish-list.service';
+import { LoaderService } from 'src/app/services/loader.service';
 
 @Component({
   selector: 'app-feature',
@@ -14,6 +15,8 @@ import { WishListService } from '../../services/wish-list.service';
 })
 export class FeatureComponent {
   productsData: Products[] = [];
+  Isloading:boolean=true;
+
   //  make swiper responsive
   swiperConfig: any = {
     slidesPerView: '1',
@@ -30,9 +33,21 @@ export class FeatureComponent {
     private route: Router,
     private cart: CartService,
     private wishList: WishListService,
+    private _Isloader:LoaderService
+
   ) {}
   ngOnInit() {
-    this.products.getProData().subscribe((val) => {
+    this.checkLoader()
+    this.getProData()
+  }
+   // CHECK LOADER STATUS 
+   checkLoader(){
+    this._Isloader._isloader.subscribe((val)=>{
+      this.Isloading = val
+    })
+  }
+  getProData(){
+     this.products.getProData().subscribe((val) => {
       this.productsData = val.slice(10, 21);
     });
   }

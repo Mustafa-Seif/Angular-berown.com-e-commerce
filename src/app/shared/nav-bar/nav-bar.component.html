@@ -1,12 +1,10 @@
-<div class="container-fluid">
-  <header class="header">
+<header class="header">
+  <div class="container-fluid">
     <div class="pt-4 head1 justify-content-end">
       <div class="nav1-right">
         <ul class="d-flex">
           <li routerLink="wish-list">
-            <a  (click)="authCart()">
-              <i class="bi bi-heart"></i> WISHLIST</a
-            >
+            <a (click)="authCart()"> <i class="bi bi-heart"></i> WISHLIST</a>
           </li>
           <li *ngIf="!logedAuth">
             <a routerLink="sign-in">
@@ -37,7 +35,7 @@
             placeholder="type to search..."
             [(ngModel)]="searchVal"
           />
-          <div><i class="bi bi-x-lg fs-5" (click)="searchVal=''"></i></div>
+          <div><i class="bi bi-x-lg fs-5" (click)="searchVal = ''"></i></div>
         </div>
         <input type="button" value="SEARCH" (click)="goToSearchResults()" />
       </div>
@@ -73,5 +71,5 @@
         </li>
       </ul>
     </nav>
-  </header>
-</div>
+  </div>
+</header>

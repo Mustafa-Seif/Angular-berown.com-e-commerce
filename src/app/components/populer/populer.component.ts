@@ -5,6 +5,7 @@ import { Products } from '../../interfaces/products';
 import { Router } from '@angular/router';
 import { CartService } from '../../services/cart.service';
 import { WishListService } from '../../services/wish-list.service';
+import { LoaderService } from 'src/app/services/loader.service';
 
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
@@ -17,6 +18,8 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 export class PopulerComponent {
   productsData: Products[] = [];
   index: number = 0;
+  Isloading:boolean=true;
+
   //  make swiper responsive
   swiperConfig: any = {
     slidesPerView: '1',
@@ -33,9 +36,21 @@ export class PopulerComponent {
     private route: Router,
     private cart: CartService,
     private wishList: WishListService,
+    private _Isloader:LoaderService
+
   ) {}
   ngOnInit() {
-    // get product data
+    this.checkLoader()
+    this. getProData()
+  }
+  // CHECK LOADER STATUS 
+  checkLoader(){
+    this._Isloader._isloader.subscribe((val)=>{
+      this.Isloading = val
+    })
+  } 
+  // get product data
+  getProData(){
     this.products.getProData().subscribe((val) => {
       this.productsData = val.slice(0, 11);
     });

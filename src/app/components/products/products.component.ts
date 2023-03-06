@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { CartService } from '../../services/cart.service';
 import { WishListService } from '../../services/wish-list.service';
+import { LoaderService } from 'src/app/services/loader.service';
 
 @Component({
   selector: 'app-products',
@@ -17,6 +18,7 @@ export class ProductsComponent {
   searchVal: string = '';
   grid:string='col-md-3 col-6';
   p: number = 1;
+  Isloading:boolean=true;
 
   constructor(
     private productsList: GetProductsService,
@@ -24,9 +26,19 @@ export class ProductsComponent {
     private route: Router,
     private cart: CartService,
     private wishList: WishListService,
+    private _Isloader:LoaderService
   ) {}
   ngOnInit() {
-    // Get product by search Value
+    this.checkLoader()
+    this.getProData()
+  }
+  // CHECK LOADER STATUS 
+  checkLoader(){
+    this._Isloader._isloader.subscribe((val)=>{
+      this.Isloading = val
+    })
+  }
+  getProData(){
     this.searchVal = this.routeActive.snapshot.params['val'];
     this.productsList.getProData().subscribe((val) => {
       this.products = val;
