@@ -25,6 +25,13 @@
     </div>
     <hr />
     <div class="row gy-5" *ngIf="products.length && !Isloading">
+      <pagination-controls
+      (pageChange)="p = $event"
+      screenReaderCurrentLabel="You're on page"
+      previousLabel="Prev"
+      [responsive]="true"
+      [maxSize]="9"
+    ></pagination-controls>
       <div
         *ngFor="
           let pro of products | paginate : { itemsPerPage: 12, currentPage: p }
