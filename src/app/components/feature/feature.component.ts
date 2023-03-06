@@ -16,6 +16,7 @@ import { LoaderService } from 'src/app/services/loader.service';
 export class FeatureComponent {
   productsData: Products[] = [];
   Isloading:boolean=true;
+  sekletonHeight:any={one:200,tow:50,three:20}
 
   //  make swiper responsive
   swiperConfig: any = {

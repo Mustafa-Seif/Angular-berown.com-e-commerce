@@ -6,5 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./skeleton.component.scss']
 })
 export class SkeletonComponent {
-  // @Input() item:any[]=[];
+  @Input() heightData:any={};
 }

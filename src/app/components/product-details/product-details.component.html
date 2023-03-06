@@ -1,8 +1,8 @@
 <section class="product-details">
   <div class="container-custom">
-    <div class="row details-snippet1 mb-5">
+    <div class="row details-snippet1 mb-5" *ngIf="productsDetails.length && !Isloading">
       <div class="col-md-7">
-        <div class="row ">
+        <div class="row">
           <div class="col-md-2 mini-preview">
             <img
               class="img-fluid"
@@ -21,17 +21,17 @@
             />
           </div>
           <div class="col-md-10">
-            <div class="product-image mb-3 ">
+            <div class="product-image mb-3">
               <lib-ngx-image-zoom
-              class="mainImg"
-              [thumbImage]="productsDetails[0].image"
-              [fullImage]="productsDetails[0].image"
-              [magnification]="2"
-              [enableScrollZoom]="true"
-              [enableLens]="true"
-              [lensWidth]="200"
-              [lensHeight]="200"
-          ></lib-ngx-image-zoom>
+                class="mainImg"
+                [thumbImage]="productsDetails[0].image"
+                [fullImage]="productsDetails[0].image"
+                [magnification]="2"
+                [enableScrollZoom]="true"
+                [enableLens]="true"
+                [lensWidth]="200"
+                [lensHeight]="200"
+              ></lib-ngx-image-zoom>
             </div>
           </div>
         </div>
@@ -77,49 +77,51 @@
         </div>
       </div>
     </div>
+    <!-- SEKLETONDETAILS  -->
+    <app-skeleton
+    *ngIf="Isloading"
+    [heightData]="sekletonHeightDetails"
+  ></app-skeleton>
     <div class="related-products">
-        <h4 class="mb-5 title">RELATED ITEMS</h4>
-        <swiper [config]="swiperConfig" [navigation]="true">
-          <ng-template swiperSlide *ngFor="let pro of relatedPro; let i = index">
-            <div class="wapper-swiper">
-              <div class="overlay-icons d-flex flex-column">
-                <i
-                  class="bi bi-heart"
-                  (click)="addToWish(pro)"
-                ></i>
-                <i class="bi bi-eye"></i>
-                <i class="bi bi-recycle"></i>
-              </div>
-              <div style="background-color: #f5f5f5; padding: 0.3rem">
-                <img
-                  [src]="pro.image"
-                  alt="img"
-                  style="width: 70%; margin: 1rem auto; display: block"
-                />
-              </div>
-              <div (click)="showDetails(pro)" class="pro-data">
-                <p>{{ pro.title }}</p>
-                <h6>{{ pro.description }}</h6>
-                <div class="ratings my-2">
-                  <div class="stars d-flex">
-                    <div class="theme-text mr-2">Product Ratings:</div>
-                    <div>&#9733;</div>
-                    <div>&#9733;</div>
-                    <div>&#9733;</div>
-                    <div>&#9733;</div>
-                    <div>&#9733;</div>
-                  </div>
-                </div>
-                <h5>${{ pro.price }}</h5>
-              </div>
+      <h4 class="mb-5 title">RELATED ITEMS</h4>
+      <swiper [config]="swiperConfig" [navigation]="true">
+        <ng-template swiperSlide *ngFor="let pro of relatedPro; let i = index">
+          <div class="wapper-swiper" *ngIf="relatedPro.length && !Isloading">
+            <div class="overlay-icons d-flex flex-column">
+              <i class="bi bi-heart" (click)="addToWish(pro)"></i>
+              <i class="bi bi-eye"></i>
+              <i class="bi bi-recycle"></i>
             </div>
-            <button
-              (click)="addToCart(pro)"
-            >
-              ADD TO CART
-            </button>
-          </ng-template>
-        </swiper>
+            <div style="background-color: #f5f5f5; padding: 0.3rem">
+              <img
+                [src]="pro.image"
+                alt="img"
+                style="width: 70%; margin: 1rem auto; display: block"
+              />
+            </div>
+            <div (click)="showDetails(pro)" class="pro-data">
+              <p>{{ pro.title }}</p>
+              <h6>{{ pro.description }}</h6>
+              <div class="ratings my-2">
+                <div class="stars d-flex">
+                  <div class="theme-text mr-2">Product Ratings:</div>
+                  <div>&#9733;</div>
+                  <div>&#9733;</div>
+                  <div>&#9733;</div>
+                  <div>&#9733;</div>
+                  <div>&#9733;</div>
+                </div>
+              </div>
+              <h5>${{ pro.price }}</h5>
+            </div>
+            <button (click)="addToCart(pro)">ADD TO CART</button>
+          </div>
+          <app-skeleton
+            *ngIf="Isloading"
+            [heightData]="sekletonHeightRelted"
+          ></app-skeleton>
+        </ng-template>
+      </swiper>
     </div>
   </div>
 </section>

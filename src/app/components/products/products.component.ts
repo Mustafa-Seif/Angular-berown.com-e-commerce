@@ -19,6 +19,7 @@ export class ProductsComponent {
   grid:string='col-md-3 col-6';
   p: number = 1;
   Isloading:boolean=true;
+  sekletonHeight:any={one:275,tow:75,three:25}
 
   constructor(
     private productsList: GetProductsService,

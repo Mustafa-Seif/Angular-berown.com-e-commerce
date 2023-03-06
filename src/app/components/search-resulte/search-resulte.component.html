@@ -1,5 +1,5 @@
 <div
-  *ngIf="productsFilters.length == 0"
+*ngIf="!productsFilters.length"
   class="text-center no-item"
   style="margin: 6rem 0"
 >
@@ -24,8 +24,7 @@
       <i class="bi bi-grid-3x3-gap-fill col-1" (click)="handleCol3()"></i>
       <hr />
     </div>
-    
-    <div class="row gy-5">
+    <div class="row gy-5" *ngIf="productsFilters.length && !Isloading">
       <!-- <div > -->
       <div *ngFor="let pro of productsFilters" class="wapper-swiper" [ngClass]="grid">
         <div class="overlay-icons d-flex flex-column" >
@@ -57,7 +56,12 @@
         </div>
         <button (click)="addToCart(pro)">ADD TO CART</button>
       </div>
-      <!-- </div> -->
+    </div>
+    <div class="row gy-3" >
+      <!-- SKELETON COMPONENT  -->
+      <div *ngFor="let i of productsFilters" class="col-md-3 col-12">
+        <app-skeleton [heightData]="sekletonHeight"></app-skeleton>
+      </div>
     </div>
   </div>
 </section>

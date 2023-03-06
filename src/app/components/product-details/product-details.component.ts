@@ -5,6 +5,7 @@ import { Products } from '../../interfaces/products';
 import { CartService } from '../../services/cart.service';
 import { WishListService } from '../../services/wish-list.service';
 import { Router } from '@angular/router';
+import { LoaderService } from 'src/app/services/loader.service';
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
@@ -16,20 +17,31 @@ export class ProductDetailsComponent {
   productsDetails: Products[] = [];
   relatedPro: Products[] = [];
   myThumbnail = 'https://wittlock.github.io/ngx-image-zoom/assets/thumb.jpg';
-  myFullresImage =
-    'https://wittlock.github.io/ngx-image-zoom/assets/fullres.jpg';
+  myFullresImage ='https://wittlock.github.io/ngx-image-zoom/assets/fullres.jpg';
+  sekletonHeightRelted:any={one:200,tow:50,three:20}
+  sekletonHeightDetails:any={one:275,tow:75,three:50}
+  Isloading:boolean=true;
+    
   constructor(
     private products: GetProductsService,
     private route: ActivatedRoute,
     private cart: CartService,
     private wishList: WishListService,
     private router: Router,
+    private _Isloader:LoaderService
 
   ) {}
   ngOnInit() {
     this.getProDetails();
     this.getRelatedPro();
+    this.checkLoader()
   }
+  // CHECK LOADER STATUS 
+  checkLoader(){
+    this._Isloader._isloader.subscribe((val)=>{
+      this.Isloading = val
+    })
+  } 
   // get related product 
   getRelatedPro(){
     this.products.getProData().subscribe((val) => {

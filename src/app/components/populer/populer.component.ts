@@ -19,7 +19,7 @@ export class PopulerComponent {
   productsData: Products[] = [];
   index: number = 0;
   Isloading:boolean=true;
-
+  sekletonHeight:any={one:200,tow:50,three:20}
   //  make swiper responsive
   swiperConfig: any = {
     slidesPerView: '1',
