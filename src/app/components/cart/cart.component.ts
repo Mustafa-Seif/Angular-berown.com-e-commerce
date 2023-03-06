@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Products } from '../../interfaces/products';
 import { CartService } from '../../services/cart.service';
+import { LoaderService } from 'src/app/services/loader.service';
 
 @Component({
   selector: 'app-cart',
@@ -12,10 +13,13 @@ export class CartComponent {
   arrCart: Products[] = [];
   index: number = 0;
   total: number = 0;
-
-  constructor(private cart: CartService) {}
+  sekletonHeight:any={one:100,tow:20,three:0}
+  Isloading:boolean=true;
+    
+  constructor(private cart: CartService, private _Isloader:LoaderService) {}
   ngOnInit() {
     this.getPro();
+    this.checkLoader()
   }
   // GET PRO FORM CART SERVICE
   getPro() {
@@ -24,6 +28,12 @@ export class CartComponent {
       this.getTotal();
     });
   }
+   // CHECK LOADER STATUS 
+   checkLoader(){
+    this._Isloader._isloader.subscribe((val)=>{
+      this.Isloading = val
+    })
+  } 
   // delete pro from cart
   removePro(index: number): void {
     this.cart.removeProduct(index);

@@ -6,6 +6,7 @@ import { CartService } from '../../services/cart.service';
 import { WishListService } from '../../services/wish-list.service';
 import { Router } from '@angular/router';
 import { LoaderService } from 'src/app/services/loader.service';
+
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
