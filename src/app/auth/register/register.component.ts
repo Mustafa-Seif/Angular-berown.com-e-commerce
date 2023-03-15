@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { FormGroup, Validators , FormBuilder} from '@angular/forms';
 import { RegisterService } from '../../services/register.service';
-import { AuthService } from 'src/app/services/auth.service';
+
 
 @Component({
   selector: 'app-register',
@@ -11,20 +10,41 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class RegisterComponent {
   constructor(
-    private router: Router,
     private _RegisterService: RegisterService,
-    private _islogin: AuthService
+    private formBuilder:FormBuilder
   ) {}
-  registerForm: FormGroup = new FormGroup({
-    name: new FormControl('', [Validators.required]),
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [
+  registerForm = this.formBuilder.group({
+    name:[ '', [Validators.required]],
+    email:['', [Validators.required, Validators.email]],
+    password:['', [
       Validators.required,
-      Validators.pattern(/^[a-zA-Z0-9*@%$#]*$/),
-    ]),
+      Validators.maxLength(10),
+      Validators.minLength(6) 
+    ]],
+    confirmPassword:['',[Validators.required,Validators.maxLength(10),
+      Validators.minLength(6)]]
+  },{
+    validators: this.confirmPasswordValidator('password', 'confirmPassword')
   });
+
+//  MATCH PASSWORD FUN 
+  confirmPasswordValidator(password: string, confirmPassword: string) {
+    return (formGroup: FormGroup) => {
+      const control = formGroup.controls[password];
+      const matchingControl = formGroup.controls[confirmPassword];
+
+      if (control.value !== matchingControl.value) {
+        matchingControl.setErrors({ passwordsDoNotMatch: true });
+      } else {
+        matchingControl.setErrors(null);
+      }
+    };
+  }
+
+
   // HANDLE REGISTER
-  handelRegister(formInfo: FormGroup) {
+  handelRegister() {
     this._RegisterService.addNewUser(this.registerForm.value);
   }
+  
 }
