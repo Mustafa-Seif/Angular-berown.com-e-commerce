@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import {RatingModule} from 'primeng/rating';
 ////////// C O M P O N E N T S  M O D U L E S ////////////
 import { SharedModule } from './shared/shared.module';
 import { AuthModule } from './auth/auth.module';
@@ -69,6 +70,7 @@ import { SkeletonComponent } from './components/skeleton/skeleton.component';
     NgxPaginationModule,
     NgxImageZoomModule,
     NgxSkeletonLoaderModule,
+    RatingModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot({
       positionClass: 'toast-top-left',

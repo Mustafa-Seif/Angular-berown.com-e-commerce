@@ -47,13 +47,14 @@
         <div class="title">{{ productsDetails[0].description }}</div>
         <div class="ratings my-2">
           <div class="stars d-flex">
-            <div class="theme-text mr-2">Product Ratings:</div>
-            <div>&#9733;</div>
-            <div>&#9733;</div>
-            <div>&#9733;</div>
-            <div>&#9733;</div>
-            <div>&#9733;</div>
-            <div class="ml-2"></div>
+            <div class="theme-text mr-2 me-3">Product Ratings:</div>
+            <p-rating
+              [iconOnStyle]="{ color: '#EF6C00' }"
+              [stars]="5"
+              [(ngModel)]="productsDetails[0].rate"
+              [readonly]="true"
+              [cancel]="false"
+            ></p-rating>
           </div>
         </div>
         <div class="price my-2">price ${{ productsDetails[0].price }}</div>
@@ -81,13 +82,13 @@
       </div>
     </div>
     <!-- SEKLETONDETAILS  -->
-    <div class="row gx-5"   *ngIf="Isloading">
+    <div class="row gx-5" *ngIf="Isloading">
       <app-skeleton
-      class="col-6"
+        class="col-6"
         [heightData]="sekletonHeightDetails1"
       ></app-skeleton>
       <app-skeleton
-      class="col-6"
+        class="col-6"
         [heightData]="sekletonHeightDetails"
       ></app-skeleton>
     </div>
@@ -115,11 +116,14 @@
               <div class="ratings my-2">
                 <div class="stars d-flex">
                   <div class="theme-text mr-2">Product Ratings:</div>
-                  <div>&#9733;</div>
-                  <div>&#9733;</div>
-                  <div>&#9733;</div>
-                  <div>&#9733;</div>
-                  <div>&#9733;</div>
+                  <p-rating
+                    [iconOffStyle]="{ fontSize: '10px' }"
+                    [iconOnStyle]="{ color: '#EF6C00', fontSize: '10px' }"
+                    [stars]="5"
+                    [(ngModel)]="pro.rate"
+                    [readonly]="true"
+                    [cancel]="false"
+                  ></p-rating>
                 </div>
               </div>
               <h5>${{ pro.price }}</h5>

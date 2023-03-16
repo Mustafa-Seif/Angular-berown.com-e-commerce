@@ -5,7 +5,8 @@
     "image": "../../assets/images/products/laptop (4).png",
     "description": "Laptop XS3000 WiFi Smart",
     "price": 310.0,
-    "count": 1
+    "count": 1,
+    "rate": 3
   },
   {
     "id": 2,
@@ -13,7 +14,8 @@
     "image": "../../assets/images/products/New folder/tv1 (4).png",
     "description": "Smart TV Extra Premium",
     "price": 430.0,
-    "count": 1
+    "count": 1,
+    "rate": 4
   },
   {
     "id": 4,
@@ -21,7 +23,8 @@
     "image": "../../assets/images/products/laptop (3).png",
     "description": "Laptops Ellite Pro Book 15'6 7500U",
     "price": 570.0,
-    "count": 1
+    "count": 1,
+    "rate": 5
   },
   {
     "id": 5,
@@ -29,7 +32,8 @@
     "image": "../../assets/images/products/headphone1 (2).png",
     "description": "Headphones XS3000 WiFi Smart",
     "price": 50.0,
-    "count": 1
+    "count": 1,
+    "rate": 3
   },
   {
     "id": 6,
@@ -37,7 +41,8 @@
     "image": "../../assets/images/products/laptop (1).png",
     "description": "Laptops VX3000 Extra Light",
     "price": 400.0,
-    "count": 1
+    "count": 1,
+    "rate": 4
   },
   {
     "id": 7,
@@ -45,7 +50,8 @@
     "image": "../../assets/images/products/New folder/Chairs 2.png",
     "description": "Chairs Aenean Perro",
     "price": 110.99,
-    "count": 1
+    "count": 1,
+    "rate": 3
   },
   {
     "id": 39,
@@ -53,7 +59,8 @@
     "image": " ../../assets/images/products/New folder/headphone1.png",
     "description": "Headphones XS3000 WiFi Smart",
     "price": 30.0,
-    "count": 1
+    "count": 1,
+    "rate": 3
   },
   {
     "id": 8,
@@ -61,7 +68,8 @@
     "image": "../../assets/images/products/laptop (2).png",
     "description": "Laptops Tablet VX4000 8500 3TB",
     "price": 520.0,
-    "count": 1
+    "count": 1,
+    "rate": 4
   },
 
   {
@@ -70,7 +78,8 @@
     "image": "../../assets/images/products/headphone1 (4).png",
     "description": "Headphones XS3000 WiFi Smart Wireless",
     "price": 45.0,
-    "count": 1
+    "count": 1,
+    "rate": 5
   },
 
   {
@@ -79,7 +88,8 @@
     "image": " ../../assets/images/products/New folder/tv1 (1).png",
     "description": "Smart TV Extra Premium",
     "price": 545.0,
-    "count": 1
+    "count": 1,
+    "rate": 5
   },
   {
     "id": 11,
@@ -87,7 +97,8 @@
     "image": "../../assets/images/products/headphone1 (4).png",
     "description": "Headphones XS3000 WiFi Smart",
     "price": 45.0,
-    "count": 1
+    "count": 1,
+    "rate": 4
   },
   {
     "id": 12,
@@ -95,7 +106,8 @@
     "image": "../../assets/images/products/New folder/Chairs 3png.png",
     "description": "Chairs Dono Purple",
     "price": 229.99,
-    "count": 1
+    "count": 1,
+    "rate": 4
   },
 
   {
@@ -104,7 +116,8 @@
     "image": "../../assets/images/products/New folder/tv1 (3).png",
     "description": "Smart TV Extra Premium",
     "price": 920.0,
-    "count": 1
+    "count": 1,
+    "rate": 3
   },
   {
     "id": 14,
@@ -112,7 +125,8 @@
     "image": "../../assets/images/products/phone1.png",
     "description": "phone Mobile 5G 128  50 Pixle",
     "price": 99.99,
-    "count": 1
+    "count": 1,
+    "rate": 4
   },
   {
     "id": 15,
@@ -120,7 +134,8 @@
     "image": "../../assets/images/products/phone2.png",
     "description": "phone Mobile 5G 128  50 Pixle",
     "price": 945.0,
-    "count": 1
+    "count": 1,
+    "rate": 3
   },
   {
     "id": 16,
@@ -128,7 +143,8 @@
     "image": "../../assets/images/products/phone3.png",
     "description": "phone Mobile 5G 128  50 Pixle",
     "price": 129.99,
-    "count": 1
+    "count": 1,
+    "rate": 3
   },
   {
     "id": 17,
@@ -136,7 +152,8 @@
     "image": "../../assets/images/products/headphone1 (4).png",
     "description": "Headphones XS3000 WiFi Smart Wireless",
     "price": 45.0,
-    "count": 1
+    "count": 1,
+    "rate": 3
   },
   {
     "id": 18,
@@ -144,7 +161,8 @@
     "image": "../../assets/images/products/headphone1 (3).png",
     "description": "Headphones XS3000 WiFi Smart",
     "price": 30.0,
-    "count": 1
+    "count": 1,
+    "rate": 3
   },
   {
     "id": 19,
@@ -152,7 +170,8 @@
     "image": "../../assets/images/products/phone4.png",
     "description": "phone Mobile  5G 128  50 Pixle",
     "price": 99.99,
-    "count": 1
+    "count": 1,
+    "rate": 3
   },
   {
     "id": 20,
@@ -160,7 +179,8 @@
     "image": "../../assets/images/products/New folder/Photocamera1.png",
     "description": "Photo Camera Ellite Pro Book 15'6 7500U",
     "price": 35.0,
-    "count": 1
+    "count": 1,
+    "rate": 5
   },
   {
     "id": 21,
@@ -168,7 +188,8 @@
     "image": "../../assets/images/products/New folder/Smartwatch1 (2).png",
     "description": "Smart Watch Smart Watch",
     "price": 75.0,
-    "count": 1
+    "count": 1,
+    "rate": 2
   },
   {
     "id": 22,
@@ -176,7 +197,8 @@
     "image": "../../assets/images/products/phone5.png",
     "description": "phone Mobile 5G 128  50 Pixle",
     "price": 99.99,
-    "count": 1
+    "count": 1,
+    "rate": 5
   },
   {
     "id": 23,
@@ -184,7 +206,8 @@
     "image": "../../assets/images/products/laptop (4).png",
     "description": "Laptops VX3000 Extra Light",
     "price": 399.99,
-    "count": 1
+    "count": 1,
+    "rate": 4
   },
 
   {
@@ -193,7 +216,8 @@
     "image": "../../assets/images/products/laptop (5).png",
     "description": "Laptops VX4000 8500 3TB",
     "price": 520.0,
-    "count": 1
+    "count": 1,
+    "rate": 3
   },
   {
     "id": 25,
@@ -201,7 +225,8 @@
     "image": "../../assets/images/products/New folder/Smartwatch1.png",
     "description": "Smart Watch Smart Watch",
     "price": 75.0,
-    "count": 1
+    "count": 1,
+    "rate": 4
   },
   {
     "id": 26,
@@ -209,7 +234,8 @@
     "image": "../../assets/images/products/headphone1 (4).png",
     "description": "Headphones XS3000 WiFi Smart Wireless",
     "price": 45.0,
-    "count": 1
+    "count": 1,
+    "rate": 3
   },
   {
     "id": 27,
@@ -217,7 +243,8 @@
     "image": "../../assets/images/products/laptop (1).png",
     "description": "Laptops Ellite Pro Book 15'6 7500U",
     "price": 1200.0,
-    "count": 1
+    "count": 1,
+    "rate": 5
   },
   {
     "id": 28,
@@ -225,7 +252,8 @@
     "image": "../../assets/images/products/New folder/Photocamera1.png",
     "description": "Photo Camera Ellite Pro Book 15'6 7500U",
     "price": 35.0,
-    "count": 1
+    "count": 1,
+    "rate": 1
   },
   {
     "id": 29,
@@ -233,7 +261,8 @@
     "image": "../../assets/images/products/New folder/Smartwatch1 (2).png",
     "description": "Smart Watch Smart Watch",
     "price": 75.0,
-    "count": 1
+    "count": 1,
+    "rate": 4
   },
 
   {
@@ -242,7 +271,8 @@
     "image": "../../assets/images/products/New folder/tv1 (3).png",
     "description": "Smart TV Extra Premium",
     "price": 920.0,
-    "count": 1
+    "count": 1,
+    "rate": 3
   },
   {
     "id": 32,
@@ -250,7 +280,8 @@
     "image": "../../assets/images/products/New folder/Photocamera1 (2).png",
     "description": "Photo Camera Ellite Pro Book 15'6 7500U",
     "price": 25.99,
-    "count": 1
+    "count": 1,
+    "rate": 3
   },
   {
     "id": 33,
@@ -258,7 +289,8 @@
     "image": "../../assets/images/products/New folder/Photocamera1 (1).png",
     "description": "Photo Camera Ellite Pro Book 15'6 7500U",
     "price": 75.0,
-    "count": 1
+    "count": 1,
+    "rate": 2
   },
   {
     "id": 34,
@@ -266,7 +298,8 @@
     "image": "../../assets/images/products/New folder/Smartwatch1.png",
     "description": "Smart Watch Smart Watch Zoop",
     "price": 75.0,
-    "count": 1
+    "count": 1,
+    "rate": 4
   },
 
   {
@@ -275,7 +308,8 @@
     "image": "../../assets/images/products/New folder/tv1 (2).png",
     "description": "Smart TV Extra Premium",
     "price": 999.99,
-    "count": 1
+    "count": 1,
+    "rate": 3
   },
 
   {
@@ -284,7 +318,8 @@
     "image": "../../assets/images/products/New folder/tv1 (5).png",
     "description": "Smart TV Extra Premium",
     "price": 850.0,
-    "count": 1
+    "count": 1,
+    "rate": 3
   },
   {
     "id": 37,
@@ -292,7 +327,8 @@
     "image": "../../assets/images/products/New folder/Photocamera1 (2).png",
     "description": "Photo Camera Ellite Pro Book 15'6 7500U",
     "price": 25.99,
-    "count": 1
+    "count": 1,
+    "rate": 5
   },
   {
     "id": 38,
@@ -300,7 +336,8 @@
     "image": "../../assets/images/products/New folder/Chairs 1.png",
     "description": "Chairs Aenean Perro",
     "price": 129.99,
-    "count": 1
+    "count": 1,
+    "rate": 5
   },
   {
     "id": 39,
@@ -308,7 +345,8 @@
     "image": "../../assets/images/products/New folder/headphone1.png",
     "description": "Headphones XS3000 WiFi Smart",
     "price": 40.0,
-    "count": 1
+    "count": 1,
+    "rate": 5
   },
 
   {
@@ -317,6 +355,7 @@
     "image": "../../assets/images/products/laptop (3).png",
     "description": "Laptop XS3000 WiFi Smart",
     "price": 899.99,
-    "count": 1
+    "count": 1,
+    "rate": 3
   }
 ]

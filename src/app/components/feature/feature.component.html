@@ -1,10 +1,10 @@
 <section class="featured">
   <div class="container-custom">
     <h4 class="mb-5 title">FEATURED ITEMS</h4>
-    <swiper  [navigation]="true" [config]="swiperConfig">
+    <swiper [navigation]="true" [config]="swiperConfig">
       <ng-template swiperSlide *ngFor="let pro of productsData">
-        <div class="wapper-swiper" *ngIf="productsData.length && !Isloading" >
-          <div class="overlay-icons d-flex flex-column ">
+        <div class="wapper-swiper" *ngIf="productsData.length && !Isloading">
+          <div class="overlay-icons d-flex flex-column">
             <i class="bi bi-heart" (click)="addToWish(pro)"></i>
             <i class="bi bi-eye" (click)="showDetails(pro)"></i>
             <i class="bi bi-recycle"></i>
@@ -21,19 +21,25 @@
             <h6>{{ pro.description }}</h6>
             <div class="ratings my-2">
               <div class="stars d-flex">
-                <div class="theme-text mr-2">Product Ratings:</div>
-                <div>&#9733;</div>
-                <div>&#9733;</div>
-                <div>&#9733;</div>
-                <div>&#9733;</div>
-                <div>&#9733;</div>
+                <div class="theme-text me-2">Product Ratings:</div>
+                <p-rating
+                  [iconOffStyle]="{ fontSize: '10px' }"
+                  [iconOnStyle]="{ color: '#EF6C00', fontSize: '10px' }"
+                  [stars]="5"
+                  [(ngModel)]="pro.rate"
+                  [readonly]="true"
+                  [cancel]="false"
+                ></p-rating>
               </div>
             </div>
             <h5>${{ pro.price }}</h5>
           </div>
           <button (click)="addToCart(pro)">ADD TO CART</button>
-        </div> 
-        <app-skeleton *ngIf="Isloading" [heightData]="sekletonHeight"></app-skeleton>
+        </div>
+        <app-skeleton
+          *ngIf="Isloading"
+          [heightData]="sekletonHeight"
+        ></app-skeleton>
       </ng-template>
     </swiper>
   </div>

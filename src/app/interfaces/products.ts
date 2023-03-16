@@ -5,4 +5,5 @@ export interface Products {
   description: string;
   price: string;
   count:number;
+  rate:number
 }

@@ -1,5 +1,5 @@
 <div
-*ngIf="!productsFilters.length"
+  *ngIf="!productsFilters.length"
   class="text-center no-item"
   style="margin: 6rem 0"
 >
@@ -18,7 +18,7 @@
 </div>
 <section class="search-resulte mt-5">
   <div class="container-custom">
-    <div class="row grid-wapper-icons" *ngIf="productsFilters.length" >
+    <div class="row grid-wapper-icons" *ngIf="productsFilters.length">
       <i class="bi bi-grid-1x2-fill col-1" (click)="handleCol12()"></i>
       <i class="bi bi-grid-fill col-1" (click)="handleCol6()"></i>
       <i class="bi bi-grid-3x3-gap-fill col-1" (click)="handleCol3()"></i>
@@ -26,8 +26,12 @@
     </div>
     <div class="row gy-5" *ngIf="productsFilters.length && !Isloading">
       <!-- <div > -->
-      <div *ngFor="let pro of productsFilters" class="wapper-swiper" [ngClass]="grid">
-        <div class="overlay-icons d-flex flex-column" >
+      <div
+        *ngFor="let pro of productsFilters"
+        class="wapper-swiper"
+        [ngClass]="grid"
+      >
+        <div class="overlay-icons d-flex flex-column">
           <i class="bi bi-heart" (click)="addToWish(pro)"></i>
           <i class="bi bi-eye"></i>
           <i class="bi bi-recycle"></i>
@@ -44,12 +48,15 @@
           <h6>{{ pro.description }}</h6>
           <div class="ratings my-2">
             <div class="stars d-flex">
-              <div class="theme-text mr-2">Product Ratings:</div>
-              <div>&#9733;</div>
-              <div>&#9733;</div>
-              <div>&#9733;</div>
-              <div>&#9733;</div>
-              <div>&#9733;</div>
+              <div class="theme-text mr-2 me-2">Product Ratings:</div>
+              <p-rating
+                [iconOffStyle]="{ fontSize: '15px' }"
+                [iconOnStyle]="{ color: '#EF6C00', fontSize: '15px' }"
+                [stars]="5"
+                [(ngModel)]="pro.rate"
+                [readonly]="true"
+                [cancel]="false"
+              ></p-rating>
             </div>
           </div>
           <h5>${{ pro.price }}</h5>
@@ -57,7 +64,7 @@
         <button (click)="addToCart(pro)">ADD TO CART</button>
       </div>
     </div>
-    <div class="row gy-3" *ngIf="Isloading" >
+    <div class="row gy-3" *ngIf="Isloading">
       <!-- SKELETON COMPONENT  -->
       <div *ngFor="let i of productsFilters" class="col-md-3 col-6">
         <app-skeleton [heightData]="sekletonHeight"></app-skeleton>
