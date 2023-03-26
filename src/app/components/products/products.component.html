@@ -1,5 +1,5 @@
 <div
-  *ngIf="!products.length "
+  *ngIf="!products.length"
   class="text-center no-item"
   style="margin: 6rem 0"
 >
@@ -16,7 +16,8 @@
     </div>
   </div>
 </div>
-<section class="search-resulte mt-5">
+  *
+  <section class="search-resulte mt-5" *ngIf="products.length">
   <div class="container-custom">
     <div class="row grid-wapper-icons">
       <i class="bi bi-grid-1x2-fill col-1" (click)="handleCol12()"></i>

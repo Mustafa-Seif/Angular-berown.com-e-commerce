@@ -8,7 +8,10 @@ export class LoaderService {
   private Isloader = new  BehaviorSubject<boolean>(true)
   _isloader = this.Isloader.asObservable()
   constructor() { }
-  setLoader(val:boolean):void{
-    this.Isloader.next(val)
+  showLoader():void{
+    this.Isloader.next(true)
+  }
+  hideLoader():void{
+    this.Isloader.next(false)
   }
 }
