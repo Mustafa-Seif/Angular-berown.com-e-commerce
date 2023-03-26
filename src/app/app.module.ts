@@ -74,7 +74,6 @@ import { SkeletonComponent } from './components/skeleton/skeleton.component';
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot({
       positionClass: 'toast-top-left',
-      preventDuplicates: true,
     }), // ToastrModule added
   ],
 
