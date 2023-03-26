@@ -10,7 +10,11 @@ export class ErrorToFetchService {
   // _errorFetch = this.errorFetch.asObservable()
   constructor(private toastr: ToastrService) { }
   ErrorMassage(errorMassage:any):void{
-    this.toastr.error(`Error to fetch!`); 
+    this.toastr.error('Error to fetch form server!',"Error!",{
+      closeButton:true,
+      disableTimeOut:true
+
+    })
   }
  
 }
