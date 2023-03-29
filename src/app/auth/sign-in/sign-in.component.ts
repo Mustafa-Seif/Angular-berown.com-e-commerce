@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { RegisterService } from 'src/app/services/register.service';
-import { AuthService } from '../../services/auth.service';
-import { ToastrService } from 'ngx-toastr';
-import { SignInService } from 'src/app/services/sign-in.service';
 import { FirebaseAuthService } from 'src/app/services/firebase-auth.service';
 
 @Component({
@@ -15,10 +11,6 @@ import { FirebaseAuthService } from 'src/app/services/firebase-auth.service';
 export class SignInComponent {
   constructor(
     private router: Router,
-    private log: AuthService,
-    private _register: RegisterService,
-    private _signInService: SignInService,
-    private toastr: ToastrService,
     private fireAuth: FirebaseAuthService
   ) {}
   signInForm: FormGroup = new FormGroup({

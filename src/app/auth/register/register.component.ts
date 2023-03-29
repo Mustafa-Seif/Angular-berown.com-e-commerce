@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormGroup, Validators , FormBuilder} from '@angular/forms';
-import { RegisterService } from '../../services/register.service';
 import { FirebaseAuthService } from 'src/app/services/firebase-auth.service';
 
 @Component({
@@ -10,7 +9,6 @@ import { FirebaseAuthService } from 'src/app/services/firebase-auth.service';
 })
 export class RegisterComponent {
   constructor(
-    private _RegisterService: RegisterService,
     private formBuilder:FormBuilder,
     private fireAuth:FirebaseAuthService
   ) {}

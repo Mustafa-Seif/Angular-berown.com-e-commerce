@@ -1,5 +1,5 @@
 import { Injectable, NgZone } from '@angular/core';
-// import { User } from '../services/user';
+import { User } from '../interfaces/user';
 import * as auth from 'firebase/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import {
@@ -10,13 +10,6 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from './auth.service';
 
-export interface User {
-  uid: string;
-  email: string;
-  displayName: string;
-  photoURL: string;
-  emailVerified: boolean;
-}
 
 @Injectable({
   providedIn: 'root',

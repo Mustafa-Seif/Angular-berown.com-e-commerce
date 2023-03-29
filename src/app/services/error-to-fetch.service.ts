@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
@@ -13,8 +12,6 @@ export class ErrorToFetchService {
     this.toastr.error('Error to fetch form server!',"Error!",{
       closeButton:true,
       disableTimeOut:true
-
     })
   }
- 
 }
