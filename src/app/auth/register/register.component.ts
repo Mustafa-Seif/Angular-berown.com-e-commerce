@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, Validators , FormBuilder} from '@angular/forms';
 import { RegisterService } from '../../services/register.service';
-
+import { FirebaseAuthService } from 'src/app/services/firebase-auth.service';
 
 @Component({
   selector: 'app-register',
@@ -11,7 +11,8 @@ import { RegisterService } from '../../services/register.service';
 export class RegisterComponent {
   constructor(
     private _RegisterService: RegisterService,
-    private formBuilder:FormBuilder
+    private formBuilder:FormBuilder,
+    private fireAuth:FirebaseAuthService
   ) {}
   registerForm = this.formBuilder.group({
     name:[ '', [Validators.required]],
@@ -44,7 +45,10 @@ export class RegisterComponent {
 
   // HANDLE REGISTER
   handelRegister() {
-    this._RegisterService.addNewUser(this.registerForm.value);
+    const{email,password}=this.registerForm.value;
+    // SEND NEW USER TO FIREBASE 
+    this.fireAuth.SignUp(email, password)
   }
+
   
 }

@@ -6,7 +6,7 @@
           <li routerLink="wish-list">
             <a (click)="authCart()"> <i class="bi bi-heart"></i> WISHLIST</a>
           </li>
-          <li *ngIf="!logedAuth">
+          <li *ngIf="!logedAuth"> 
             <a routerLink="sign-in">
               <i class="bi bi-box-arrow-in-right"></i> SIGN IN</a
             >
@@ -65,7 +65,7 @@
         <li>
           <a routerLinkActive="active-link" routerLink="/products">PRODUCTS</a>
         </li>
-        <li><a routerLinkActive="active-link" href="">ABOUT</a></li>
+        <li><a routerLinkActive="active-link" target="_blank" href="https://my-portfolio-rust-xi.vercel.app/">ABOUT</a></li>
         <li>
           <a routerLinkActive="active-link" routerLink="/contact">CONTACT</a>
         </li>

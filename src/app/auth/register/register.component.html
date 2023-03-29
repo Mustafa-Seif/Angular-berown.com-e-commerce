@@ -4,7 +4,7 @@
     <form
       (ngSubmit)="handelRegister()"
       [formGroup]="registerForm"
-      class="m-auto"
+      class="m-auto mb-5"
     >
       <div class="mb-3">
         <label for="name" class="form-label">Name</label>
@@ -143,5 +143,9 @@
         Register
       </button>
     </form>
+    <div class="text-center">
+      <h6>Or Sign Up With</h6>
+      <app-social-auth></app-social-auth>
+    </div>
   </div>
 </section>

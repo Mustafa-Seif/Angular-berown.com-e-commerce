@@ -5,6 +5,7 @@ import { RegisterService } from 'src/app/services/register.service';
 import { AuthService } from '../../services/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { SignInService } from 'src/app/services/sign-in.service';
+import { FirebaseAuthService } from 'src/app/services/firebase-auth.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -17,7 +18,8 @@ export class SignInComponent {
     private log: AuthService,
     private _register: RegisterService,
     private _signInService: SignInService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private fireAuth: FirebaseAuthService
   ) {}
   signInForm: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -26,9 +28,11 @@ export class SignInComponent {
       Validators.pattern(/^[a-zA-Z0-9*@%$#]*$/),
     ]),
   });
-  // HANDLE REGISTER
+  // HANDLE SIGNIN
   handelSignIn(): void {
-    this._signInService.signIn(this.signInForm);
+    const { email, password } = this.signInForm.value;
+    // CHECK  USER TO FIREBASE AFTER SIGNIN
+    this.fireAuth.SignIn(email, password);
   }
   // ??????????????????
   routeToRegister(): void {

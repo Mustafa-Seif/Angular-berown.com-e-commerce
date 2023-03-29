@@ -32,7 +32,7 @@ export class RegisterService {
         val.forEach((el) => {
           if (el.email === newUser.email) {
             // ADD TOASTER
-            this.toastr.info('This user already exists');
+            this.toastr.error('This user already exists');
             // LOCALSTORAGE
             localStorage.setItem('userStorage', JSON.stringify(val));
           }

@@ -4,7 +4,7 @@
     <form
       (ngSubmit)="handelSignIn()"
       [formGroup]="signInForm"
-      class="m-auto"
+      class="m-auto mb-5"
     >
       <div class="mb-3">
         <label for="email" class="form-label">Email</label>
@@ -68,12 +68,16 @@
       </div>
       <p class="cursor-pointer" >
         You dont have account!
-        <a (click)="routeToRegister()" class="text-danger" style="cursor: pointer;">Register</a>
+        <a (click)="routeToRegister()"  class="text-danger" style="cursor: pointer;">Register</a>
       </p>
 
       <button [disabled]="signInForm.invalid" type="submit" class="py-2 px-4">
         Sign In
       </button>
     </form>
+    <div class="text-center">
+      <h6>Or Sign In With</h6>
+      <app-social-auth></app-social-auth>
+    </div>
   </div>
 </section>

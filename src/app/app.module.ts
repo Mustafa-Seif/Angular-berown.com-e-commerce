@@ -10,6 +10,9 @@ import { ToastModule } from 'primeng/toast';
 import { ReactiveFormsModule } from '@angular/forms';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { ToastrModule } from 'ngx-toastr';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import {RatingModule} from 'primeng/rating';
 ////////// C O M P O N E N T S  M O D U L E S ////////////
@@ -34,6 +37,15 @@ import { ProductsComponent } from './components/products/products.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { SkeletonComponent } from './components/skeleton/skeleton.component';
+// Firebase services + environment module
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { environment } from '../environments/environment';
+import { FirebaseAuthService } from './services/firebase-auth.service';
+
 
 
 @NgModule({
@@ -53,10 +65,15 @@ import { SkeletonComponent } from './components/skeleton/skeleton.component';
     ProductsComponent,
     NotFoundComponent,
     LoaderComponent,
-    // RegisterComponent,
     SkeletonComponent,
+    
   ],
   imports: [
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireDatabaseModule,
     SharedModule,
     AuthModule,
     BrowserModule,
@@ -71,6 +88,9 @@ import { SkeletonComponent } from './components/skeleton/skeleton.component';
     NgxImageZoomModule,
     NgxSkeletonLoaderModule,
     RatingModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot({
       positionClass: 'toast-top-left',
@@ -83,6 +103,8 @@ import { SkeletonComponent } from './components/skeleton/skeleton.component';
       useClass: LoaderInterceptor,
       multi: true,
     },
+    FirebaseAuthService
+  
   ],
   bootstrap: [AppComponent],
 })

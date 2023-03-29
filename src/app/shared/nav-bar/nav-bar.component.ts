@@ -5,7 +5,7 @@ import { MessageService } from 'primeng/api';
 import { AuthService } from '../../services/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import Swal from 'sweetalert2';
-
+import { FirebaseAuthService } from 'src/app/services/firebase-auth.service';
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
@@ -21,7 +21,8 @@ export class NavBarComponent implements DoCheck {
     private cart: CartService,
     private route: Router,
     private toastr: ToastrService,
-    private islog:AuthService
+    private _isloged:AuthService,
+    private firebase:FirebaseAuthService
   ) {}
 
   ngOnInit() {
@@ -40,7 +41,7 @@ export class NavBarComponent implements DoCheck {
   }
   // get Login Status
   getLoginStatus(){
-    this.islog.loged.subscribe((val)=>{
+    this._isloged.loged.subscribe((val)=>{
       this.logedAuth = val;
     })
   }
@@ -72,7 +73,9 @@ export class NavBarComponent implements DoCheck {
       confirmButtonText: 'Yes'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.islog.changeLogStatus(false)
+        // SIGNOUT FROM FIREBASE
+        this.firebase.SignOut()
+        this._isloged.changeLogStatus(false)
         this.route.navigate(['/'])
       }
     })

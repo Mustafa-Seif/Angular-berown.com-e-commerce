@@ -7,12 +7,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { AccountComponent } from './account/account.component';
+import { SocialAuthComponent } from './social-auth/social-auth.component';
 
 @NgModule({
   declarations: [
     RegisterComponent,
     SignInComponent,
     AccountComponent,
+    SocialAuthComponent,
   ],
   imports: [
     CommonModule,
@@ -22,7 +24,8 @@ import { AccountComponent } from './account/account.component';
   exports:[
     RegisterComponent,
     SignInComponent,
-    AccountComponent
+    AccountComponent,
+    SocialAuthComponent
   ]
 })
 export class AuthModule { }
