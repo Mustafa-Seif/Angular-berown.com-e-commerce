@@ -29,7 +29,6 @@ export class FirebaseAuthService {
     this.afAuth.authState.subscribe((user) => {
       if (user) {
         this.userData = user;
-        console.log(user);
         localStorage.setItem('user', JSON.stringify(this.userData));
         JSON.parse(localStorage.getItem('user')!);
       } else {
@@ -61,13 +60,19 @@ export class FirebaseAuthService {
   SignUp(email: string, password: string) {
     return this.afAuth
       .createUserWithEmailAndPassword(email, password)
-      .then((result) => {
+       .then((result) => {
+        const user = result.user;
+     user?.updateProfile({
+      displayName: "MMMMMMMM",
+      photoURL: "../../assets/images/products/headphone1 (2).png"
+    });
         /* Call the SendVerificaitonMail() function when new user sign 
           up and returns promise */
-        this.SendVerificationMail();
+        // this.SendVerificationMail();
         this.SetUserData(result.user);
         // CHANGE AUTH SERVICE STATUS
         this._islogin.changeLogStatus(true);
+        this.router.navigate(['/']);
         this.toastr.success('Welcome!');
       })
       .catch((error) => {
@@ -87,18 +92,17 @@ export class FirebaseAuthService {
     return this.afAuth
       .sendPasswordResetEmail(passwordResetEmail)
       .then(() => {
-        this.toastr.error('Password reset email sent, check your inbox.');
+        this.toastr.success('Password reset email sent, check your inbox.');
       })
       .catch((error) => {
-        window.alert(error);
         this.toastr.error(error.message);
       });
   }
   // Returns true when user is looged in and email is verified
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user')!);
-    return user !== null && user.emailVerified !== false ? true : false;
-    // return user
+    return user
+    // return user !== null && user.emailVerified !== false ? true : false;
   }
   // Sign in with Google
   GoogleAuth() {

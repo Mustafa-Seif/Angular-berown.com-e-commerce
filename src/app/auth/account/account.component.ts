@@ -1,24 +1,19 @@
 import { Component } from '@angular/core';
-import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
-import {ErrorStateMatcher} from '@angular/material/core';
-
-
-/** Error when invalid control is dirty, touched, or submitted. */
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
-}
-
+import { FirebaseAuthService } from 'src/app/services/firebase-auth.service';
 
 @Component({
   selector: 'app-account',
   templateUrl: './account.component.html',
-  styleUrls: ['./account.component.scss']
+  styleUrls: ['./account.component.scss'],
 })
 export class AccountComponent {
-  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
+  userData: any;
+  constructor(private fireAuth: FirebaseAuthService) {}
+  ngOnInit() {
+    this.getUserData();
+  }
 
-  matcher = new MyErrorStateMatcher();
+  getUserData() {
+    this.userData = this.fireAuth.isLoggedIn;
+  }
 }

@@ -34,7 +34,8 @@ const routes: Routes = [
   },
   {
     path:"account",
-    component:AccountComponent
+    component:AccountComponent,
+    canActivate:[AuthGuard]
   },
   {
     path:"products",
@@ -42,7 +43,7 @@ const routes: Routes = [
   },
   {
     path:"sign-in",
-    component:SignInComponent
+    component:SignInComponent,
   },
   {
     path:"search-results",
@@ -54,7 +55,7 @@ const routes: Routes = [
   },
   {
     path:"register",
-    component:RegisterComponent
+    component:RegisterComponent,
   },
   {
     path:"**",

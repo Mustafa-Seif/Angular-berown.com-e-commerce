@@ -4,9 +4,9 @@
     <form
       (ngSubmit)="handelRegister()"
       [formGroup]="registerForm"
-      class="m-auto mb-5"
+      class="m-auto mb-5 row"
     >
-      <div class="mb-3">
+      <div class="mb-3 col-12 col-md-6">
         <label for="name" class="form-label">Name</label>
         <input
           type="text"
@@ -30,7 +30,7 @@
           </p>
         </div>
       </div>
-      <div class="mb-3">
+      <div class="mb-3 col-12 col-md-6">
         <label for="email" class="form-label">Email</label>
         <input
           type="email"
@@ -60,7 +60,7 @@
           </p>
         </div>
       </div>
-      <div class="mb-3">
+      <div class="mb-3 col-12 col-md-6">
         <label for="password" class="form-label">Password</label>
         <input
           type="password"
@@ -96,8 +96,7 @@
           </p>
         </div>
       </div>
-
-      <div class="mb-3">
+      <div class="mb-3 col-12 col-md-6">
         <label for="confirmPassword" class="form-label">Confirm Password</label>
         <input
           type="password"
@@ -139,6 +138,68 @@
           </p>
         </div>
       </div>
+
+      <div class="mb-3 col-12 col-md-6">
+        <label for="phoneNum" class="form-label">Phone number </label>
+        <input
+          type="number"
+          formControlName="phoneNum"
+          name="phoneNum"
+          id="phoneNum"
+          class="form-control"
+        />
+        <div
+          *ngIf="
+            registerForm.get('phoneNum')?.errors &&
+            registerForm.get('phoneNum')?.touched
+          "
+          class="text-danger mb-2"
+        >
+          <p
+            *ngIf="
+            registerForm.get('phoneNum')?.errors?.['required']"
+          >
+            password is required
+          </p>
+          <p
+            *ngIf="
+          registerForm.get('phoneNum')?.errors?.['maxlength']"
+          >
+            Max length is 14
+          </p>
+          <p
+            *ngIf="
+        registerForm.get('phoneNum')?.errors?.['minlength']"
+          >
+            Min length is 10
+          </p>
+        </div>
+      </div>
+
+      <div class="mb-3 col-12 col-md-6">
+        <label for="formFile" class="form-label"
+          >Choose your profile image</label
+        >
+        <input
+          class="form-control"
+          type="file"
+          id="formFile"
+          formControlName="profileImg"
+          name="profileImg"
+        />
+        <!-- <p
+          *ngIf="
+            registerForm.get('profileImg')?.errors?.['required']"
+        >
+        Profile image is required
+        </p> -->
+      </div>
+      <p class="cursor-pointer">
+        You have an account!
+        <a routerLink="/sign-in" class="text-danger" style="cursor: pointer"
+          >Sign In</a
+        >
+      </p>
       <button type="submit" class="py-2 px-4" [disabled]="registerForm.invalid">
         Register
       </button>

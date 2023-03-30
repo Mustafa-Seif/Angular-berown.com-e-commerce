@@ -9,10 +9,7 @@ import { FirebaseAuthService } from 'src/app/services/firebase-auth.service';
   styleUrls: ['./sign-in.component.scss'],
 })
 export class SignInComponent {
-  constructor(
-    private router: Router,
-    private fireAuth: FirebaseAuthService
-  ) {}
+  constructor(private router: Router, private fireAuth: FirebaseAuthService) {}
   signInForm: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [
@@ -25,9 +22,12 @@ export class SignInComponent {
     const { email, password } = this.signInForm.value;
     // CHECK  USER TO FIREBASE AFTER SIGNIN
     this.fireAuth.SignIn(email, password);
+      this.fireAuth.isLoggedIn
+      
   }
-  // ??????????????????
-  routeToRegister(): void {
-    this.router.navigate(['/register']);
+  // RESET PASSWORD FROM FIREBASE
+  resetPassword() {
+    const { email } = this.signInForm.value;
+    this.fireAuth.ForgotPassword(email);
   }
 }

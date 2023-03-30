@@ -1,6 +1,8 @@
 
 ////////// M O D U L E S  ////////////
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import {AuthRoutingModule } from './auth-routing.module';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 ////////// C O M P O N E N T S  ////////////
@@ -18,6 +20,8 @@ import { SocialAuthComponent } from './social-auth/social-auth.component';
   ],
   imports: [
     CommonModule,
+    BrowserModule,
+    AuthRoutingModule,
     ReactiveFormsModule,
 
   ],

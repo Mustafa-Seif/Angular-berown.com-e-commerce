@@ -15,6 +15,12 @@ export class RegisterComponent {
   registerForm = this.formBuilder.group({
     name:[ '', [Validators.required]],
     email:['', [Validators.required, Validators.email]],
+    phoneNum:['', [
+      Validators.required,
+      Validators.maxLength(14),
+      Validators.minLength(10) 
+    ]],
+    profileImg:['',[]],
     password:['', [
       Validators.required,
       Validators.maxLength(10),
@@ -45,7 +51,7 @@ export class RegisterComponent {
   handelRegister() {
     const{email,password}=this.registerForm.value;
     // SEND NEW USER TO FIREBASE 
-    this.fireAuth.SignUp(email, password)
+    this.fireAuth.SignUp(email,password)
   }
 
   

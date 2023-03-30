@@ -1,5 +1,41 @@
-
-<section
-class="account">
-sssssssssssssssssssssss
-</section>
+<div class="container">
+    <div class="profile-header">
+      <div class="profile-img">
+        <img [src]="userData.photoURL" width="200" alt="Profile Image">
+      </div>
+      <div class="profile-nav-info">
+        <h3 class="user-name">{{userData.displayName}}</h3>
+        <div class="address">
+          <!-- <p id="state" class="state">New York,</p> -->
+          <!-- <span id="country" class="country">USA.</span> -->
+        </div>
+  
+      </div>
+      <div class="profile-option">
+        <div class="notification">
+          <i class="fa fa-bell"></i>
+          <span class="alert-message">0</span>
+        </div>
+      </div>
+    </div>
+  
+    <div class="main-bd">
+      <div class="left-side">
+        <div class="profile-side">
+          <p class="mobile-no"><i class="fa fa-phone"></i> +23470xxxxx700</p>
+          <p class="user-mail"><i class="fa fa-envelope"></i> {{userData.email}}</p>
+          <div class="user-bio">
+            <h3>Bio</h3>
+            <p class="bio">
+              Lorem ipsum dolor sit amet, hello how consectetur adipisicing elit. Sint consectetur provident magni yohoho consequuntur, voluptatibus ghdfff exercitationem at quis similique. Optio, amet!
+            </p>
+          </div>
+          <div class="profile-btn">
+            <button class="chatbtn" id="chatBtn"><i class="fa fa-comment"></i> Chat</button>
+            <button class="createbtn" id="Create-post"><i class="fa fa-plus"></i> Create</button>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </div>
