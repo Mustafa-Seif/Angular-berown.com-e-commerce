@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, Validators , FormBuilder} from '@angular/forms';
 import { FirebaseAuthService } from 'src/app/services/firebase-auth.service';
+import { User } from '../../interfaces/user';
 
 @Component({
   selector: 'app-register',
@@ -48,10 +49,16 @@ export class RegisterComponent {
 
 
   // HANDLE REGISTER
-  handelRegister() {
-    const{email,password}=this.registerForm.value;
+  handelRegister(uData:any) {
     // SEND NEW USER TO FIREBASE 
-    this.fireAuth.SignUp(email,password)
+    this.fireAuth.SignUp(this.registerForm.value)
+
+    // const userData: any = {
+    //   email: uData.email,
+    //   displayName: uData.name,
+    //   photoURL: uData.profileImg,
+    // };
+    // this.fireAuth.SetUserData(userData)
   }
 
   

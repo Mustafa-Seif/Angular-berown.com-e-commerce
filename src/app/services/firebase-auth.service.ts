@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from './auth.service';
 
-
 @Injectable({
   providedIn: 'root',
 })
@@ -57,15 +56,11 @@ export class FirebaseAuthService {
       });
   }
   // Sign up with email/password
-  SignUp(email: string, password: string) {
+  SignUp({ email, password }: any) {
     return this.afAuth
       .createUserWithEmailAndPassword(email, password)
-       .then((result) => {
-        const user = result.user;
-     user?.updateProfile({
-      displayName: "MMMMMMMM",
-      photoURL: "../../assets/images/products/headphone1 (2).png"
-    });
+      .then((result) => {
+        console.log(result.user?.uid);
         /* Call the SendVerificaitonMail() function when new user sign 
           up and returns promise */
         // this.SendVerificationMail();
@@ -101,18 +96,47 @@ export class FirebaseAuthService {
   // Returns true when user is looged in and email is verified
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user')!);
-    return user
+    return user;
     // return user !== null && user.emailVerified !== false ? true : false;
   }
   // Sign in with Google
   GoogleAuth() {
-    return this.AuthLogin(new auth.GoogleAuthProvider()).then((res: any) => {
-      // CHANGE AUTH SERVICE STATUS
-      this._islogin.changeLogStatus(true);
-      this.router.navigate(['/']);
-      this.toastr.success('Welcome!');
-    });
+    return this.AuthLogin(new auth.GoogleAuthProvider())
+      .then((res: any) => {
+        // CHANGE AUTH SERVICE STATUS
+        this._islogin.changeLogStatus(true);
+      })
+      .then(() => {
+        this.router.navigate(['/']);
+        this.toastr.success('Welcome!');
+      });
   }
+
+    // Sign in with facebook
+    FacebookAuth() {
+      return this.AuthLogin(new auth.FacebookAuthProvider())
+        .then((res: any) => {
+          // CHANGE AUTH SERVICE STATUS
+          this._islogin.changeLogStatus(true);
+        })
+        .then(() => {
+          this.router.navigate(['/']);
+          this.toastr.success('Welcome!');
+        });
+    }
+
+     // Sign in with facebook
+     TwitterAuth() {
+      return this.AuthLogin(new auth.TwitterAuthProvider())
+        .then((res: any) => {
+          // CHANGE AUTH SERVICE STATUS
+          this._islogin.changeLogStatus(true);
+        })
+        .then(() => {
+          this.router.navigate(['/']);
+          this.toastr.success('Welcome!');
+        });
+    }
   // Auth logic to run auth providers
   AuthLogin(provider: any) {
     return this.afAuth
@@ -128,18 +152,18 @@ export class FirebaseAuthService {
   /* Setting up user data when sign in with username/password, 
     sign up with username/password and sign in with social auth  
     provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
-  SetUserData(user: any) {
+  async SetUserData(user: any) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(
       `users/${user.uid}`
     );
     const userData: User = {
       uid: user.uid,
       email: user.email,
-      displayName: user.displayName,
-      photoURL: user.photoURL,
+      displayName: 'user.displayName',
+      photoURL: 'user.photoURL',
       emailVerified: user.emailVerified,
     };
-    return userRef.set(userData, {
+    return await userRef.set(userData, {
       merge: true,
     });
   }

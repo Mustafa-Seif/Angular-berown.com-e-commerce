@@ -2,7 +2,7 @@
   <div class="container mb-5 mt-5">
     <h4 class="text-center text-dark mb-3 fw-bolder fs-3">Register</h4>
     <form
-      (ngSubmit)="handelRegister()"
+      (ngSubmit)="handelRegister(registerForm.value)"
       [formGroup]="registerForm"
       class="m-auto mb-5 row"
     >

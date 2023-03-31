@@ -1,13 +1,16 @@
 <div class="container">
     <div class="profile-header">
       <div class="profile-img">
-        <img [src]="userData.photoURL" width="200" alt="Profile Image">
+        <picture>
+          <img [src]="userData.photoURL" width="200" alt="Profile Image">
+          <source  srcset="../../../assets/images/products/headphone1 (4).png" />
+        </picture>
       </div>
       <div class="profile-nav-info">
         <h3 class="user-name">{{userData.displayName}}</h3>
         <div class="address">
-          <!-- <p id="state" class="state">New York,</p> -->
-          <!-- <span id="country" class="country">USA.</span> -->
+          <p id="state" class="state">ID:{{userData.createdAt}}</p>
+          <span id="country" class="country">EGY</span>
         </div>
   
       </div>
@@ -22,17 +25,17 @@
     <div class="main-bd">
       <div class="left-side">
         <div class="profile-side">
-          <p class="mobile-no"><i class="fa fa-phone"></i> +23470xxxxx700</p>
-          <p class="user-mail"><i class="fa fa-envelope"></i> {{userData.email}}</p>
+          <p class="mobile-no fw-bold"><i class="fa fa-phone"></i> +23470xxxxx700</p>
+          <p class="user-mail fw-bold"><i class="fa fa-envelope"></i> {{userData.email}}</p>
           <div class="user-bio">
             <h3>Bio</h3>
-            <p class="bio">
+            <p class="bio fw-bold">
               Lorem ipsum dolor sit amet, hello how consectetur adipisicing elit. Sint consectetur provident magni yohoho consequuntur, voluptatibus ghdfff exercitationem at quis similique. Optio, amet!
             </p>
           </div>
           <div class="profile-btn">
             <button class="chatbtn" id="chatBtn"><i class="fa fa-comment"></i> Chat</button>
-            <button class="createbtn" id="Create-post"><i class="fa fa-plus"></i> Create</button>
+            <!-- <button class="createbtn" id="Create-post"><i class="fa fa-plus"></i> Create</button> -->
           </div>
         </div>
   

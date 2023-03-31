@@ -112,7 +112,7 @@
   background: #fff;
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
   padding: 90px 30px 20px;
-  font-family: "Bree Serif", serif;
+  font-family: "Roboto", sans-serif;
   margin-left: 10px;
   z-index: 99;
 }
@@ -145,7 +145,7 @@ button.createbtn {
   border-radius: 3px;
   background: #EF6C00;
   color: #fff;
-  font-family: "Bree Serif";
+  font-family: "Roboto";
   font-size: 1rem;
   margin: 5px 2px;
   cursor: pointer;
@@ -166,30 +166,6 @@ button.createbtn i {
   margin-right: 5px;
 }
 
-.user-rating {
-  display: flex;
-}
-
-.user-rating h3 {
-  font-size: 2.5rem;
-  font-weight: 200;
-  margin-right: 5px;
-  letter-spacing: 1px;
-  color: #666;
-}
-
-.user-rating .no-of-user-rate {
-  font-size: 0.9rem;
-}
-
-.rate {
-  padding-top: 6px;
-}
-
-.rate i {
-  font-size: 0.9rem;
-  color: rgba(228, 0, 70, 1);
-}
 
 .nav {
   width: 100%;
@@ -326,17 +302,14 @@ button.createbtn i {
     padding: 4px;
     height: 15px;
     width: 15px;
-    font-size: 0.7rem;
+    font-size: 1rem;
   }
 
   .profile-nav-info h3 {
     font-size: 1.9rem;
   }
 
-  .profile-nav-info .address p,
-  .profile-nav-info .address span {
-    font-size: 0.7rem;
-  }
+ 
 }
 #see-more-bio,
 #see-less-bio {
@@ -345,7 +318,7 @@ button.createbtn i {
   text-transform: lowercase;
 }
 .tab h1 {
-  font-family: "Bree Serif", sans-serif;
+  font-family: "Roboto", sans-serif;
   display: flex;
   justify-content: center;
   margin: 20px auto;

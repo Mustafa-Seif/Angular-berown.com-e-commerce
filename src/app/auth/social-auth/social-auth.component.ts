@@ -4,15 +4,20 @@ import { FirebaseAuthService } from 'src/app/services/firebase-auth.service';
 @Component({
   selector: 'app-social-auth',
   templateUrl: './social-auth.component.html',
-  styleUrls: ['./social-auth.component.scss']
+  styleUrls: ['./social-auth.component.scss'],
 })
 export class SocialAuthComponent {
-  constructor(
-    private fireAuth:FirebaseAuthService
-  ) {}
-// HANDLE AUTH GOOGLE 
-  googleAuth(){
-    this.fireAuth.GoogleAuth()
+  constructor(private fireAuth: FirebaseAuthService) {}
+  // HANDLE AUTH GOOGLE
+  googleAuth() {
+    this.fireAuth.GoogleAuth();
   }
-  
+  // HANDLE AUTH FACEBOOK
+  facebookAuth() {
+    this.fireAuth.FacebookAuth();
+  }
+  // HANDLE AUTH TWITTER
+  twitterAuth() {
+    this.fireAuth.TwitterAuth();
+  }
 }

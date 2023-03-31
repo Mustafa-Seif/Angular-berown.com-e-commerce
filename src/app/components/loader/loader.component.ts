@@ -4,6 +4,8 @@ import {
   Event,
   NavigationStart,
   NavigationEnd,
+  NavigationCancel,
+  NavigationError
 } from '@angular/router';
 
 @Component({
@@ -12,8 +14,8 @@ import {
   styleUrls: ['./loader.component.scss'],
 })
 export class LoaderComponent {
-  IsLoader: boolean = true;
-  block: boolean = true;
+  IsLoader: boolean = false;
+  block: boolean = false;
   constructor(private router: Router) {
     this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationStart) {
@@ -26,8 +28,21 @@ export class LoaderComponent {
         // Hide progress spinner 
         setTimeout(() => {
           this.IsLoader = false;
-          setTimeout(() => (this.block = false), 300);
-        }, 300);
+          this.block = false
+          // setTimeout(() => (this.block = false), 300);
+        }, 500);
+      }
+      if (event instanceof NavigationCancel) {
+        setTimeout(()=>{                           
+          this.IsLoader = true;
+          this.block = true;
+      }, 500);
+      }
+      if (event instanceof NavigationError) {
+        setTimeout(()=>{                           
+          this.IsLoader = true;
+          this.block = true;
+        }, 500);
       }
     });
   }
