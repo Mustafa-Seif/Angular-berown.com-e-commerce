@@ -11,8 +11,6 @@ export class AccountComponent {
   constructor(private fireAuth: FirebaseAuthService) {}
   ngOnInit() {
     this.getUserData();
-    console.log(this.userData)
-
   }
 
   getUserData() {

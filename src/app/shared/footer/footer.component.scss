@@ -1,28 +1,11 @@
 footer {
+  text-align: center;
   font-size: 15px;
   padding: 8rem 0 1rem 0;
-  .center {
-    ul {
-      list-style: none;
-      padding-left: 0;
-      li {
-        a {
-          color: #000;
-          font-size: 16px;
-        }
-      }
-    }
-  }
-  button {
-    display: block;
-    background-color: #ef6c00;
-    width: 100%;
-    padding: 0.5rem;
-    color: #fff;
-  }
   .right{
     ul{
       li{
+        line-height: .9rem;
         i{
           font-size: 1.7rem;
           margin-right: 1rem;

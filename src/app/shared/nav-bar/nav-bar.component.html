@@ -4,20 +4,25 @@
       <div class="nav1-right">
         <ul class="d-flex">
           <li routerLink="wish-list">
-            <a (click)="authCart()"> <i class="bi bi-heart"></i> WISHLIST</a>
+            <a (click)="checkAuthStatus()">
+              <i class="bi bi-heart"></i> Wish List</a
+            >
           </li>
-          <li *ngIf="!logedAuth"> 
+          <li *ngIf="!logedAuth">
             <a routerLink="sign-in">
-              <i class="bi bi-box-arrow-in-right"></i> SIGN IN</a
+              <i class="bi bi-box-arrow-in-right"></i> Sign In</a
             >
           </li>
           <li *ngIf="logedAuth" (click)="signOut()">
             <a class="text-danger">
-              <i class="bi bi-box-arrow-left"></i> SIGN OUT</a
+              <i class="bi bi-box-arrow-left"></i> Sign Out</a
             >
           </li>
           <li>
-            <a routerLink="account" (click)="authCart()"> <i class="bi bi-person-fill"></i> MY ACCOUNT</a>
+            <a routerLink="account" (click)="checkAuthStatus()" class="accountName">
+              <i class="bi bi-person-circle" ></i
+              > {{uData.displayName|sliceName:"Account" }}</a
+            >
           </li>
         </ul>
       </div>
@@ -43,7 +48,7 @@
         class="d-flex col-12 col-md-2 mt-4 justify-content-end me-md-5 cart-icon-warpper"
         routerLink="cart"
       >
-        <p class="position-relative d-inline" (click)="authCart()">
+        <p class="position-relative d-inline" (click)="checkAuthStatus()">
           <span class="cart-count">{{ theCartLength }}</span
           ><i class="fa-solid fa-cart-shopping text-dark fs-6"></i>
           $0.00
@@ -65,7 +70,14 @@
         <li>
           <a routerLinkActive="active-link" routerLink="/products">PRODUCTS</a>
         </li>
-        <li><a routerLinkActive="active-link" target="_blank" href="https://my-portfolio-rust-xi.vercel.app/">ABOUT</a></li>
+        <li>
+          <a
+            routerLinkActive="active-link"
+            target="_blank"
+            href="https://my-portfolio-rust-xi.vercel.app/"
+            >ABOUT</a
+          >
+        </li>
         <li>
           <a routerLinkActive="active-link" routerLink="/contact">CONTACT</a>
         </li>

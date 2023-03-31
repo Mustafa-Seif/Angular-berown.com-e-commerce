@@ -105,6 +105,7 @@ export class FirebaseAuthService {
       .then((res: any) => {
         // CHANGE AUTH SERVICE STATUS
         this._islogin.changeLogStatus(true);
+        window.location.reload()
       })
       .then(() => {
         this.router.navigate(['/']);
@@ -174,7 +175,10 @@ export class FirebaseAuthService {
       this.router.navigate(['/']);
       // CHANGE AUTH SERVICE STATUS
       this._islogin.changeLogStatus(false);
+      window.location.reload()
+
       this.toastr.info('Sign out!');
+
     });
   }
 }

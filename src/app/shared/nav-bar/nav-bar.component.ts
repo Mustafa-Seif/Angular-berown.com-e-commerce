@@ -12,77 +12,78 @@ import { FirebaseAuthService } from 'src/app/services/firebase-auth.service';
   styleUrls: ['./nav-bar.component.scss'],
   providers: [MessageService],
 })
-export class NavBarComponent implements DoCheck {
+export class NavBarComponent {
   theCartLength: number = 2;
   searchVal: string = '';
-  logedAuth:boolean=false;
-
+  logedAuth: boolean = false;
+  uData: any;
   constructor(
     private cart: CartService,
     private route: Router,
     private toastr: ToastrService,
-    private _isloged:AuthService,
-    private firebase:FirebaseAuthService
+    private _isloged: AuthService,
+    private firebase: FirebaseAuthService
   ) {}
 
   ngOnInit() {
-    this.getCartLength()
-    this.getLoginStatus()
-  }
-  // get cart length after change
-  ngDoCheck() {
-  //  this.getCartLength()
+    this.getCartLength();
+    this.getLoginStatus();
+    this.getUData();
   }
   // get cart length
-  getCartLength(){
+  getCartLength() {
     this.cart.cart.subscribe((val) => {
       this.theCartLength = val.length;
     });
   }
   // get Login Status
-  getLoginStatus(){
-    this._isloged.loged.subscribe((val)=>{
+  getLoginStatus() {
+    this._isloged.loged.subscribe((val) => {
       this.logedAuth = val;
-    })
+    });
   }
-// HANDLE GO TO SEARCH 
+  // HANDLE GO TO SEARCH
   goToSearchResults(): void {
     if (this.searchVal && this.searchVal.trim().length) {
-      this.route.navigate(['/search-results'],
-      {queryParams:{pro:this.searchVal},queryParamsHandling: 'merge' }
-      );
+      this.route.navigate(['/search-results'], {
+        queryParams: { pro: this.searchVal },
+        queryParamsHandling: 'merge',
+      });
     }
   }
-  authCart() {
+  // check Auth Status
+  checkAuthStatus(): void {
     if (!this.logedAuth) {
       // OPEN TOAST IF NOT SIGNED IN
       this.toastr.info('Please sign-in first!');
       // NAVGATE TO SIGN IN IF NOT SIGNED IN
-      this.route.navigate(['/sign-in'])
+      this.route.navigate(['/sign-in']);
+    }
+  }
+
+  getUData():void {
+    if (this.firebase.isLoggedIn) {
+    this.uData = this.firebase.isLoggedIn;
+    }else{
+    this.uData = "My Account";
     }
   }
   // SIGN OUT
-  signOut(){
-    // CHANGE SIGN STATUS
+  signOut(): void {
     Swal.fire({
       text: 'Are you sure you want sign out?',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#ef6c00',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes'
+      confirmButtonText: 'Yes',
     }).then((result) => {
       if (result.isConfirmed) {
         // SIGNOUT FROM FIREBASE
-        this.firebase.SignOut()
-        this._isloged.changeLogStatus(false)
-        this.route.navigate(['/'])
+        this.firebase.SignOut();
+        this._isloged.changeLogStatus(false);
+        this.route.navigate(['/']);
       }
-    })
+    });
   }
-
-
-
-
-
 }

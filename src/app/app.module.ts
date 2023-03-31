@@ -45,6 +45,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from '../environments/environment';
 import { FirebaseAuthService } from './services/firebase-auth.service';
+import { SliceNamePipe } from './pipes/slice-name.pipe';
 
 
 
@@ -66,6 +67,7 @@ import { FirebaseAuthService } from './services/firebase-auth.service';
     NotFoundComponent,
     LoaderComponent,
     SkeletonComponent,
+    SliceNamePipe,
     
   ],
   imports: [
@@ -96,7 +98,6 @@ import { FirebaseAuthService } from './services/firebase-auth.service';
       positionClass: 'toast-top-left',
     }), // ToastrModule added
   ],
-
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

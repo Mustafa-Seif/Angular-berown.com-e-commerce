@@ -11,9 +11,17 @@
         li {
           margin-left: 1.5rem;
           cursor: pointer;
+          .accountName {
+            display: inline-block;
+            max-width: 100px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
           a {
             font-family: "Roboto", sans-serif;
-            font-size: 0.95rem;
+            font-size: 1.02rem;
+            font-weight: 600;
             transition: 200ms;
             &:hover {
               color: #ef6c00;
@@ -40,7 +48,7 @@
       div:first-child {
         width: 100%;
         padding: 0.5rem;
-        input{
+        input {
           width: 80%;
         }
       }
@@ -152,7 +160,7 @@
     nav {
       ul {
         li {
-          margin: 0 .5rem;
+          margin: 0 0.5rem;
           a {
             font-family: "Roboto", sans-serif;
             font-weight: 700;
@@ -163,6 +171,6 @@
     }
   }
 }
-.active-link{
+.active-link {
   color: #ef6c00 !important;
 }

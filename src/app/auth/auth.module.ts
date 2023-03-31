@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {AuthRoutingModule } from './auth-routing.module';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+
 ////////// C O M P O N E N T S  ////////////
 import { RegisterComponent } from './register/register.component';
 import { SignInComponent } from './sign-in/sign-in.component';

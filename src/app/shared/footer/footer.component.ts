@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent {
-
+dateYear?:number;
+ngOnInit(){
+  this.dateYear = new Date().getFullYear()
+}
 }
