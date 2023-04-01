@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, count } from 'rxjs';
 import { Products } from '../interfaces/products';
 import { ToastrService } from 'ngx-toastr';
+import { FirebaseAuthService } from './firebase-auth.service';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +11,7 @@ export class CartService {
   // CREATE asObservable
   private theCart = new BehaviorSubject<Products[]>([]);
   cart = this.theCart.asObservable();
-  constructor(private toastr: ToastrService) {
+  constructor(private toastr: ToastrService, private fs:FirebaseAuthService) {
    // LOCALSTORAG
     this.theCart.next(JSON.parse(localStorage.getItem('cartStorage') || '[]'));
   }
@@ -36,6 +37,8 @@ export class CartService {
       }
     }).unsubscribe();
     this.theCart.next(this.theCart.value)
+
+    this.fs.AddCart(this.theCart.value)
   }
   // REMOVE PRODUCT FROM CART
   removeProduct(ind: number): void {

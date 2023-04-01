@@ -50,16 +50,8 @@ export class RegisterComponent {
 
   // HANDLE REGISTER
   handelRegister(uData:any) {
+    console.log(this.registerForm.value)
     // SEND NEW USER TO FIREBASE 
     this.fireAuth.SignUp(this.registerForm.value)
-
-    // const userData: any = {
-    //   email: uData.email,
-    //   displayName: uData.name,
-    //   photoURL: uData.profileImg,
-    // };
-    // this.fireAuth.SetUserData(userData)
   }
-
-  
 }

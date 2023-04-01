@@ -6,6 +6,8 @@ import { AuthService } from '../../services/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import Swal from 'sweetalert2';
 import { FirebaseAuthService } from 'src/app/services/firebase-auth.service';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
@@ -22,7 +24,8 @@ export class NavBarComponent {
     private route: Router,
     private toastr: ToastrService,
     private _isloged: AuthService,
-    private firebase: FirebaseAuthService
+    private firebase: FirebaseAuthService,
+    public afAuth: AngularFireAuth
   ) {}
 
   ngOnInit() {
@@ -60,13 +63,15 @@ export class NavBarComponent {
       this.route.navigate(['/sign-in']);
     }
   }
-
-  getUData():void {
-    if (this.firebase.isLoggedIn) {
-    this.uData = this.firebase.isLoggedIn;
-    }else{
-    this.uData = "My Account";
-    }
+// GET USER DATA 
+  getUData(): void {
+    this.afAuth.authState.subscribe((user: any) => {
+      if (user) {
+        this.uData = user;
+      } else {
+        this.uData = 'My Account';
+      }
+    });
   }
   // SIGN OUT
   signOut(): void {

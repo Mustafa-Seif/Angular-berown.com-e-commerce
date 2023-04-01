@@ -9,6 +9,7 @@ import {
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from './auth.service';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
 
 @Injectable({
   providedIn: 'root',
@@ -21,7 +22,8 @@ export class FirebaseAuthService {
     public afAuth: AngularFireAuth, // Inject Firebase auth service
     public router: Router,
     public ngZone: NgZone, // NgZone service to remove outside scope warning
-    private _islogin: AuthService
+    private _islogin: AuthService,
+    private db: AngularFireDatabase
   ) {
     /* Saving user data in localstorage when 
       logged in and setting up null when logged out */
@@ -41,7 +43,7 @@ export class FirebaseAuthService {
     return this.afAuth
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
-        this.SetUserData(result.user);
+        // this.SetUserData(result.user);
         this.afAuth.authState.subscribe((user) => {
           if (user) {
             // CHANGE AUTH SERVICE STATUS
@@ -56,19 +58,19 @@ export class FirebaseAuthService {
       });
   }
   // Sign up with email/password
-  SignUp({ email, password }: any) {
+  SignUp({ email, password, name, profileImg, phoneNum }: any) {
     return this.afAuth
       .createUserWithEmailAndPassword(email, password)
-      .then((result) => {
-        console.log(result.user?.uid);
+      .then((result: any) => {
         /* Call the SendVerificaitonMail() function when new user sign 
           up and returns promise */
         // this.SendVerificationMail();
-        this.SetUserData(result.user);
+        // this.SetUserData(result.user);
         // CHANGE AUTH SERVICE STATUS
         this._islogin.changeLogStatus(true);
-        this.router.navigate(['/']);
+        this.router.navigate(['/account']);
         this.toastr.success('Welcome!');
+        this.updateUserProfile(result, name, profileImg, phoneNum);
       })
       .catch((error) => {
         this.toastr.error(error.message);
@@ -105,7 +107,19 @@ export class FirebaseAuthService {
       .then((res: any) => {
         // CHANGE AUTH SERVICE STATUS
         this._islogin.changeLogStatus(true);
-        window.location.reload()
+      })
+      .then(() => {
+        this.router.navigate(['/account']);
+        this.toastr.success('Welcome!');
+      });
+  }
+
+  // Sign in with facebook
+  FacebookAuth() {
+    return this.AuthLogin(new auth.FacebookAuthProvider())
+      .then((res: any) => {
+        // CHANGE AUTH SERVICE STATUS
+        this._islogin.changeLogStatus(true);
       })
       .then(() => {
         this.router.navigate(['/']);
@@ -113,38 +127,25 @@ export class FirebaseAuthService {
       });
   }
 
-    // Sign in with facebook
-    FacebookAuth() {
-      return this.AuthLogin(new auth.FacebookAuthProvider())
-        .then((res: any) => {
-          // CHANGE AUTH SERVICE STATUS
-          this._islogin.changeLogStatus(true);
-        })
-        .then(() => {
-          this.router.navigate(['/']);
-          this.toastr.success('Welcome!');
-        });
-    }
-
-     // Sign in with facebook
-     TwitterAuth() {
-      return this.AuthLogin(new auth.TwitterAuthProvider())
-        .then((res: any) => {
-          // CHANGE AUTH SERVICE STATUS
-          this._islogin.changeLogStatus(true);
-        })
-        .then(() => {
-          this.router.navigate(['/']);
-          this.toastr.success('Welcome!');
-        });
-    }
+  // Sign in with facebook
+  TwitterAuth() {
+    return this.AuthLogin(new auth.TwitterAuthProvider())
+      .then((res: any) => {
+        // CHANGE AUTH SERVICE STATUS
+        this._islogin.changeLogStatus(true);
+      })
+      .then(() => {
+        this.router.navigate(['/']);
+        this.toastr.success('Welcome!');
+      });
+  }
   // Auth logic to run auth providers
   AuthLogin(provider: any) {
     return this.afAuth
       .signInWithPopup(provider)
       .then((result) => {
         this.router.navigate(['/']);
-        this.SetUserData(result.user);
+        // this.SetUserData(result.user);
       })
       .catch((error) => {
         this.toastr.error(error.message);
@@ -153,21 +154,36 @@ export class FirebaseAuthService {
   /* Setting up user data when sign in with username/password, 
     sign up with username/password and sign in with social auth  
     provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
-  async SetUserData(user: any) {
-    const userRef: AngularFirestoreDocument<any> = this.afs.doc(
-      `users/${user.uid}`
-    );
-    const userData: User = {
-      uid: user.uid,
-      email: user.email,
-      displayName: 'user.displayName',
-      photoURL: 'user.photoURL',
-      emailVerified: user.emailVerified,
-    };
-    return await userRef.set(userData, {
-      merge: true,
+  //  SetUserData(user: any) {
+  //   const userRef: AngularFirestoreDocument<any> = this.afs.doc(
+  //     `users/${user.uid}`
+  //   );
+  //   const userData: User = {
+  //     uid: user.uid,
+  //     email: user.email,
+  //     displayName: 'user.displayName',
+  //     photoURL: 'user.photoURL',
+  //     emailVerified: user.emailVerified,
+  //   };
+  //   return await userRef.set(userData, {
+  //     merge: true,
+  //   });
+  // }
+
+  // Update the user's profile
+  updateUserProfile(
+    result: any,
+    displayName: string,
+    profileImg: string,
+    phoneNum: any
+  ) {
+    return result.user.updateProfile({
+      displayName: displayName,
+      photoURL: profileImg,
+      phoneNumber: phoneNum,
     });
   }
+
   // Sign out
   SignOut() {
     return this.afAuth.signOut().then(() => {
@@ -175,10 +191,52 @@ export class FirebaseAuthService {
       this.router.navigate(['/']);
       // CHANGE AUTH SERVICE STATUS
       this._islogin.changeLogStatus(false);
-      window.location.reload()
-
       this.toastr.info('Sign out!');
+    });
+  }
 
+  // Add a new cart to the cloud store
+  AddCart(cart: any) {
+    this.afAuth.authState.subscribe((user) => {
+      if (user) {
+        return this.afs.collection(`users/${user.uid}/carts`).add(cart);
+      }else{
+        return null
+      }
+    });
+  }
+
+  // Get all carts for a user from the cloud store
+  get GetCarts() {
+    this.afAuth.authState.subscribe((user) => {
+      if (user) {
+        return this.afs.collection(`users/${user.uid}/carts`).valueChanges();
+      }else{
+        return null
+      }
+    });
+    return null
+  }
+
+  // Update an existing cart in the cloud store
+  updateCart(cartId: string, cart: any) {
+    this.afAuth.authState.subscribe((user) => {
+      if (user) {
+        return this.afs.doc(`users/${user.uid}/carts/${cartId}`).update(cart);
+      }else{
+        return null
+      }
+    });
+  }
+
+  // Delete a cart from the cloud store
+  deleteCart(cartId: string) {
+    this.afAuth.authState.subscribe((user) => {
+      if (user) {
+        return this.afs.doc(`users/${user.uid}/carts/${cartId}`).delete();
+      }else{
+        return null
+      }
     });
   }
 }
