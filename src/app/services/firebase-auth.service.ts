@@ -68,7 +68,7 @@ export class FirebaseAuthService {
         // this.SetUserData(result.user);
         // CHANGE AUTH SERVICE STATUS
         this._islogin.changeLogStatus(true);
-        this.router.navigate(['/account']);
+        this.router.navigate(['/']);
         this.toastr.success('Welcome!');
         this.updateUserProfile(result, name, profileImg, phoneNum);
       })
@@ -109,7 +109,7 @@ export class FirebaseAuthService {
         this._islogin.changeLogStatus(true);
       })
       .then(() => {
-        this.router.navigate(['/account']);
+        this.router.navigate(['/']);
         this.toastr.success('Welcome!');
       });
   }
