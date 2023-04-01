@@ -12,6 +12,11 @@
     }
   .hero-footer {
     padding: 1rem;
+    .hero-footer-wapper{
+      display: flex;
+      justify-content: center;
+      align-items: start;
+    }
   }
 }
 @media screen and (max-width:920px){
