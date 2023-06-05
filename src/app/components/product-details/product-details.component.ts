@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { GetProductsService } from '../../services/get-products.service';
 import { Products } from '../../interfaces/products';
 import { CartService } from '../../services/cart.service';
@@ -55,7 +55,9 @@ export class ProductDetailsComponent {
   // get product details
   getProDetails() {
     // get pramas id
-    this.id = this.route.snapshot.params['id'];
+     this.route.params.subscribe((params:Params)=>{
+this.id = params['id']
+    })
     // get product details
     this.products.getProData().subscribe((val) => {
       this.productsDetails = val.filter((el) => {
