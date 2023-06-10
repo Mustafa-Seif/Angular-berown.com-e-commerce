@@ -12,6 +12,7 @@ import { SearchResulteComponent } from './components/search-resulte/search-resul
 import { SignInComponent } from './auth/sign-in/sign-in.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { WishListComponent } from './components/wish-list/wish-list.component';
+import { CanDactivateGuard } from './guards/can-dactivate.guard';
 
 const routes: Routes = [
   {
@@ -56,6 +57,7 @@ const routes: Routes = [
   {
     path:"register",
     component:RegisterComponent,
+    canDeactivate:[CanDactivateGuard]
   },
   {
     path:"**",

@@ -68,7 +68,6 @@ import { SliceNamePipe } from './pipes/slice-name.pipe';
     LoaderComponent,
     SkeletonComponent,
     SliceNamePipe,
-    
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
@@ -105,7 +104,6 @@ import { SliceNamePipe } from './pipes/slice-name.pipe';
       multi: true,
     },
     FirebaseAuthService
-  
   ],
   bootstrap: [AppComponent],
 })

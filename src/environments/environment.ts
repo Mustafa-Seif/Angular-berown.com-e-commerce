@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  apiRoot:'../../assets/data/db.json',
   firebase: {
     apiKey: 'AIzaSyDeMvW6qOt0skU6GDXRYMFXcEAeo8_onzE',
     authDomain: 'berown-337ab.firebaseapp.com',
