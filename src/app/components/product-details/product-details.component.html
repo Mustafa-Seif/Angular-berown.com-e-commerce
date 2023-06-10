@@ -96,7 +96,7 @@
     <div class="related-products">
       <h4 class="mb-5 title">RELATED ITEMS</h4>
       <swiper [config]="swiperConfig" [navigation]="true">
-        <ng-template swiperSlide *ngFor="let pro of relatedPro; let i = index">
+        <ng-template swiperSlide *ngFor="let pro of relatedPro; let i = index ; trackBy: trackById">
           <div class="wapper-swiper" *ngIf="relatedPro.length && !Isloading">
             <div class="overlay-icons d-flex flex-column">
               <i class="bi bi-heart" (click)="addToWish(pro)"></i>

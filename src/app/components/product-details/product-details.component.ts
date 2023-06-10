@@ -89,4 +89,8 @@ this.id = params['id']
   addToWish(item: Products): void {
     this.wishList.addToWishList(item);
   }
+
+  trackById(index: number, item: any): number {
+    return item.id; // Assuming the items have a unique "id" property
+  }
 }
