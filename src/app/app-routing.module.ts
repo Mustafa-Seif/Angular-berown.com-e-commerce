@@ -9,9 +9,9 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ProductsComponent } from './components/products/products.component';
 import { SearchResulteComponent } from './components/search-resulte/search-resulte.component';
-import { SignInComponent } from './auth/components/sign-in/sign-in.component';
 import { RegisterComponent } from './auth/components/register/register.component';
 import { WishListComponent } from './components/wish-list/wish-list.component';
+
 
 const routes: Routes = [
   {
@@ -55,7 +55,8 @@ const routes: Routes = [
   },
 
   {
-    path:"**", redirectTo:"not-found"
+    path:"register",
+    component:RegisterComponent,
   },
 
   {
