@@ -1,8 +1,8 @@
 import { Component, DoCheck } from '@angular/core';
-import { CartService } from '../../services/cart.service';
+import { CartService } from 'src/app/services/cart.service';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import Swal from 'sweetalert2';
 import { FirebaseAuthService } from 'src/app/services/firebase-auth.service';

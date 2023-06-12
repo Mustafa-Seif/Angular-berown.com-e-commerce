@@ -7,7 +7,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import {MatButtonModule} from '@angular/material/button';
 
 ////////// C O M P O N E N T S  ////////////
-import { FooterComponent } from './footer/footer.component';
+import { FooterComponent } from './components/footer/footer.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SliceNamePipe } from './pipes/slice-name.pipe';
 

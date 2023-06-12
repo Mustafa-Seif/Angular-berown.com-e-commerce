@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AccountComponent } from './auth/account/account.component';
+import { AccountComponent } from './auth/components/account/account.component';
 import { CartComponent } from './components/cart/cart.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { AuthGuard } from './guards/auth.guard';
@@ -9,8 +9,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ProductsComponent } from './components/products/products.component';
 import { SearchResulteComponent } from './components/search-resulte/search-resulte.component';
-import { SignInComponent } from './auth/sign-in/sign-in.component';
-import { RegisterComponent } from './auth/register/register.component';
+import { SignInComponent } from './auth/components/sign-in/sign-in.component';
+import { RegisterComponent } from './auth/components/register/register.component';
 import { WishListComponent } from './components/wish-list/wish-list.component';
 
 const routes: Routes = [
@@ -38,13 +38,13 @@ const routes: Routes = [
     canActivate:[AuthGuard]
   },
   {
+    path:'auth', loadChildren:() => import('./auth/auth.module').then(m => m.AuthModule) 
+  },
+  {
     path:"products",
     component:ProductsComponent
   },
-  {
-    path:"sign-in",
-    component:SignInComponent,
-  },
+
   {
     path:"search-results",
     component:SearchResulteComponent
@@ -53,14 +53,17 @@ const routes: Routes = [
     path:"product-details/:id",
     component:ProductDetailsComponent
   },
+
   {
-    path:"register",
-    component:RegisterComponent,
+    path:"**", redirectTo:"not-found"
   },
+
   {
-    path:"**",
+    path:"not-found",
     component:NotFoundComponent
   },
+  { path: 'products', loadChildren: () => import('./products/products.module').then(m => m.ProductsModule) },
+  
   
   
 ];

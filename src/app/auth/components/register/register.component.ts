@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, Validators , FormBuilder} from '@angular/forms';
 import { FirebaseAuthService } from 'src/app/services/firebase-auth.service';
-import { User } from '../../interfaces/user';
+import { User } from '../../../interfaces/user';
 
 @Component({
   selector: 'app-register',
