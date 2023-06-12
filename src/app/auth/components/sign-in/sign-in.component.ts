@@ -30,4 +30,16 @@ export class SignInComponent {
     const { email } = this.signInForm.value;
     this.fireAuth.ForgotPassword(email);
   }
+
+  canDeactivateMethod() {
+    if (this.signInForm.dirty) {
+      const comfirmMassage = window.confirm('Are you sure you want leave?');
+      if (!comfirmMassage) {
+        return false;
+      } else {
+        return true;
+      }
+    }
+    return false
+  }
 }

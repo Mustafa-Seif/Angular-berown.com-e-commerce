@@ -13,6 +13,7 @@ const routes: Routes = [
       {
         path:"sign-in",
         component:SignInComponent,
+        canDeactivate:[CanDactivateGuard]
       },
       {
         path:"register",
