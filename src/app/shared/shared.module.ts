@@ -4,12 +4,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {ToastModule} from 'primeng/toast';
 import { AppRoutingModule } from '../app-routing.module';
-import {MatButtonModule} from '@angular/material/button';
 
 ////////// C O M P O N E N T S  ////////////
 import { FooterComponent } from './components/footer/footer.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { SliceNamePipe } from './pipes/slice-name.pipe';
+import { ImportsModuleModule } from '../imports-module/imports-module.module';
 
 
 @NgModule({
@@ -23,7 +23,8 @@ import { SliceNamePipe } from './pipes/slice-name.pipe';
     FormsModule,
     ToastModule,
     AppRoutingModule,
-    MatButtonModule,
+   ImportsModuleModule
+   
   ],
   exports:[
     NavBarComponent,

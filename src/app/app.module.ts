@@ -71,7 +71,8 @@ import { ImportsModuleModule } from './imports-module/imports-module.module';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
 
   ],
   providers: [

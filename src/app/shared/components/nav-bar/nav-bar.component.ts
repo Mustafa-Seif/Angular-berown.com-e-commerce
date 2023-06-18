@@ -7,6 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 import Swal from 'sweetalert2';
 import { FirebaseAuthService } from 'src/app/services/firebase-auth.service';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-nav-bar',
@@ -19,6 +20,13 @@ export class NavBarComponent {
   searchVal: string = '';
   logedAuth: boolean = false;
   uData: any;
+  total:number = 0;
+
+private cartSubscription? : Subscription
+private authSubscription? : Subscription
+private fsAuthSubscription? : Subscription
+private totalSubscription? : Subscription
+
   constructor(
     private cart: CartService,
     private route: Router,
@@ -32,16 +40,18 @@ export class NavBarComponent {
     this.getCartLength();
     this.getLoginStatus();
     this.getUData();
+    this.cart.getTotal()
+    this.getTotal()
   }
   // get cart length
   getCartLength() {
-    this.cart.cart.subscribe((val) => {
+    this.cartSubscription = this.cart.cart.subscribe((val) => {
       this.theCartLength = val.length;
     });
   }
   // get Login Status
   getLoginStatus() {
-    this._isloged.loged.subscribe((val) => {
+    this.authSubscription = this._isloged.loged.subscribe((val) => {
       this.logedAuth = val;
     });
   }
@@ -65,13 +75,16 @@ export class NavBarComponent {
   }
 // GET USER DATA 
   getUData(): void {
-    this.afAuth.authState.subscribe((user: any) => {
+    this.fsAuthSubscription = this.afAuth.authState.subscribe((user: any) => {
       if (user) {
         this.uData = user;
       } else {
         this.uData = 'My Account';
       }
     });
+  }
+  getTotal(){
+      this.cart.total$.subscribe(val=> this.total = val)
   }
   // SIGN OUT
   signOut(): void {
@@ -90,5 +103,13 @@ export class NavBarComponent {
         this.route.navigate(['/']);
       }
     });
+  }
+
+  ngOnDestroy(): void {
+     this.cartSubscription?.unsubscribe()
+     this.authSubscription?.unsubscribe()
+     this.fsAuthSubscription?.unsubscribe()
+     this.totalSubscription?.unsubscribe()
+    
   }
 }

@@ -71,5 +71,6 @@ export class CartComponent {
     for (let i = 0; i < this.arrCart.length; i++) {
       this.total += +this.arrCart[i].price * this.arrCart[i].count;
     }
+    // this.cart.changeTotal(this.total)
   }
 }

@@ -51,7 +51,7 @@
         <p class="position-relative d-inline" (click)="checkAuthStatus()">
           <span class="cart-count">{{ theCartLength }}</span
           ><i class="fa-solid fa-cart-shopping text-dark fs-6"></i>
-          $0.00
+          {{total |currency }}
         </p>
       </div>
     </div>
