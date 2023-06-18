@@ -2,24 +2,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule , HTTP_INTERCEPTORS } from '@angular/common/http';
-import { SwiperModule } from 'swiper/angular';
-import { FormsModule } from '@angular/forms';
-import { ToastModule } from 'primeng/toast';
-import { ReactiveFormsModule } from '@angular/forms';
-import {NgxPaginationModule} from 'ngx-pagination';
-import { ToastrModule } from 'ngx-toastr';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatSelectModule} from '@angular/material/select';
-import { MatInputModule } from '@angular/material/input';
-import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
-import {RatingModule} from 'primeng/rating';
 ////////// C O M P O N E N T S  M O D U L E S ////////////
 import { SharedModule } from './shared/shared.module';
 import { AuthModule } from './auth/auth.module';
-import { NgxImageZoomModule } from 'ngx-image-zoom';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 ////////// C O M P O N E N T S  ////////////
 import { AppComponent } from './app.component';
 import { PopulerComponent } from './components/populer/populer.component';
@@ -46,6 +34,8 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from '../environments/environment';
 import { FirebaseAuthService } from './services/firebase-auth.service';
 import { SliceNamePipe } from './pipes/slice-name.pipe';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ImportsModuleModule } from './imports-module/imports-module.module';
 
 
 
@@ -77,25 +67,12 @@ import { SliceNamePipe } from './pipes/slice-name.pipe';
     AngularFireDatabaseModule,
     SharedModule,
     AuthModule,
+    ImportsModuleModule,
     BrowserModule,
     AppRoutingModule,
-    SwiperModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
     FormsModule,
-    ToastModule,
-    ReactiveFormsModule,
-    NgxPaginationModule,
-    NgxImageZoomModule,
-    NgxSkeletonLoaderModule,
-    RatingModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    MatInputModule,
-    BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot({
-      positionClass: 'toast-top-left',
-    }), // ToastrModule added
+    ReactiveFormsModule
+
   ],
   providers: [
     {

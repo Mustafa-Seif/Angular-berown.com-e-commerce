@@ -8,7 +8,7 @@ import {MatButtonModule} from '@angular/material/button';
 
 ////////// C O M P O N E N T S  ////////////
 import { FooterComponent } from './components/footer/footer.component';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { SliceNamePipe } from './pipes/slice-name.pipe';
 
 
